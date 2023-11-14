@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package patient;
+
+service Patient {
+  rpc CreateAsync (PatientObj) returns (PatientObj);
+  rpc GetUser (Name) returns (PatientObj);
+}
+
+
+message PatientObj {
+  int32 id = 1;
+  string name = 2;
+}
+
+
+message Name {
+  string name = 1;
+}

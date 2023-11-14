@@ -16,6 +16,7 @@ public class PatientDao : IPatientDao
     
     public async Task<Patient> CreateAsync(Patient patient)
     {
+        Console.Write(patient.Name);
         EntityEntry<Patient> newPatient = await context.Patients.AddAsync(patient);
         await context.SaveChangesAsync();
         return newPatient.Entity;

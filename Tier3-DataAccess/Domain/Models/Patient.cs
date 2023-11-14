@@ -2,8 +2,8 @@
 
 public class Patient
 {
-    public int Id { get; private set; }
-    public string Name { get; private set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
     
     public Patient(int id, string name)
     {
@@ -11,7 +11,7 @@ public class Patient
         Name = name;
     }
 
-    private Patient()
+    public Patient()
     {
     }
 }
