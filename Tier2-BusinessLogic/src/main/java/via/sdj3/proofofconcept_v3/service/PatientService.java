@@ -2,6 +2,7 @@ package via.sdj3.proofofconcept_v3.service;
 
 import org.springframework.stereotype.Service;
 import via.sdj3.proofofconcept_v3.entity.Patient;
+import via.sdj3.proofofconcept_v3.grpcClient.patient.PatientClient;
 import via.sdj3.proofofconcept_v3.repository.PatientRepository;
 
 import java.util.ArrayList;
@@ -9,17 +10,23 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PatientService {
+public class PatientService implements PatientServiceInterface{
     private PatientRepository patientRepository;
 
-    public PatientService(PatientRepository patientRepository) {
-        this.patientRepository = patientRepository;
-    }
+    private final PatientClient client;
+
+//    public PatientService(PatientRepository patientRepository) {
+//        this.patientRepository = patientRepository;
+//    }
+
+    public PatientService(PatientClient patientClient) {
+        this.client = patientClient;}
 
     // METHODS //
 
-    public void addPatient(Patient patient){
-        patientRepository.save(patient);
+    public Patient addPatient(Patient patient){
+        //other checks and validation can be done here
+        return client.addPatient(patient);
     }
 
     public List<Patient> getAllPatients(){
