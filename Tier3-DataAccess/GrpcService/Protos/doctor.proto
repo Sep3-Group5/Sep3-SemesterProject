@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package doctor;
+
+service Doctor {
+    rpc CreateAsync (DoctorObj) returns (BoolResponse);
+    rpc GetAsync (DoctorId) returns (DoctorObj);
+    rpc UpdateAsync (DoctorObj) returns (BoolResponse);
+    rpc DeleteAsync (DoctorId) returns (BoolResponse);
+}
+
+message DoctorObj {
+    int32 id = 1;
+    string username = 2;
+    string password = 3;
+    string fullname = 4;
+    string specialization = 5;
+    bool validated = 6;
+}
+
+message DoctorId {
+    int32 id = 1;
+}
+
+message BoolResponse {
+    bool successful = 1;
+}

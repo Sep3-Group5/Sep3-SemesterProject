@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj": {}
+    "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
+    "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\warsar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\warsar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,21 +53,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj": {
+    "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
         "projectName": "EFC",
-        "projectPath": "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
-        "packagesPath": "C:\\Users\\warsar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\obj\\",
+        "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\warsar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -79,8 +79,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\warsar\\IdeaProjects\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj"
+              "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj"
               }
             }
           }
@@ -126,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

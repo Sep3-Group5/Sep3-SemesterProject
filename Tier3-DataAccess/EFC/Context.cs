@@ -6,6 +6,7 @@ namespace EFC;
 public class Context : DbContext
 {
     public DbSet<Patient> Patients { get; set; }
+    public DbSet<Doctor> Doctors { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -16,5 +17,6 @@ public class Context : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Patient>().HasKey(patient => patient.Id);
+        modelBuilder.Entity<Doctor>().HasKey(doctor => doctor.Id);
     }
 }
