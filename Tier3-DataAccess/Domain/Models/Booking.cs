@@ -10,7 +10,7 @@ public class Booking
     
     public Booking (int id, int patientId, int doctorId, string date, string time)
     {
-        if (!(time[^1]).Equals('0') || !(time[^2]).Equals('0') || !(time[^2]).Equals('3'))
+        if (!(time.EndsWith("00") || time.EndsWith("30")))
         {
             throw new Exception("Booking time must be at a full or half-hour");
         }
