@@ -1,34 +1,24 @@
-@page "/Patient/Login"
+@page "/Login"
 @using BlazorWasm.Services
 @using Domain.DTOs
 @inject IAuthService authService
 @inject NavigationManager navMgr
-<h3>Login</h3>
 
 <AuthorizeView>
     <NotAuthorized>
-        <div class="card">
-            <h3>Please login</h3>
+        <body>
+        <h3 class="user__title">Coose a login option</h3>
+        <div class="user">
+
             <div class="field">
-                <label>User name:</label>
-                <input type="text" @bind="userName"/>
+                <button class="loginbtn" @onclick="LoginPatient">Log-in as Patient</button>
             </div>
             <div class="field">
-                <label style="text-align: center">Password:</label>
-                <input type="password" @bind="password"/>
-            </div>
-            @if (!string.IsNullOrEmpty(errorLabel))
-            {
-                <div class="field">
-                    <label style="color: red">
-                        @errorLabel
-                    </label>
-                </div>
-            }
-            <div class="field">
-                <button class="loginbtn" @onclick="LoginAsync">Log in</button>
+                <button class="loginbtn" @onclick="LoginDoctor">Log-in as Doctor</button>
             </div>
         </div>
+        </body>
+       
     </NotAuthorized>
     <Authorized>
         <div class="card">
@@ -37,27 +27,21 @@
     </Authorized>
 </AuthorizeView>
 
-@code {
-    private string userName;
-    private string password;
-    private string errorLabel;
+@code{
 
-    private async Task LoginAsync()
+    private void LoginPatient()
     {
-        errorLabel = "";
-        try
-        {
-            LoginDto dto = new LoginDto(userName, password);
-            
-            await authService.LoginPatientAsync(dto);
-            navMgr.NavigateTo("/");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            errorLabel = $"Error: {e.Message}";
-        }
+        navMgr.NavigateTo("/Patient/Login");
+    }
+
+    private void LoginDoctor()
+    {
+        navMgr.NavigateTo("/Doctor/Login");
     }
 
     
 }
+
+
+
+    

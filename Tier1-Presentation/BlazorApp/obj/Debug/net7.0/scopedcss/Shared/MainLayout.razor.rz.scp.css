@@ -21,7 +21,7 @@ main[b-3dsd3z3yec] {
     align-items: center;
 }
 
-    .top-row[b-3dsd3z3yec]  a, .top-row .btn-link[b-3dsd3z3yec] {
+    .top-row a:hover[b-3dsd3z3yec], .top-row .btn-link[b-3dsd3z3yec] {
         white-space: nowrap;
         margin-left: 1.5rem;
     }
