@@ -2,6 +2,8 @@ using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using Domain.DTOs;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Dtos;
 using Shared.Models;
@@ -12,14 +14,16 @@ public class JwtAuthService : IAuthService
 {
     private readonly HttpClient client = new ();
 
+    private string url = "https://localhost:7078";
+
     // this private variable for simple caching
     public static string? Jwt { get; private set; } = "";
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
 
-    public async Task LoginAsync(string username, string password)
+    public async Task LoginDoctorAsync(string username, string password)
     {
-        UserLoginDto userLoginDto = new()
+        LoginDto userLoginDto = new()
         {
             Username = username,
             Password = password
@@ -28,7 +32,35 @@ public class JwtAuthService : IAuthService
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
 
-        HttpResponseMessage response = await client.PostAsync("https://localhost:7078/auth/login", content);
+        HttpResponseMessage response = await client.PostAsync(url +"/Doctors/Login", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+
+        string token = responseContent;
+        Jwt = token;
+        System.Console.WriteLine(Jwt);
+        ClaimsPrincipal principal = CreateClaimsPrincipal();
+
+        OnAuthStateChanged.Invoke(principal);
+    }
+    
+    
+    public async Task LoginPatientAsync(string username, string password)
+    {
+        LoginDto userLoginDto = new()
+        {
+            Username = username,
+            Password = password
+        };
+
+        string userAsJson = JsonSerializer.Serialize(userLoginDto);
+        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PostAsync(url +"/Patient/Login", content);
         string responseContent = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
@@ -67,11 +99,24 @@ public class JwtAuthService : IAuthService
         return Task.CompletedTask;
     }
 
-    public async Task RegisterAsync(User user)
+    public async Task RegisterPatientAsync(Patient user)
     {
         string userAsJson = JsonSerializer.Serialize(user);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.PostAsync("https://localhost:7078/auth/register", content);
+        HttpResponseMessage response = await client.PostAsync(url + "/Patient/Register", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+    
+    public async Task RegisterDoctorAsync(Doctor user)
+    {
+        string userAsJson = JsonSerializer.Serialize(user);
+        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PostAsync(url + "/Doctor/Register", content);
         string responseContent = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
