@@ -1,4 +1,6 @@
 using System.Security.Claims;
+using Domain.DTOs;
+using Domain.Models;
 
 
 namespace BlazorWasm.Services;
@@ -8,8 +10,8 @@ public interface IAuthService
     public Task LoginDoctorAsync(string username, string password);
     public Task LoginPatientAsync(string username, string password);
     public Task LogoutAsync();
-    public Task RegisterPatientAsync(User user);
-    public Task RegisterDoctorAsync(User user);
+    public Task RegisterPatientAsync(RegisterPatientDto user);
+    public Task RegisterDoctorAsync(RegisterDoctorDto user);
     public Task<ClaimsPrincipal> GetAuthAsync();
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }

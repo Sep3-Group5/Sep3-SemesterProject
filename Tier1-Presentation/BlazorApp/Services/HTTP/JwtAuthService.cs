@@ -5,8 +5,7 @@ using System.Text.Json;
 using Domain.DTOs;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Shared.Dtos;
-using Shared.Models;
+
 
 namespace BlazorWasm.Services.Http;
 
@@ -99,9 +98,10 @@ public class JwtAuthService : IAuthService
         return Task.CompletedTask;
     }
 
-    public async Task RegisterPatientAsync(Patient user)
+    
+    public async Task RegisterPatientAsync(RegisterPatientDto patient)
     {
-        string userAsJson = JsonSerializer.Serialize(user);
+        string userAsJson = JsonSerializer.Serialize(patient);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
         HttpResponseMessage response = await client.PostAsync(url + "/Patient/Register", content);
         string responseContent = await response.Content.ReadAsStringAsync();
@@ -112,9 +112,9 @@ public class JwtAuthService : IAuthService
         }
     }
     
-    public async Task RegisterDoctorAsync(Doctor user)
+    public async Task RegisterDoctorAsync(RegisterDoctorDto doctor)
     {
-        string userAsJson = JsonSerializer.Serialize(user);
+        string userAsJson = JsonSerializer.Serialize(doctor);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
         HttpResponseMessage response = await client.PostAsync(url + "/Doctor/Register", content);
         string responseContent = await response.Content.ReadAsStringAsync();
