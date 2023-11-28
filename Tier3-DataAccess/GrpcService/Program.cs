@@ -19,6 +19,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.MapGrpcService<PatientService>();
 app.MapGrpcService<DoctorService>();
+app.MapGrpcService<BookingService>();
 app.MapGrpcService<GreeterService>();
 app.MapGet("/",
     () =>

@@ -5,10 +5,10 @@ option csharp_namespace = "GrpcService";
 package doctor;
 
 service Doctor {
-    rpc CreateAsync (DoctorObj) returns (BoolResponse);
+    rpc CreateAsync (DoctorObj) returns (DoctorResponse);
     rpc GetAsync (DoctorId) returns (DoctorObj);
-    rpc UpdateAsync (DoctorObj) returns (BoolResponse);
-    rpc DeleteAsync (DoctorId) returns (BoolResponse);
+    rpc UpdateAsync (DoctorObj) returns (DoctorResponse);
+    rpc DeleteAsync (DoctorId) returns (DoctorResponse);
 }
 
 message DoctorObj {
@@ -24,6 +24,6 @@ message DoctorId {
     int32 id = 1;
 }
 
-message BoolResponse {
+message DoctorResponse {
     bool successful = 1;
 }

@@ -13,7 +13,7 @@ public class DoctorService : Doctor.DoctorBase
         this.service = service;
     }
 
-    public override async Task<BoolResponse> CreateAsync(DoctorObj request, ServerCallContext context)
+    public override async Task<DoctorResponse> CreateAsync(DoctorObj request, ServerCallContext context)
     {
         try
         {
@@ -27,7 +27,7 @@ public class DoctorService : Doctor.DoctorBase
                 Validated = request.Validated
             };
             await service.CreateAsync(addingDoctor);
-            BoolResponse response = new BoolResponse()
+            DoctorResponse response = new DoctorResponse()
             {
                 Successful = true
             };
@@ -62,14 +62,14 @@ public class DoctorService : Doctor.DoctorBase
         }
     }
 
-    public override async Task<BoolResponse> UpdateAsync(DoctorObj request, ServerCallContext context)
+    public override async Task<DoctorResponse> UpdateAsync(DoctorObj request, ServerCallContext context)
     {
         try
         {
             Domain.Models.Doctor updatingDoctor = new Domain.Models.Doctor(request.Id, request.Username, request.Password, request.Fullname,
                 request.Specialization, request.Validated);
             await service.UpdateAsync(updatingDoctor);
-            BoolResponse response = new BoolResponse()
+            DoctorResponse response = new DoctorResponse()
             {
                 Successful = true
             };
@@ -81,13 +81,13 @@ public class DoctorService : Doctor.DoctorBase
         }
     }
 
-    public override async Task<BoolResponse> DeleteAsync(DoctorId request, ServerCallContext context)
+    public override async Task<DoctorResponse> DeleteAsync(DoctorId request, ServerCallContext context)
     {
         try
         {
             int doctorId = request.Id;
             await service.DeleteAsync(doctorId);
-            BoolResponse response = new BoolResponse()
+            DoctorResponse response = new DoctorResponse()
             {
                 Successful = true
             };
