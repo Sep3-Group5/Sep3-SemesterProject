@@ -20,13 +20,8 @@ public class JwtAuthService : IAuthService
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
 
-    public async Task LoginDoctorAsync(string username, string password)
+    public async Task LoginDoctorAsync(LoginDto userLoginDto)
     {
-        LoginDto userLoginDto = new()
-        {
-            Username = username,
-            Password = password
-        };
 
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
@@ -48,13 +43,8 @@ public class JwtAuthService : IAuthService
     }
     
     
-    public async Task LoginPatientAsync(string username, string password)
+    public async Task LoginPatientAsync(LoginDto userLoginDto)
     {
-        LoginDto userLoginDto = new()
-        {
-            Username = username,
-            Password = password
-        };
 
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
