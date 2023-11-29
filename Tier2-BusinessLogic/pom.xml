@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>via.sdj3</groupId>
-    <artifactId>proofOfConcept_v3</artifactId>
+    <artifactId>Tier2-BusinessLogic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>proofOfConcept_v3</name>
+    <name>Tier2-BusinessLogic</name>
     <description>proofOfConcept version 3</description>
     <properties>
         <java.version>17</java.version>
