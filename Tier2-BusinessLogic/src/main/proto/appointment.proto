@@ -20,6 +20,7 @@ message AppointmentObj {
 	string date = 4;
 	string time = 5;
 	string diagnosis = 6;
+	bool status = 7;
 }
 
 message AppointmentId {
