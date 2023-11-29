@@ -7,7 +7,7 @@ public class Context : DbContext
 {
     public DbSet<Patient> Patients { get; set; }
     public DbSet<Doctor> Doctors { get; set; }
-    public DbSet<Booking> Bookings { get; set; }
+    public DbSet<Appointment> Bookings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -19,6 +19,6 @@ public class Context : DbContext
     {
         modelBuilder.Entity<Patient>().HasKey(patient => patient.Id);
         modelBuilder.Entity<Doctor>().HasKey(doctor => doctor.Id);
-        modelBuilder.Entity<Booking>().HasKey(booking => booking.Id);
+        modelBuilder.Entity<Appointment>().HasKey(booking => booking.Id);
     }
 }

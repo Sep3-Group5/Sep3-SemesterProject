@@ -29,7 +29,6 @@ public class PatientDao : IPatientDao
         {
             patientsQuery = patientsQuery.Where(p => p.Name.ToLower().Contains(dto.NameContains.ToLower()));
         }
-
         IEnumerable<Patient> result = await patientsQuery.ToListAsync();
         return result;
     }

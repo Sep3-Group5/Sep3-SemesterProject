@@ -1,0 +1,35 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package appointment;
+
+service Appointment {
+    rpc CreateAsync (AppointmentObj) returns (AppointmentResponse);
+    rpc GetByIdAsync (AppointmentId) returns (AppointmentObj);
+    rpc GetByDtoAsync (AppointmentDto) returns (AppointmentObj);
+    rpc UpdateAsync (AppointmentObj) returns (AppointmentResponse);
+    rpc DeleteAsync (AppointmentId) returns (AppointmentResponse);
+}
+
+message AppointmentObj {
+    int32 id = 1;
+    int32 patient_id = 2;
+    int32 doctor_id = 3;
+    string date = 4;
+    string time = 5;
+    string diagnosis = 6;
+}
+
+message AppointmentId {
+    int32 id = 1;
+}
+
+message AppointmentDto {
+    string date = 1;
+    string time = 2;
+}
+
+message AppointmentResponse {
+    bool successful = 1;
+}

@@ -1,6 +1,6 @@
 ﻿namespace Domain.Models;
 
-public class Booking
+public class Appointment
 {
     public int Id { get; set; }
     public int PatientId {get; set;}
@@ -8,11 +8,13 @@ public class Booking
     public string Date {get; set;}
     public string Time {get; set;}
     
-    public Booking (int id, int patientId, int doctorId, string date, string time)
+    public string? Diagnosis { get; set; }
+    
+    public Appointment (int id, int patientId, int doctorId, string date, string time, string? diagnosis)
     {
         if (!(time.EndsWith("00") || time.EndsWith("30")))
         {
-            throw new Exception("Booking time must be at a full or half-hour");
+            throw new Exception("Appointment time must be at a full or half-hour");
         }
 
         Id = id;
@@ -20,9 +22,10 @@ public class Booking
         DoctorId = doctorId;
         Date = date;
         Time = time;
+        Diagnosis = diagnosis;
     }
 
-    public Booking()
+    public Appointment()
     {
         
     }
