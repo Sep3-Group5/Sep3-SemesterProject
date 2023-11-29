@@ -4,8 +4,8 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.springframework.stereotype.Service;
-import via.sdj3.proofofconcept_v3.GrpcService.PatientGrpc;
-import via.sdj3.proofofconcept_v3.GrpcService.PatientObj;
+import via.sdj3.proofofconcept_v3.GrpcService.patient.PatientGrpc;
+import via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj;
 import via.sdj3.proofofconcept_v3.entity.Patient;
 
 @Service
