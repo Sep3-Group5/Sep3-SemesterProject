@@ -1,0 +1,148 @@
+using System.Reflection.Metadata;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
+using Domain.DTOs;
+using Domain.Models;
+using Microsoft.AspNetCore.Mvc;
+
+
+namespace BlazorWasm.Services.Http;
+
+public class JwtAuthService : IAuthService
+{
+    private readonly HttpClient client = new ();
+
+    private string url = "https://localhost:7078";
+
+    // this private variable for simple caching
+    public static string? Jwt { get; private set; } = "";
+
+    public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
+
+    public async Task LoginDoctorAsync(LoginDto userLoginDto)
+    {
+
+        string userAsJson = JsonSerializer.Serialize(userLoginDto);
+        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PostAsync(url +"/Doctors/Login", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+
+        string token = responseContent;
+        Jwt = token;
+        System.Console.WriteLine(Jwt);
+        ClaimsPrincipal principal = CreateClaimsPrincipal();
+
+        OnAuthStateChanged.Invoke(principal);
+    }
+    
+    
+    public async Task LoginPatientAsync(LoginDto userLoginDto)
+    {
+
+        string userAsJson = JsonSerializer.Serialize(userLoginDto);
+        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PostAsync(url +"/Patient/Login", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+
+        string token = responseContent;
+        Jwt = token;
+        System.Console.WriteLine(Jwt);
+        ClaimsPrincipal principal = CreateClaimsPrincipal();
+
+        OnAuthStateChanged.Invoke(principal);
+    }
+
+    private static ClaimsPrincipal CreateClaimsPrincipal()
+    {
+        if (string.IsNullOrEmpty(Jwt))
+        {
+            return new ClaimsPrincipal();
+        }
+
+        IEnumerable<Claim> claims = ParseClaimsFromJwt(Jwt);
+        
+        ClaimsIdentity identity = new(claims, "jwt");
+
+        ClaimsPrincipal principal = new(identity);
+        return principal;
+    }
+
+    public Task LogoutAsync()
+    {
+        Jwt = null;
+        ClaimsPrincipal principal = new();
+        OnAuthStateChanged.Invoke(principal);
+        return Task.CompletedTask;
+    }
+
+    
+    public async Task RegisterPatientAsync(RegisterPatientDto patient)
+    {
+        string userAsJson = JsonSerializer.Serialize(patient);
+        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PostAsync(url + "/Patient/Register", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+    
+    public async Task RegisterDoctorAsync(RegisterDoctorDto doctor)
+    {
+        string userAsJson = JsonSerializer.Serialize(doctor);
+        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PostAsync(url + "/Doctor/Register", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+
+    public Task<ClaimsPrincipal> GetAuthAsync()
+    {
+        ClaimsPrincipal principal = CreateClaimsPrincipal();
+        return Task.FromResult(principal);
+    }
+
+
+    // Below methods stolen from https://github.com/SteveSandersonMS/presentation-2019-06-NDCOslo/blob/master/demos/MissionControl/MissionControl.Client/Util/ServiceExtensions.cs
+    private static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
+    {
+        string payload = jwt.Split('.')[1];
+        byte[] jsonBytes = ParseBase64WithoutPadding(payload);
+        Dictionary<string, object>? keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+        return keyValuePairs!.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString()!));
+    }
+
+    private static byte[] ParseBase64WithoutPadding(string base64)
+    {
+        switch (base64.Length % 4)
+        {
+            case 2:
+                base64 += "==";
+                break;
+            case 3:
+                base64 += "=";
+                break;
+        }
+
+        return Convert.FromBase64String(base64);
+    }
+}

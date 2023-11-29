@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option csharp_namespace = "GrpcService";
+option java_multiple_files = true;
+option java_package = "via.sdj3.proofofconcept_v3.GrpcService.doctor";
 
 package doctor;
 

@@ -5,13 +5,17 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
-
-    <ItemGroup>
-        <Protobuf Include="Protos\greet.proto" GrpcServices="Server"/>
-    </ItemGroup>
     
     <ItemGroup>
         <Protobuf Include="Protos\patient.proto" GrpcServices="Server" ProtoRoot="Protos\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\doctor.proto" GrpcServices="Server" ProtoRoot="Protos\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\booking.proto" GrpcServices="Server" ProtoRoot="Protos\" />
     </ItemGroup>
 
     <ItemGroup>

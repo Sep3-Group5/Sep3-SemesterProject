@@ -1,3 +1,5 @@
+using BlazorWasm.Services;
+using BlazorWasm.Services.Http;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using HttpClients.ClientInterfaces;
@@ -9,7 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient<IPatientService, PatientHttpClient>();
-builder.Services.AddHttpClient<IBookingService, BookingHttpClient>();
+builder.Services.AddHttpClient<IDoctorService, DoctorHttpClient>();
+builder.Services.AddHttpClient<IAppointmentService, AppointmentHttpClient>();
+builder.Services.AddScoped<IAuthService, JwtAuthService>();
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:8989")});
 var app = builder.Build();

@@ -24,8 +24,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/CreateBooking.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3JlYXRlQm9va2luZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/Index.razor]
@@ -43,6 +43,30 @@ build_metadata.AdditionalFiles.CssScope =
 [/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/DoctorLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-oqk3xktt2l
+
+[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/DoctorRegister.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-bfhlzms2yw
+
+[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-1yt9yfqhu7
+
+[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/LoginButtons.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW5CdXR0b25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-d9yutk9iiw
+
+[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/PatientLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-cl7s63ml0f
+
+[/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/PatientRegister.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudFJlZ2lzdGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-3g2f3zyiks
 
 [/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=

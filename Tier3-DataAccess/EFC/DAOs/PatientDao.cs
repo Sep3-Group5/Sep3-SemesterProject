@@ -37,11 +37,20 @@ public class PatientDao : IPatientDao
     public async Task<Patient?> GetAsync(int id)
     {
         Patient? patient = await context.Patients.FindAsync(id);
+        if (patient == null)
+        {
+            throw new Exception($"No Patient with id: {id}");
+        }
         return patient;
     }
 
     public async Task UpdateAsync(Patient patient)
     {
+        Patient? existing = await GetAsync(patient.Id);
+        if (existing == null)
+        {
+            throw new Exception($"No Patient with id: {patient.Id}");
+        }
         context.Patients.Update(patient);
         await context.SaveChangesAsync();
     }
@@ -53,7 +62,6 @@ public class PatientDao : IPatientDao
         {
             throw new Exception($"No Patient with id: {id}");
         }
-
         context.Patients.Remove(existing);
         await context.SaveChangesAsync();
     }
