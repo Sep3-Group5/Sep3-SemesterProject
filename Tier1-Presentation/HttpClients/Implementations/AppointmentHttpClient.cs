@@ -18,7 +18,7 @@ public class AppointmentHttpClient : IAppointmentService
 
     public async Task<Appointment> CreateAsync(AppointmentCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("http://localhost:8989/appointments/test", dto);
+        HttpResponseMessage response = await client.PostAsJsonAsync("http://localhost:8989/appointments", dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
