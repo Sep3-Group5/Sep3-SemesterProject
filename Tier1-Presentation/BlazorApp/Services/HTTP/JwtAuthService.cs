@@ -13,7 +13,7 @@ public class JwtAuthService : IAuthService
 {
     private readonly HttpClient client = new ();
 
-    private string url = "https://localhost:7078";
+    private string url = "http://localhost:8989";
 
     // this private variable for simple caching
     public static string? Jwt { get; private set; } = "";

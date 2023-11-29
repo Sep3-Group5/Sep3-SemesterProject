@@ -2,52 +2,47 @@ package via.sdj3.proofofconcept_v3.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.entity.Patient;
+import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
 import via.sdj3.proofofconcept_v3.service.PatientService;
 import via.sdj3.proofofconcept_v3.service.PatientServiceInterface;
 
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 public class PatientController {
+
     private PatientServiceInterface patientService;
+    private JwtUtil jwtUtil;
 
-
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientService patientService,JwtUtil jwtUtil) {
         this.patientService = patientService;
+        this.jwtUtil = jwtUtil;
     }
 
-    // REQUESTS //
+    @PostMapping(value = "/Patient/Login")
+    public ResponseEntity<Object> loginPatient(@RequestBody LoginDto dto) {
 
-    @PostMapping(value="/patients/test")
-    public ResponseEntity<Object> addPatient(@RequestBody Patient patient){
+            String username = authenticateUser(dto.getUserName(), dto.getPassword());
 
-        try {
-			patientService.addPatient(patient);
-			System.out.println("Im about to return entity");
-			return ResponseEntity.ok().body(patient);
-		}
-		catch (Exception e){
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
+            if (username != null) {
+                String token = jwtUtil.generateToken(username);
+                return ResponseEntity.ok(token);
+            } else {
+                return ResponseEntity.status(401).body("Invalid credentials");
+            }
     }
 
-//    @GetMapping(value="/patients")
-//    public ResponseEntity<Object> getAllPatients(){
-//        List<Patient> patients = patientService.getAllPatients();
-//        return new ResponseEntity<>(patients, HttpStatus.OK);
-//    }
-//
-//    @GetMapping(value="/patients/{Id}")
-//    public ResponseEntity<Object> getPatientById(@PathVariable("Id") int id){
-//        Optional<Patient> patient = patientService.getPatientById(id);
-//        if (!patient.isPresent()){
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        return new ResponseEntity<>(patient.get(), HttpStatus.OK);
-//    }
-
+    private String authenticateUser(String username, String password) {
+        // Implement your logic to authenticate the user
+        // Return username if authentication is successful, otherwise return null
+        // For simplicity, you can use a hardcoded check, but in real-world scenarios, use a proper authentication mechanism
+        if ("test".equals(username) && "test".equals(password)) {
+            return username;
+        } else {
+            return null;
+        }
+    }
 }
-
