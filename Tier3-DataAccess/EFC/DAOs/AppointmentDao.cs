@@ -30,6 +30,13 @@ public class AppointmentDao : IAppointmentDao
         return newBooking.Entity;
     }
 
+    public async Task<IEnumerable<Appointment>> GetAsync()
+    {
+        IQueryable<Appointment> appointmentsQuery = context.Bookings.AsQueryable();
+        List<Appointment> appointments = await appointmentsQuery.ToListAsync();
+        return appointments;
+    }
+
     public async Task<Appointment?> GetAsync(int id)
     {
         Appointment? booking = await context.Bookings.FindAsync(id);

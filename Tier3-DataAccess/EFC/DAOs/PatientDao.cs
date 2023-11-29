@@ -1,4 +1,5 @@
-﻿using Domain.DTOs;
+﻿using System.Collections;
+using Domain.DTOs;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -20,6 +21,13 @@ public class PatientDao : IPatientDao
         EntityEntry<Patient> newPatient = await context.Patients.AddAsync(patient);
         await context.SaveChangesAsync();
         return newPatient.Entity;
+    }
+
+    public async Task<IEnumerable<Patient>> GetAsync()
+    {
+        IQueryable<Patient> patientsQuery = context.Patients.AsQueryable();
+        List<Patient> patients = await patientsQuery.ToListAsync();
+        return patients;
     }
 
     public async Task<IEnumerable<Patient>> GetAsync(PatientSearchDto dto)

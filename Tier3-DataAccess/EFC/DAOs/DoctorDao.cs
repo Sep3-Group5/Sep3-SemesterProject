@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EFC.DAOs;
@@ -18,6 +19,13 @@ public class DoctorDao : IDoctorDao
         EntityEntry<Doctor> newDoctor = await context.Doctors.AddAsync(doctor);
         await context.SaveChangesAsync();
         return newDoctor.Entity;
+    }
+
+    public async Task<IEnumerable<Doctor>> GetAsync()
+    {
+        IQueryable<Doctor> doctorsQuery = context.Doctors.AsQueryable();
+        List<Doctor> doctors = await doctorsQuery.ToListAsync();
+        return doctors;
     }
 
     public async Task<Doctor?> GetAsync(int id)

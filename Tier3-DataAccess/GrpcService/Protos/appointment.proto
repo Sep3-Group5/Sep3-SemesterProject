@@ -6,6 +6,7 @@ package appointment;
 
 service Appointment {
     rpc CreateAsync (AppointmentObj) returns (AppointmentResponse);
+    rpc GetAsync (AppointmentVoid) returns (AppointmentList);
     rpc GetByIdAsync (AppointmentId) returns (AppointmentObj);
     rpc GetByDtoAsync (AppointmentDto) returns (AppointmentObj);
     rpc UpdateAsync (AppointmentObj) returns (AppointmentResponse);
@@ -32,4 +33,12 @@ message AppointmentDto {
 
 message AppointmentResponse {
     bool successful = 1;
+}
+
+message AppointmentVoid {
+    
+}
+
+message AppointmentList {
+    repeated AppointmentObj appointments = 1;
 }

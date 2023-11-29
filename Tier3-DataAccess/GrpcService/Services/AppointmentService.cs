@@ -39,6 +39,34 @@ public class AppointmentService : Appointment.AppointmentBase
         }
     }
 
+    public override async Task<AppointmentList> GetAsync(AppointmentVoid request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Domain.Models.Appointment> appointments = await service.GetAsync();
+            AppointmentList appointmentList = new AppointmentList();
+            foreach (Domain.Models.Appointment a in appointments)
+            {
+                AppointmentObj appointmentObj = new AppointmentObj()
+                {
+                    Id = a.Id,
+                    PatientId = a.PatientId,
+                    DoctorId = a.DoctorId,
+                    Date = a.Date,
+                    Time = a.Time,
+                    Diagnosis = a.Diagnosis
+                };
+                appointmentList.Appointments.Add(appointmentObj);
+            }
+
+            return appointmentList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
+        }
+    }
+
     public override async Task<AppointmentObj> GetByIdAsync(AppointmentId request, ServerCallContext context)
     {
         try

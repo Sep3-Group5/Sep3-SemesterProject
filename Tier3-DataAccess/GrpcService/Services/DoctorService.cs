@@ -39,7 +39,35 @@ public class DoctorService : Doctor.DoctorBase
         }
     }
 
-    public override async Task<DoctorObj> GetAsync(DoctorId request, ServerCallContext context)
+    public override async Task<DoctorList> GetAsync(DoctorVoid request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Domain.Models.Doctor> doctors = await service.GetAsync();
+            DoctorList doctorList = new DoctorList();
+            foreach (Domain.Models.Doctor d in doctors)
+            {
+                DoctorObj doctorObj = new DoctorObj()
+                {
+                    Id = d.Id,
+                    Username = d.Username,
+                    Password = d.Password,
+                    Fullname = d.FullName,
+                    Specialization = d.Specialization,
+                    Validated = d.Validated
+                };
+                doctorList.Doctors.Add(doctorObj);
+            }
+
+            return doctorList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
+        }
+    }
+
+    public override async Task<DoctorObj> GetByIdAsync(DoctorId request, ServerCallContext context)
     {
         try
         {
