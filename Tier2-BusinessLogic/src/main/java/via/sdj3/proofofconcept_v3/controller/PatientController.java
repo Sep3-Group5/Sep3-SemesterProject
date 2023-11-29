@@ -33,21 +33,5 @@ public class PatientController {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
     }
-
-//    @GetMapping(value="/patients")
-//    public ResponseEntity<Object> getAllPatients(){
-//        List<Patient> patients = patientService.getAllPatients();
-//        return new ResponseEntity<>(patients, HttpStatus.OK);
-//    }
-//
-//    @GetMapping(value="/patients/{Id}")
-//    public ResponseEntity<Object> getPatientById(@PathVariable("Id") int id){
-//        Optional<Patient> patient = patientService.getPatientById(id);
-//        if (!patient.isPresent()){
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        return new ResponseEntity<>(patient.get(), HttpStatus.OK);
-//    }
-
 }
 
