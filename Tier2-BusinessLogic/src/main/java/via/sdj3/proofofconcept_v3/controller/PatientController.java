@@ -14,19 +14,15 @@ import java.util.Optional;
 public class PatientController {
     private PatientServiceInterface patientService;
 
-
     public PatientController(PatientService patientService) {
         this.patientService = patientService;
     }
 
-    // REQUESTS //
-
-    @PostMapping(value="/patients/test")
+    @PostMapping(value="/patients")
     public ResponseEntity<Object> addPatient(@RequestBody Patient patient){
-
         try {
 			patientService.addPatient(patient);
-			System.out.println("Im about to return entity");
+			System.out.println("Patient successfully added");
 			return ResponseEntity.ok().body(patient);
 		}
 		catch (Exception e){
@@ -34,20 +30,19 @@ public class PatientController {
 		}
     }
 
-//    @GetMapping(value="/patients")
-//    public ResponseEntity<Object> getAllPatients(){
-//        List<Patient> patients = patientService.getAllPatients();
-//        return new ResponseEntity<>(patients, HttpStatus.OK);
-//    }
-//
-//    @GetMapping(value="/patients/{Id}")
-//    public ResponseEntity<Object> getPatientById(@PathVariable("Id") int id){
-//        Optional<Patient> patient = patientService.getPatientById(id);
-//        if (!patient.isPresent()){
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        return new ResponseEntity<>(patient.get(), HttpStatus.OK);
-//    }
+	@GetMapping("/patients")
+	public ResponseEntity<List<Patient>> getAllPatients(){
+		List<Patient> patients = patientService.getAllPatients();
+		return new ResponseEntity<>(patients, HttpStatus.OK);
+	}
 
+	@GetMapping("/patients/{id}")
+	public ResponseEntity<Object> getPatientById(@PathVariable ("id") int id){
+		Optional<Patient> patient = patientService.getPatientById(id);
+		if (!patient.isPresent()){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(patient.get(), HttpStatus.OK);
+	}
 }
 

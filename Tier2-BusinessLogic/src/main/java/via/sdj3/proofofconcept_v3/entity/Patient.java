@@ -4,37 +4,58 @@ import jakarta.persistence.*;
 
 @Entity
 public class Patient {
+	@Column
+	private String fullName;
+
+	@Column
+	private String username;
+
+	@Column
+	private String password;
 
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer patientId;
 
-    @Column
-    private String name;
+	public Patient(String fullName, String username, String password) {
+		this.fullName = fullName;
+		this.username = username;
+		this.password = password;
+	}
 
-    public Patient(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+	public Patient() {
+	}
 
-    public Patient() {
+	public String getFullName() {
+		return fullName;
+	}
 
-    }
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Integer getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
+	}
 }
