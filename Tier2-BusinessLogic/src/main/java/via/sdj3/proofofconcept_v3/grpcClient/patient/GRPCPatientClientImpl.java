@@ -6,7 +6,6 @@ import io.grpc.StatusRuntimeException;
 import org.springframework.stereotype.Service;
 import via.sdj3.proofofconcept_v3.GrpcService.PatientGrpc;
 import via.sdj3.proofofconcept_v3.GrpcService.PatientObj;
-import via.sdj3.proofofconcept_v3.GrpcService.PatientOuterClass;
 import via.sdj3.proofofconcept_v3.entity.Patient;
 
 @Service
@@ -26,7 +25,7 @@ public class GRPCPatientClientImpl implements PatientClient {
 
     @Override
     public Patient addPatient(Patient patient) {
-        PatientObj patientObj = PatientObj.newBuilder().setId(patient.getId()).setName(patient.getName()).build();
+        PatientObj patientObj = PatientObj.newBuilder().setId(patient.getPatientId()).setName(patient.getFullName()).build();
 
         PatientObj patientObjFromServer;
         try{
@@ -43,14 +42,14 @@ public class GRPCPatientClientImpl implements PatientClient {
         System.out.println(patientObjFromServer.getName());
 
         Patient realObj = getPatient(patientObjFromServer);
-        System.out.println(realObj.getName());
+        System.out.println(realObj.getFullName());
         return realObj;
     }
 
     private Patient getPatient(PatientObj patientObjFromServer) {
         Patient returnedPatient = new Patient();
-        returnedPatient.setId(patientObjFromServer.getId());
-        returnedPatient.setName(patientObjFromServer.getName());
+        returnedPatient.setPatientId(patientObjFromServer.getId());
+        returnedPatient.setFullName(patientObjFromServer.getName());
         return returnedPatient;
     }
 }

@@ -13,20 +13,16 @@ import java.util.Optional;
 public class PatientService implements PatientServiceInterface{
     private PatientRepository patientRepository;
 
-    private final PatientClient client;
-
-//    public PatientService(PatientRepository patientRepository) {
-//        this.patientRepository = patientRepository;
-//    }
+    private final PatientClient patientClient;
 
     public PatientService(PatientClient patientClient) {
-        this.client = patientClient;}
+        this.patientClient = patientClient;}
 
     // METHODS //
 
     public Patient addPatient(Patient patient){
         //other checks and validation can be done here
-        return client.addPatient(patient);
+        return patientClient.addPatient(patient);
     }
 
     public List<Patient> getAllPatients(){

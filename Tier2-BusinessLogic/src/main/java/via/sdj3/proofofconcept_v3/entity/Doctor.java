@@ -1,20 +1,35 @@
 package via.sdj3.proofofconcept_v3.entity;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Doctor {
+	@Column
 	private String fullName;
+
+	@Column
 	private String userName;
-	private String specialization;
-	private boolean validated;
-	private int id;
+
+	@Column
 	private String password;
 
-	public Doctor(String fullName, String userName, String specialization, String password) {
+	@Column
+	private String specialization;
+
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	@Column
+	private boolean validated;
+
+	public Doctor(String fullName, String userName, String password, String specialization, boolean validated) {
 		this.fullName = fullName;
 		this.userName = userName;
+		this.password = password;
 		this.specialization = specialization;
 		this.validated = validated;
-		this.id = id;
-		this.password = password;
 	}
 
 	public Doctor() {
@@ -36,20 +51,20 @@ public class Doctor {
 		this.userName = userName;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getSpecialization() {
 		return specialization;
 	}
 
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
-	}
-
-	public boolean isValidated() {
-		return validated;
-	}
-
-	public void setValidated(boolean validated) {
-		this.validated = validated;
 	}
 
 	public int getId() {
@@ -60,11 +75,11 @@ public class Doctor {
 		this.id = id;
 	}
 
-	public String getPassword() {
-		return password;
+	public boolean isValidated() {
+		return validated;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setValidated(boolean validated) {
+		this.validated = validated;
 	}
 }
