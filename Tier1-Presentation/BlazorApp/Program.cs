@@ -11,6 +11,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddHttpClient<IPatientService, PatientHttpClient>();
+builder.Services.AddHttpClient<IBookingService, BookingHttpClient>();
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:8989")});
 var app = builder.Build();
