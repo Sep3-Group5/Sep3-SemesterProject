@@ -7,25 +7,25 @@ using HttpClients.ClientInterfaces;
 
 namespace HttpClients.Implementations;
 
-public class BookingHttpClient : IBookingService
+public class AppointmentHttpClient : IAppointmentService
 {
     private readonly HttpClient client;
 
-    public BookingHttpClient(HttpClient client)
+    public AppointmentHttpClient(HttpClient client)
     {
         this.client = client;
     }
 
-    public async Task<Booking> CreateAsync(BookingCreationDto dto)
+    public async Task<Appointment> CreateAsync(AppointmentCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("http://localhost:8989/bookings/test", dto);
+        HttpResponseMessage response = await client.PostAsJsonAsync("http://localhost:8989/appointments/test", dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(result);
         }
 
-        Booking booking = JsonSerializer.Deserialize<Booking>(result);
-        return booking;
+        Appointment appointment = JsonSerializer.Deserialize<Appointment>(result);
+        return appointment;
     }
 }
