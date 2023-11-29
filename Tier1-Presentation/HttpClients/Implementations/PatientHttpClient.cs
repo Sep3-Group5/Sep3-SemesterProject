@@ -30,4 +30,25 @@ public class PatientHttpClient : IPatientService
         return patient;
     }
     
+    public async Task<IEnumerable<Patient>> GetPatientsAsync(string? usernameContains = null)
+    {
+        string uri = "/patients";
+        if (!string.IsNullOrEmpty(usernameContains))
+        {
+            uri += $"?username={usernameContains}";
+        }
+
+        HttpResponseMessage response = await client.GetAsync(uri);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        IEnumerable<Patient> patients = JsonSerializer.Deserialize<IEnumerable<Patient>>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return patients;
+    }
 }
