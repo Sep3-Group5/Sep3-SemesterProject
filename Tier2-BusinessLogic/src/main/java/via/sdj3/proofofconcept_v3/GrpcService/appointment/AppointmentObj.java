@@ -84,6 +84,11 @@ private static final long serialVersionUID = 0L;
             diagnosis_ = s;
             break;
           }
+          case 56: {
+
+            status_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -254,6 +259,16 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int STATUS_FIELD_NUMBER = 7;
+  private boolean status_;
+  /**
+   * <code>bool status = 7;</code>
+   * @return The status.
+   */
+  public boolean getStatus() {
+    return status_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -286,6 +301,9 @@ private static final long serialVersionUID = 0L;
     if (!getDiagnosisBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, diagnosis_);
     }
+    if (status_ != false) {
+      output.writeBool(7, status_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -316,6 +334,10 @@ private static final long serialVersionUID = 0L;
     if (!getDiagnosisBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, diagnosis_);
     }
+    if (status_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, status_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -343,6 +365,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTime())) return false;
     if (!getDiagnosis()
         .equals(other.getDiagnosis())) return false;
+    if (getStatus()
+        != other.getStatus()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -366,6 +390,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTime().hashCode();
     hash = (37 * hash) + DIAGNOSIS_FIELD_NUMBER;
     hash = (53 * hash) + getDiagnosis().hashCode();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getStatus());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -511,6 +538,8 @@ private static final long serialVersionUID = 0L;
 
       diagnosis_ = "";
 
+      status_ = false;
+
       return this;
     }
 
@@ -543,6 +572,7 @@ private static final long serialVersionUID = 0L;
       result.date_ = date_;
       result.time_ = time_;
       result.diagnosis_ = diagnosis_;
+      result.status_ = status_;
       onBuilt();
       return result;
     }
@@ -611,6 +641,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getDiagnosis().isEmpty()) {
         diagnosis_ = other.diagnosis_;
         onChanged();
+      }
+      if (other.getStatus() != false) {
+        setStatus(other.getStatus());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -955,6 +988,36 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       diagnosis_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean status_ ;
+    /**
+     * <code>bool status = 7;</code>
+     * @return The status.
+     */
+    public boolean getStatus() {
+      return status_;
+    }
+    /**
+     * <code>bool status = 7;</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(boolean value) {
+      
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool status = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      
+      status_ = false;
       onChanged();
       return this;
     }

@@ -60,4 +60,10 @@ public interface AppointmentObjOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDiagnosisBytes();
+
+  /**
+   * <code>bool status = 7;</code>
+   * @return The status.
+   */
+  boolean getStatus();
 }

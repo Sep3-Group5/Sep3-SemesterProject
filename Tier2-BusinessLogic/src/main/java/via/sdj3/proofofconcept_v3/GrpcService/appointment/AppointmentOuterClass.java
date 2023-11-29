@@ -43,25 +43,25 @@ public final class AppointmentOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021appointment.proto\022\013appointment\"r\n\016Appo" +
-      "intmentObj\022\n\n\002id\030\001 \001(\005\022\022\n\npatient_id\030\002 \001" +
-      "(\005\022\021\n\tdoctor_id\030\003 \001(\005\022\014\n\004date\030\004 \001(\t\022\014\n\004t" +
-      "ime\030\005 \001(\t\022\021\n\tdiagnosis\030\006 \001(\t\"\033\n\rAppointm" +
-      "entId\022\n\n\002id\030\001 \001(\005\",\n\016AppointmentDto\022\014\n\004d" +
-      "ate\030\001 \001(\t\022\014\n\004time\030\002 \001(\t\")\n\023AppointmentRe" +
-      "sponse\022\022\n\nsuccessful\030\001 \001(\0102\212\003\n\013Appointme" +
-      "nt\022L\n\013CreateAsync\022\033.appointment.Appointm" +
-      "entObj\032 .appointment.AppointmentResponse" +
-      "\022G\n\014GetByIdAsync\022\032.appointment.Appointme" +
-      "ntId\032\033.appointment.AppointmentObj\022I\n\rGet" +
-      "ByDtoAsync\022\033.appointment.AppointmentDto\032" +
-      "\033.appointment.AppointmentObj\022L\n\013UpdateAs" +
-      "ync\022\033.appointment.AppointmentObj\032 .appoi" +
-      "ntment.AppointmentResponse\022K\n\013DeleteAsyn" +
-      "c\022\032.appointment.AppointmentId\032 .appointm" +
-      "ent.AppointmentResponseB6\n2via.sdj3.proo" +
-      "fofconcept_v3.GrpcService.appointmentP\001b" +
-      "\006proto3"
+      "\n\021appointment.proto\022\013appointment\"\202\001\n\016App" +
+      "ointmentObj\022\n\n\002id\030\001 \001(\005\022\022\n\npatient_id\030\002 " +
+      "\001(\005\022\021\n\tdoctor_id\030\003 \001(\005\022\014\n\004date\030\004 \001(\t\022\014\n\004" +
+      "time\030\005 \001(\t\022\021\n\tdiagnosis\030\006 \001(\t\022\016\n\006status\030" +
+      "\007 \001(\010\"\033\n\rAppointmentId\022\n\n\002id\030\001 \001(\005\",\n\016Ap" +
+      "pointmentDto\022\014\n\004date\030\001 \001(\t\022\014\n\004time\030\002 \001(\t" +
+      "\")\n\023AppointmentResponse\022\022\n\nsuccessful\030\001 " +
+      "\001(\0102\212\003\n\013Appointment\022L\n\013CreateAsync\022\033.app" +
+      "ointment.AppointmentObj\032 .appointment.Ap" +
+      "pointmentResponse\022G\n\014GetByIdAsync\022\032.appo" +
+      "intment.AppointmentId\032\033.appointment.Appo" +
+      "intmentObj\022I\n\rGetByDtoAsync\022\033.appointmen" +
+      "t.AppointmentDto\032\033.appointment.Appointme" +
+      "ntObj\022L\n\013UpdateAsync\022\033.appointment.Appoi" +
+      "ntmentObj\032 .appointment.AppointmentRespo" +
+      "nse\022K\n\013DeleteAsync\022\032.appointment.Appoint" +
+      "mentId\032 .appointment.AppointmentResponse" +
+      "B6\n2via.sdj3.proofofconcept_v3.GrpcServi" +
+      "ce.appointmentP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -72,7 +72,7 @@ public final class AppointmentOuterClass {
     internal_static_appointment_AppointmentObj_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_appointment_AppointmentObj_descriptor,
-        new java.lang.String[] { "Id", "PatientId", "DoctorId", "Date", "Time", "Diagnosis", });
+        new java.lang.String[] { "Id", "PatientId", "DoctorId", "Date", "Time", "Diagnosis", "Status", });
     internal_static_appointment_AppointmentId_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_appointment_AppointmentId_fieldAccessorTable = new

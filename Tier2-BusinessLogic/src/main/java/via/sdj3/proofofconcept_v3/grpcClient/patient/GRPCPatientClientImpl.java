@@ -13,15 +13,15 @@ public class GRPCPatientClientImpl implements PatientClient {
     private PatientGrpc.PatientBlockingStub patientBlockingStub;
 
     public PatientGrpc.PatientBlockingStub getPatientBlockingStub() {
-        if (patientBlockingStub == null) {
-            ManagedChannel managedChannel = ManagedChannelBuilder
-                    .forAddress("localhost", 5021)
-                    .usePlaintext()
-                    .build();
-            patientBlockingStub = PatientGrpc.newBlockingStub(managedChannel);
-        }
-        return patientBlockingStub;
-    }
+		if (patientBlockingStub == null) {
+			ManagedChannel managedChannel = ManagedChannelBuilder
+				.forAddress("localhost", 5021)
+				.usePlaintext()
+				.build();
+			patientBlockingStub = PatientGrpc.newBlockingStub(managedChannel);
+		}
+		return patientBlockingStub;
+	}
 
     @Override
     public Patient addPatient(Patient patient) {
