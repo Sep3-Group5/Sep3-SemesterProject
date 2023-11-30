@@ -50,18 +50,18 @@ public final class AppointmentOuterClass {
       "\007 \001(\010\"\033\n\rAppointmentId\022\n\n\002id\030\001 \001(\005\",\n\016Ap" +
       "pointmentDto\022\014\n\004date\030\001 \001(\t\022\014\n\004time\030\002 \001(\t" +
       "\")\n\023AppointmentResponse\022\022\n\nsuccessful\030\001 " +
-      "\001(\0102\212\003\n\013Appointment\022L\n\013CreateAsync\022\033.app" +
-      "ointment.AppointmentObj\032 .appointment.Ap" +
-      "pointmentResponse\022G\n\014GetByIdAsync\022\032.appo" +
-      "intment.AppointmentId\032\033.appointment.Appo" +
-      "intmentObj\022I\n\rGetByDtoAsync\022\033.appointmen" +
-      "t.AppointmentDto\032\033.appointment.Appointme" +
-      "ntObj\022L\n\013UpdateAsync\022\033.appointment.Appoi" +
-      "ntmentObj\032 .appointment.AppointmentRespo" +
-      "nse\022K\n\013DeleteAsync\022\032.appointment.Appoint" +
-      "mentId\032 .appointment.AppointmentResponse" +
-      "B6\n2via.sdj3.proofofconcept_v3.GrpcServi" +
-      "ce.appointmentP\001b\006proto3"
+      "\001(\0102\205\003\n\013Appointment\022G\n\013CreateAsync\022\033.app" +
+      "ointment.AppointmentObj\032\033.appointment.Ap" +
+      "pointmentObj\022G\n\014GetByIdAsync\022\032.appointme" +
+      "nt.AppointmentId\032\033.appointment.Appointme" +
+      "ntObj\022I\n\rGetByDtoAsync\022\033.appointment.App" +
+      "ointmentDto\032\033.appointment.AppointmentObj" +
+      "\022L\n\013UpdateAsync\022\033.appointment.Appointmen" +
+      "tObj\032 .appointment.AppointmentResponse\022K" +
+      "\n\013DeleteAsync\022\032.appointment.AppointmentI" +
+      "d\032 .appointment.AppointmentResponseB6\n2v" +
+      "ia.sdj3.proofofconcept_v3.GrpcService.ap" +
+      "pointmentP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

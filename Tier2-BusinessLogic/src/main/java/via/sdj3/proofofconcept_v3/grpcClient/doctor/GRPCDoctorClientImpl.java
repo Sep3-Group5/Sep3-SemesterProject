@@ -1,4 +1,4 @@
-/*
+
 package via.sdj3.proofofconcept_v3.grpcClient.doctor;
 
 import io.grpc.ManagedChannel;
@@ -59,8 +59,12 @@ public class GRPCDoctorClientImpl implements DoctorClient{
 	private Doctor getDoctor(DoctorObj doctorFromServer) {
 		Doctor returnedDoctor = new Doctor();
 		returnedDoctor.setId(doctorFromServer.getId());
+        returnedDoctor.setUserName(doctorFromServer.getUsername());
+        returnedDoctor.setPassword(doctorFromServer.getPassword());
 		returnedDoctor.setFullName(doctorFromServer.getFullname());
+        returnedDoctor.setSpecialization(doctorFromServer.getSpecialization());
+        returnedDoctor.setValidated(doctorFromServer.getValidated());
 		return returnedDoctor;
 	}
 }
-*/
+

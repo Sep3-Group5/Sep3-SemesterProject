@@ -6,7 +6,7 @@ option java_package = "via.sdj3.proofofconcept_v3.GrpcService.appointment";
 package appointment;
 
 service Appointment {
-	rpc CreateAsync (AppointmentObj) returns (AppointmentResponse);
+	rpc CreateAsync (AppointmentObj) returns (AppointmentObj);
 	rpc GetByIdAsync (AppointmentId) returns (AppointmentObj);
 	rpc GetByDtoAsync (AppointmentDto) returns (AppointmentObj);
 	rpc UpdateAsync (AppointmentObj) returns (AppointmentResponse);

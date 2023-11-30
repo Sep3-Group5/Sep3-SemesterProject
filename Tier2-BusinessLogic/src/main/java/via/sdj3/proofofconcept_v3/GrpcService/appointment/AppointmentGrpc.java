@@ -16,28 +16,28 @@ public final class AppointmentGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj,
-      via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse> getCreateAsyncMethod;
+      via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj> getCreateAsyncMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateAsync",
       requestType = via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj.class,
-      responseType = via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse.class,
+      responseType = via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj,
-      via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse> getCreateAsyncMethod() {
-    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj, via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse> getCreateAsyncMethod;
+      via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj> getCreateAsyncMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj, via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj> getCreateAsyncMethod;
     if ((getCreateAsyncMethod = AppointmentGrpc.getCreateAsyncMethod) == null) {
       synchronized (AppointmentGrpc.class) {
         if ((getCreateAsyncMethod = AppointmentGrpc.getCreateAsyncMethod) == null) {
           AppointmentGrpc.getCreateAsyncMethod = getCreateAsyncMethod =
-              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj, via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse>newBuilder()
+              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj, via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateAsync"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse.getDefaultInstance()))
+                  via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj.getDefaultInstance()))
               .setSchemaDescriptor(new AppointmentMethodDescriptorSupplier("CreateAsync"))
               .build();
         }
@@ -221,7 +221,7 @@ public final class AppointmentGrpc {
     /**
      */
     default void createAsync(via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj request,
-        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateAsyncMethod(), responseObserver);
     }
 
@@ -284,7 +284,7 @@ public final class AppointmentGrpc {
     /**
      */
     public void createAsync(via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj request,
-        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateAsyncMethod(), getCallOptions()), request, responseObserver);
     }
@@ -340,7 +340,7 @@ public final class AppointmentGrpc {
 
     /**
      */
-    public via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse createAsync(via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj request) {
+    public via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj createAsync(via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateAsyncMethod(), getCallOptions(), request);
     }
@@ -392,7 +392,7 @@ public final class AppointmentGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse> createAsync(
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj> createAsync(
         via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateAsyncMethod(), getCallOptions()), request);
@@ -456,7 +456,7 @@ public final class AppointmentGrpc {
       switch (methodId) {
         case METHODID_CREATE_ASYNC:
           serviceImpl.createAsync((via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj) request,
-              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj>) responseObserver);
           break;
         case METHODID_GET_BY_ID_ASYNC:
           serviceImpl.getByIdAsync((via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentId) request,
@@ -497,7 +497,7 @@ public final class AppointmentGrpc {
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
               via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj,
-              via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse>(
+              via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj>(
                 service, METHODID_CREATE_ASYNC)))
         .addMethod(
           getGetByIdAsyncMethod(),

@@ -6,7 +6,7 @@ option java_package = "via.sdj3.proofofconcept_v3.GrpcService.doctor";
 package doctor;
 
 service Doctor {
-	rpc CreateAsync (DoctorObj) returns (DoctorResponse);
+	rpc CreateAsync (DoctorObj) returns (DoctorObj);
 	rpc GetAsync (DoctorId) returns (DoctorObj);
 	rpc UpdateAsync (DoctorObj) returns (DoctorResponse);
 	rpc DeleteAsync (DoctorId) returns (DoctorResponse);

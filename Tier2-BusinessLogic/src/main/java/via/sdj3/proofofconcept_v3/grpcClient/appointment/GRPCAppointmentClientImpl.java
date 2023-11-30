@@ -1,4 +1,4 @@
-/*
+
 package via.sdj3.proofofconcept_v3.grpcClient.appointment;
 
 import io.grpc.ManagedChannel;
@@ -59,8 +59,14 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 
 	private Appointment getAppointment(AppointmentObj appointmentObjFromServer) {
 		Appointment returnedAppointment = new Appointment();
-		returnedAppointment.setAppointmentId(appointmentObjFromServer.getId());  //no second setter
+		returnedAppointment.setAppointmentId(appointmentObjFromServer.getId());
+		returnedAppointment.setPatientId(appointmentObjFromServer.getPatientId());
+		returnedAppointment.setDoctorId(appointmentObjFromServer.getDoctorId());
+		returnedAppointment.setDate(appointmentObjFromServer.getDate());
+		returnedAppointment.setTime(appointmentObjFromServer.getTime());
+		returnedAppointment.setDiagnosis(appointmentObjFromServer.getDiagnosis());
+		returnedAppointment.setStatus(appointmentObjFromServer.getStatus());
 		return returnedAppointment;
 	}
 }
-*/
+
