@@ -48,8 +48,6 @@ namespace GrpcService {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.AppointmentObj> __Marshaller_appointment_AppointmentObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentObj.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcService.AppointmentResponse> __Marshaller_appointment_AppointmentResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.AppointmentVoid> __Marshaller_appointment_AppointmentVoid = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentVoid.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.AppointmentList> __Marshaller_appointment_AppointmentList = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentList.Parser));
@@ -57,14 +55,16 @@ namespace GrpcService {
     static readonly grpc::Marshaller<global::GrpcService.AppointmentId> __Marshaller_appointment_AppointmentId = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentId.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.AppointmentDto> __Marshaller_appointment_AppointmentDto = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentDto.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.AppointmentResponse> __Marshaller_appointment_AppointmentResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentResponse> __Method_CreateAsync = new grpc::Method<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentResponse>(
+    static readonly grpc::Method<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentObj> __Method_CreateAsync = new grpc::Method<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentObj>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CreateAsync",
         __Marshaller_appointment_AppointmentObj,
-        __Marshaller_appointment_AppointmentResponse);
+        __Marshaller_appointment_AppointmentObj);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcService.AppointmentVoid, global::GrpcService.AppointmentList> __Method_GetAsync = new grpc::Method<global::GrpcService.AppointmentVoid, global::GrpcService.AppointmentList>(
@@ -117,7 +117,7 @@ namespace GrpcService {
     public abstract partial class AppointmentBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcService.AppointmentResponse> CreateAsync(global::GrpcService.AppointmentObj request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.AppointmentObj> CreateAsync(global::GrpcService.AppointmentObj request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -175,7 +175,7 @@ namespace GrpcService {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AppointmentBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_CreateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentResponse>(serviceImpl.CreateAsync));
+      serviceBinder.AddMethod(__Method_CreateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentObj>(serviceImpl.CreateAsync));
       serviceBinder.AddMethod(__Method_GetAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentVoid, global::GrpcService.AppointmentList>(serviceImpl.GetAsync));
       serviceBinder.AddMethod(__Method_GetByIdAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentId, global::GrpcService.AppointmentObj>(serviceImpl.GetByIdAsync));
       serviceBinder.AddMethod(__Method_GetByDtoAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentDto, global::GrpcService.AppointmentObj>(serviceImpl.GetByDtoAsync));
