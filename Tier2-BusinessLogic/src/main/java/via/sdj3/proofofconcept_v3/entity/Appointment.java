@@ -94,4 +94,6 @@ public class Appointment {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+
+	public boolean getStatus(){return status;}
 }

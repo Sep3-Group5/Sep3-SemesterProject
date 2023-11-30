@@ -34,7 +34,7 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 			.setDate(appointment.getDate())
 			.setTime(appointment.getTime())
 			.setDiagnosis(appointment.getDiagnosis())
-			//.setStatus(appointment.getStatus)
+			.setStatus(appointment.getStatus())
 			.build();
 
 		AppointmentObj appointmentObjFromServer;
