@@ -7,4 +7,6 @@ import via.sdj3.proofofconcept_v3.entity.Patient;
 public interface PatientServiceInterface {
     Patient addPatient(Patient patient) throws Exception;
 
+    String authenticatePatient(String name, String password);
+    Patient registerPatient(String username, String password);
 }

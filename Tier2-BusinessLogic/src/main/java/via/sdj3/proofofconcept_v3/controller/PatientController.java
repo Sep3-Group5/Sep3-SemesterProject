@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import via.sdj3.proofofconcept_v3.Dto.LoginDto;
+import via.sdj3.proofofconcept_v3.Dto.RegisterPatientDto;
 import via.sdj3.proofofconcept_v3.entity.Patient;
 import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
 import via.sdj3.proofofconcept_v3.service.PatientService;
@@ -25,7 +26,7 @@ public class PatientController {
     @PostMapping(value = "/Patient/Login")
     public ResponseEntity<Object> loginPatient(@RequestBody LoginDto dto) {
 
-            String username = authenticatePatient(dto.getUserName(), dto.getPassword());
+            String username = patientService.authenticatePatient(dto.getUserName(), dto.getPassword());
 
             if (username != null) {
                 String token = jwtUtil.generateToken(username);
@@ -35,14 +36,19 @@ public class PatientController {
             }
     }
 
-    private String authenticatePatient(String username, String password) {
-        // Implement your logic to authenticate the user
-        // Return username if authentication is successful, otherwise return null
-        // For simplicity, you can use a hardcoded check, but in real-world scenarios, use a proper authentication mechanism
-        if ("test".equals(username) && "test".equals(password)) {
-            return username;
-        } else {
-            return null;
+    @PostMapping(value = "/Patient/Register")
+    public ResponseEntity<Object> registerPatient(@RequestBody RegisterPatientDto dto) {
+
+        try{
+            // Forward to patientService for logic
+            patientService.registerPatient(dto.getName(),dto.getPassword());
+            return ResponseEntity.ok("Patient account registered");
         }
+        catch (Exception e)
+        {
+            return ResponseEntity.status(401).body("Something went wrong");
+        }
+
     }
+
 }
