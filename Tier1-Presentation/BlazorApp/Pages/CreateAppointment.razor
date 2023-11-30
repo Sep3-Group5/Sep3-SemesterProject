@@ -9,16 +9,16 @@
 
 <div class="card">
     <h3>CreateBooking</h3>
-    <div class="form-group field">
-        <label>Doctor:</label>
-        <select @bind="selectedDoctorId">
-            <option>Choose</option>
-            @foreach (Doctor doctor in doctors)
-            {
-                <option value="@doctor.Id">@doctor.Username</option>
-            }
-        </select>
-    </div>
+    @* <div class="form-group field"> *@
+    @*     <label>Doctor:</label> *@
+    @*     <select @bind="selectedDoctorId"> *@
+    @*         <option>Choose</option> *@
+    @*         @foreach (Doctor doctor in doctors) *@
+    @*         { *@
+    @*             <option value="@doctor.Id">@doctor.Username</option> *@
+    @*         } *@
+    @*     </select> *@
+    @* </div> *@
     <div class="form-group field">
         <label>Date:</label>
         <InputDate @bind-Value="appointmentDate"/>
@@ -69,7 +69,7 @@
         msg = "";
         try
         {
-            doctors = await DoctorService.GetDoctorsAsync();
+            // doctors = await DoctorService.GetDoctorsAsync();
         }
         catch (Exception e)
         {
@@ -82,11 +82,11 @@
     {
         msg = "";
         
-        if (selectedDoctorId == null)
-        {
-            msg = "You must select a doctor!";
-            return;
-        }
+        // if (selectedDoctorId == null)
+        // {
+        //     msg = "You must select a doctor!";
+        //     return;
+        // }
 
         if (selectedAppointmentTime == null)
         {
@@ -95,7 +95,7 @@
 
         try
         {
-            AppointmentCreationDto dto = new(1,1, (int)selectedDoctorId, appointmentDate.ToString(), selectedAppointmentTime.ToString()); //select somehow the user that created this post
+            AppointmentCreationDto dto = new(1,1, 1, appointmentDate.ToString(), selectedAppointmentTime.ToString()); //select somehow the user that created this post
             await AppointmentService.CreateAsync(dto);
             NavMgr.NavigateTo("/");
         }
