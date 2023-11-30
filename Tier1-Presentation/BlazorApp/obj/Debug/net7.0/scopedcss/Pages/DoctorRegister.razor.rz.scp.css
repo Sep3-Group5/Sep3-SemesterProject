@@ -50,17 +50,14 @@ body[b-ahcwvo49y4] {
 .user[b-ahcwvo49y4] {
     width: 90%;
     max-width: 340px;
-    margin: 10vh auto;
-}
-
-.user__header[b-ahcwvo49y4] {
-    text-align: center;
+    margin: auto;
 }
 
 .user__title[b-ahcwvo49y4] {
     text-align: center;
     font-size: 20px;
     margin-bottom: -10px;
+    padding-top: 20px;
     font-weight: 500;
     color: white;
 }
@@ -71,11 +68,11 @@ body[b-ahcwvo49y4] {
     overflow: hidden;
     opacity: 0;
     transform: translate3d(0, 500px, 0);
-    animation: arrive-b-ahcwvo49y4 500ms ease-in-out 0.9s forwards;
+    animation: arrive-b-ahcwvo49y4 500ms ease-in-out 0.3s forwards;
 }
 
 .form--no[b-ahcwvo49y4] {
-    animation: NO-b-ahcwvo49y4 1s ease-in-out;
+    animation: NO-b-ahcwvo49y4 0.3s ease-in-out;
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
@@ -91,11 +88,7 @@ body[b-ahcwvo49y4] {
     transition: 0.3s;
 }
 
-.form__input:focus[b-ahcwvo49y4] {
-    background:  linear-gradient(
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.7));
-}
+
 
 
 

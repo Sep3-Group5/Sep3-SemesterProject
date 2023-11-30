@@ -3,32 +3,38 @@
 @using Domain.DTOs
 @inject IAuthService authService
 @inject NavigationManager navMgr
-<h3>Login</h3>
 
 <AuthorizeView>
     <NotAuthorized>
-        <div class="card">
-            <h3>Doctors login</h3>
-            <div class="field">
-                <label>User name:</label>
-                <input type="text" @bind="userName"/>
-            </div>
-            <div class="field">
-                <label style="text-align: center">Password:</label>
-                <input type="password" @bind="password"/>
-            </div>
-            @if (!string.IsNullOrEmpty(errorLabel))
-            {
-                <div class="field">
-                    <label style="color: red">
-                        @errorLabel
-                    </label>
-                </div>
-            }
-            <div class="field">
-                <button class="loginbtn" @onclick="LoginAsync">Log in</button>
-            </div>
-        </div>
+         <body>
+         <div class="user">
+             <h3 class="user__title">Doctors Login</h3>
+        
+             <form class="form">
+                 <div class="form__group">
+                     <input type="text" placeholder="Username" class="form__input" @bind="userName"/>
+                 </div>
+                        
+                 <div class="form__group">
+                     <input type="password" placeholder="Password" class="form__input" @bind="password"/>
+                 </div>
+        
+                 <button class="loginbtn" type="button" @onclick="LoginAsync">Log in</button>
+                 </form>
+                 <form>
+                 <p class="user__title">Not registered yet?</p>
+                 <button class="loginbtn" type="button" @onclick="DoctorRegister">Register</button>
+             </form>
+              @if (!string.IsNullOrEmpty(errorLabel))
+                         {
+                             <div class="field">
+                                 <label style="color: red">
+                                     @errorLabel
+                                 </label>
+                             </div>
+                         }
+         </div>
+         </body>
     </NotAuthorized>
     <Authorized>
         <div class="card">
@@ -50,13 +56,18 @@
             LoginDto dto = new LoginDto(userName, password);
             
             await authService.LoginDoctorAsync(dto);
-            navMgr.NavigateTo("/");
+            navMgr.NavigateTo("/Doctor/Login");
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             errorLabel = $"Error: {e.Message}";
         }
+    }
+
+    private void DoctorRegister()
+    {
+        navMgr.NavigateTo("/Doctor/Register");
     }
 
     

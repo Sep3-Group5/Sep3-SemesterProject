@@ -3,32 +3,35 @@
 @using Domain.DTOs
 @inject IAuthService authService
 @inject NavigationManager navMgr
-<h3>Registration</h3>
 
 <AuthorizeView>
     <NotAuthorized>
-        <div class="card">
-            <h3>Patients registration</h3>
-            <div class="field">
-                <label>User name:</label>
-                <input type="text" @bind="userName"/>
-            </div>
-            <div class="field">
-                <label style="text-align: center">Password:</label>
-                <input type="password" @bind="password"/>
-            </div>
+       <body>
+       <div class="user">
+           <h3 class="user__title">Patients registration</h3>
+       
+           <form class="form">
+               <div class="form__group">
+                   <input type="text" placeholder="Username" class="form__input" @bind="userName"/>
+               </div>
+               <div class="form__group">
+                   <input type="password" placeholder="Password" class="form__input" @bind="password"/>
+               </div>
+       
+               <button class="registerbtn" type="button" @onclick="RegisterAsync">Register</button>
+       
+           </form>
             @if (!string.IsNullOrEmpty(errorLabel))
-            {
-                <div class="field">
-                    <label style="color: red">
-                        @errorLabel
-                    </label>
-                </div>
-            }
-            <div class="field">
-                <button class="registerbtn" @onclick="RegisterAsync">Register</button>
-            </div>
-        </div>
+                       {
+                           <div class="field">
+                               <label style="color: red">
+                                   @errorLabel
+                               </label>
+                           </div>
+                       }
+
+       </div>
+       </body>
     </NotAuthorized>
     <Authorized>
         <div class="card">
@@ -47,9 +50,9 @@
         errorLabel = "";
         try
         {
-            LoginDto dto = new LoginDto(userName, password);
+            RegisterPatientDto dto = new RegisterPatientDto(userName, password);
             
-            await authService.LoginPatientAsync(dto);
+            await authService.RegisterPatientAsync(dto);
             navMgr.NavigateTo("/");
         }
         catch (Exception e)

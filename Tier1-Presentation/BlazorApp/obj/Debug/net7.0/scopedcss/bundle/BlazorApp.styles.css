@@ -1,29 +1,135 @@
 /* _content/BlazorApp/Pages/DoctorLogin.razor.rz.scp.css */
-.card[b-5p8h5o0h8p] {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 250px;
-    padding: 25px;
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
+
+*[b-5p8h5o0h8p] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body[b-5p8h5o0h8p] {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-size: 200% 100% !important;
+    animation: move-b-5p8h5o0h8p 5s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    height: 100vh
+}
+
+.user[b-5p8h5o0h8p] {
+    width: 90%;
+    max-width: 340px;
+    margin: auto;
+}
+
+.user__title[b-5p8h5o0h8p] {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: -10px;
+    padding-top: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+
+.form[b-5p8h5o0h8p] {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive-b-5p8h5o0h8p 500ms ease-in-out 0.3s forwards;
+}
+
+.form--no[b-5p8h5o0h8p] {
+    animation: NO-b-5p8h5o0h8p 0.3s ease-in-out;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.form__input[b-5p8h5o0h8p] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+
+p[b-5p8h5o0h8p]{
+    padding: 20px;
+}
+
+
+.loginbtn[b-5p8h5o0h8p] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #ABA194;
+    transition: 0.3s;
+}
+
+.loginbtn:hover[b-5p8h5o0h8p] {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+    );
+
+}
+
+
+@keyframes NO-b-5p8h5o0h8p {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes arrive-b-5p8h5o0h8p {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move-b-5p8h5o0h8p {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }}
 
 .field[b-5p8h5o0h8p] {
     margin-top: 20px;
-}
-
-.loginbtn[b-5p8h5o0h8p] {
-    background-color:lightgreen;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.loginbtn:hover[b-5p8h5o0h8p]{
-    transform: scale(1.1);
-    box-shadow: 0 2px 10px 2px #3f3f3f;
 }
 /* _content/BlazorApp/Pages/DoctorRegister.razor.rz.scp.css */
 /*$font-family:"Roboto";
@@ -78,17 +184,14 @@ body[b-ahcwvo49y4] {
 .user[b-ahcwvo49y4] {
     width: 90%;
     max-width: 340px;
-    margin: 10vh auto;
-}
-
-.user__header[b-ahcwvo49y4] {
-    text-align: center;
+    margin: auto;
 }
 
 .user__title[b-ahcwvo49y4] {
     text-align: center;
     font-size: 20px;
     margin-bottom: -10px;
+    padding-top: 20px;
     font-weight: 500;
     color: white;
 }
@@ -99,11 +202,11 @@ body[b-ahcwvo49y4] {
     overflow: hidden;
     opacity: 0;
     transform: translate3d(0, 500px, 0);
-    animation: arrive-b-ahcwvo49y4 500ms ease-in-out 0.9s forwards;
+    animation: arrive-b-ahcwvo49y4 500ms ease-in-out 0.3s forwards;
 }
 
 .form--no[b-ahcwvo49y4] {
-    animation: NO-b-ahcwvo49y4 1s ease-in-out;
+    animation: NO-b-ahcwvo49y4 0.3s ease-in-out;
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
@@ -119,11 +222,7 @@ body[b-ahcwvo49y4] {
     transition: 0.3s;
 }
 
-.form__input:focus[b-ahcwvo49y4] {
-    background:  linear-gradient(
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.7));
-}
+
 
 
 
@@ -195,8 +294,9 @@ body[b-ahcwvo49y4] {
     margin-top: 20px;
 }
 /* _content/BlazorApp/Pages/Login.razor.rz.scp.css */
+
 *[b-c956fem5qt] {
-    margin: 0;
+    margin: auto;
     padding: 0;
     box-sizing: border-box;
 }
@@ -205,27 +305,22 @@ body[b-c956fem5qt] {
     font-family: "Roboto";
     font-size: 14px;
     background-size: 200% 100% !important;
-    animation: move-b-c956fem5qt 20s ease infinite;
+    animation: move-b-c956fem5qt 5s ease infinite;
     transform: translate3d(0, 0, 0);
     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
-    height: 90vh
-}
-
-.user[b-c956fem5qt] {
-    
-    width: 90%;
-    max-width: 340px;
-    margin: auto;
+    height: 100vh
 }
 
 
 .user__title[b-c956fem5qt] {
     text-align: center;
-    font-size: 40px;
-    margin-bottom: 30px;
+    font-size: 20px;
+    margin-bottom: -10px;
+    padding-top: 20px;
     font-weight: 500;
     color: white;
 }
+
 
 .loginbtn[b-c956fem5qt] {
     text-align: center;
@@ -295,6 +390,8 @@ body[b-c956fem5qt] {
 
 .field[b-c956fem5qt] {
     margin: auto;
+    display: grid;
+    gap:1rem;
 }
 /* _content/BlazorApp/Pages/LoginButtons.razor.rz.scp.css */
 
@@ -303,58 +400,264 @@ body[b-c956fem5qt] {
     cursor: pointer;
 }
 /* _content/BlazorApp/Pages/PatientLogin.razor.rz.scp.css */
-.card[b-el22sp8v1d] {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 250px;
-    padding: 25px;
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
+
+*[b-el22sp8v1d] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body[b-el22sp8v1d] {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-size: 200% 100% !important;
+    animation: move-b-el22sp8v1d 5s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    height: 100vh
+}
+
+.user[b-el22sp8v1d] {
+    width: 90%;
+    max-width: 340px;
+    margin: auto;
+}
+
+.user__title[b-el22sp8v1d] {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: -10px;
+    padding-top: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+
+.form[b-el22sp8v1d] {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive-b-el22sp8v1d 500ms ease-in-out 0.3s forwards;
+}
+
+.form--no[b-el22sp8v1d] {
+    animation: NO-b-el22sp8v1d 0.3s ease-in-out;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.form__input[b-el22sp8v1d] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+p[b-el22sp8v1d]{
+    padding: 20px;
+}
+
+.loginbtn[b-el22sp8v1d] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #ABA194;
+    transition: 0.3s;
+}
+
+.loginbtn:hover[b-el22sp8v1d] {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+    );
+
+}
+
+
+@keyframes NO-b-el22sp8v1d {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes arrive-b-el22sp8v1d {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move-b-el22sp8v1d {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }}
 
 .field[b-el22sp8v1d] {
     margin-top: 20px;
 }
-
-.loginbtn[b-el22sp8v1d] {
-    background-color:lightgreen;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.loginbtn:hover[b-el22sp8v1d]{
-    transform: scale(1.1);
-    box-shadow: 0 2px 10px 2px #3f3f3f;
-}
 /* _content/BlazorApp/Pages/PatientRegister.razor.rz.scp.css */
-.card[b-f4fqapsyqy] {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 250px;
-    padding: 25px;
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
+
+*[b-f4fqapsyqy] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body[b-f4fqapsyqy] {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-size: 200% 100% !important;
+    animation: move-b-f4fqapsyqy 5s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    height: 100vh
+}
+
+.user[b-f4fqapsyqy] {
+    width: 90%;
+    max-width: 340px;
+    margin: auto;
+}
+
+.user__title[b-f4fqapsyqy] {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: -10px;
+    padding-top: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.form[b-f4fqapsyqy] {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive-b-f4fqapsyqy 500ms ease-in-out 0.3s forwards;
+}
+
+.form--no[b-f4fqapsyqy] {
+    animation: NO-b-f4fqapsyqy 0.3s ease-in-out;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.form__input[b-f4fqapsyqy] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+
+
+
+.registerbtn[b-f4fqapsyqy] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #ABA194;
+    transition: 0.3s;
+}
+
+.registerbtn:hover[b-f4fqapsyqy] {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+    );
+
+}
+
+
+@keyframes NO-b-f4fqapsyqy {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes arrive-b-f4fqapsyqy {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move-b-f4fqapsyqy {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }}
 
 .field[b-f4fqapsyqy] {
     margin-top: 20px;
-}
-
-.loginbtn[b-f4fqapsyqy] {
-    background-color:lightgreen;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.loginbtn:hover[b-f4fqapsyqy]{
-    transform: scale(1.1);
-    box-shadow: 0 2px 10px 2px #3f3f3f;
 }
 /* _content/BlazorApp/Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dsd3z3yec] {

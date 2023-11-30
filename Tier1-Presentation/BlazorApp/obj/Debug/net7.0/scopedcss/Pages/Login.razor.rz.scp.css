@@ -1,5 +1,6 @@
+
 *[b-c956fem5qt] {
-    margin: 0;
+    margin: auto;
     padding: 0;
     box-sizing: border-box;
 }
@@ -8,27 +9,22 @@ body[b-c956fem5qt] {
     font-family: "Roboto";
     font-size: 14px;
     background-size: 200% 100% !important;
-    animation: move-b-c956fem5qt 20s ease infinite;
+    animation: move-b-c956fem5qt 5s ease infinite;
     transform: translate3d(0, 0, 0);
     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
-    height: 90vh
-}
-
-.user[b-c956fem5qt] {
-    
-    width: 90%;
-    max-width: 340px;
-    margin: auto;
+    height: 100vh
 }
 
 
 .user__title[b-c956fem5qt] {
     text-align: center;
-    font-size: 40px;
-    margin-bottom: 30px;
+    font-size: 20px;
+    margin-bottom: -10px;
+    padding-top: 20px;
     font-weight: 500;
     color: white;
 }
+
 
 .loginbtn[b-c956fem5qt] {
     text-align: center;
@@ -98,4 +94,6 @@ body[b-c956fem5qt] {
 
 .field[b-c956fem5qt] {
     margin: auto;
+    display: grid;
+    gap:1rem;
 }
