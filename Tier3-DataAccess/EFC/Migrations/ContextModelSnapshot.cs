@@ -16,7 +16,7 @@ namespace EFC.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
 
-            modelBuilder.Entity("Domain.Models.Booking", b =>
+            modelBuilder.Entity("Domain.Models.Appointment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -24,6 +24,9 @@ namespace EFC.Migrations
 
                     b.Property<string>("Date")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Diagnosis")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("DoctorId")

@@ -1,30 +1,18 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using BlazorApp.Data;
-using BlazorWasm.Auth;
-using BlazorWasm.Services;
-using BlazorWasm.Services.Http;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
-using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddHttpClient<IPatientService, PatientHttpClient>();
-builder.Services.AddScoped<IAuthService, JwtAuthService>();
-
-builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
+builder.Services.AddHttpClient<IBookingService, BookingHttpClient>();
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:8989")});
-// for future to include authorization
-//AuthorizationPolicies.AddPolicies(builder.Services);
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

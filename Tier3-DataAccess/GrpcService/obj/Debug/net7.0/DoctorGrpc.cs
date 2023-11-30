@@ -50,6 +50,10 @@ namespace GrpcService {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.DoctorResponse> __Marshaller_doctor_DoctorResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.DoctorVoid> __Marshaller_doctor_DoctorVoid = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorVoid.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.DoctorList> __Marshaller_doctor_DoctorList = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorList.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.DoctorId> __Marshaller_doctor_DoctorId = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorId.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -61,10 +65,18 @@ namespace GrpcService {
         __Marshaller_doctor_DoctorResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.DoctorId, global::GrpcService.DoctorObj> __Method_GetAsync = new grpc::Method<global::GrpcService.DoctorId, global::GrpcService.DoctorObj>(
+    static readonly grpc::Method<global::GrpcService.DoctorVoid, global::GrpcService.DoctorList> __Method_GetAsync = new grpc::Method<global::GrpcService.DoctorVoid, global::GrpcService.DoctorList>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetAsync",
+        __Marshaller_doctor_DoctorVoid,
+        __Marshaller_doctor_DoctorList);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.DoctorId, global::GrpcService.DoctorObj> __Method_GetByIdAsync = new grpc::Method<global::GrpcService.DoctorId, global::GrpcService.DoctorObj>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetByIdAsync",
         __Marshaller_doctor_DoctorId,
         __Marshaller_doctor_DoctorObj);
 
@@ -101,7 +113,13 @@ namespace GrpcService {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcService.DoctorObj> GetAsync(global::GrpcService.DoctorId request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.DoctorList> GetAsync(global::GrpcService.DoctorVoid request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.DoctorObj> GetByIdAsync(global::GrpcService.DoctorId request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -128,6 +146,7 @@ namespace GrpcService {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateAsync, serviceImpl.CreateAsync)
           .AddMethod(__Method_GetAsync, serviceImpl.GetAsync)
+          .AddMethod(__Method_GetByIdAsync, serviceImpl.GetByIdAsync)
           .AddMethod(__Method_UpdateAsync, serviceImpl.UpdateAsync)
           .AddMethod(__Method_DeleteAsync, serviceImpl.DeleteAsync).Build();
     }
@@ -140,7 +159,8 @@ namespace GrpcService {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, DoctorBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_CreateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorObj, global::GrpcService.DoctorResponse>(serviceImpl.CreateAsync));
-      serviceBinder.AddMethod(__Method_GetAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorId, global::GrpcService.DoctorObj>(serviceImpl.GetAsync));
+      serviceBinder.AddMethod(__Method_GetAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorVoid, global::GrpcService.DoctorList>(serviceImpl.GetAsync));
+      serviceBinder.AddMethod(__Method_GetByIdAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorId, global::GrpcService.DoctorObj>(serviceImpl.GetByIdAsync));
       serviceBinder.AddMethod(__Method_UpdateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorObj, global::GrpcService.DoctorResponse>(serviceImpl.UpdateAsync));
       serviceBinder.AddMethod(__Method_DeleteAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorId, global::GrpcService.DoctorResponse>(serviceImpl.DeleteAsync));
     }

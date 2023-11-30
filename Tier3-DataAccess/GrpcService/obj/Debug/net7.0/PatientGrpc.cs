@@ -48,6 +48,10 @@ namespace GrpcService {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.PatientObj> __Marshaller_patient_PatientObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.PatientObj.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.PatientVoid> __Marshaller_patient_PatientVoid = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.PatientVoid.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.PatientList> __Marshaller_patient_PatientList = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.PatientList.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.Name> __Marshaller_patient_Name = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.Name.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -57,6 +61,14 @@ namespace GrpcService {
         "CreateAsync",
         __Marshaller_patient_PatientObj,
         __Marshaller_patient_PatientObj);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.PatientVoid, global::GrpcService.PatientList> __Method_GetAsync = new grpc::Method<global::GrpcService.PatientVoid, global::GrpcService.PatientList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAsync",
+        __Marshaller_patient_PatientVoid,
+        __Marshaller_patient_PatientList);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcService.Name, global::GrpcService.PatientObj> __Method_GetUser = new grpc::Method<global::GrpcService.Name, global::GrpcService.PatientObj>(
@@ -83,6 +95,12 @@ namespace GrpcService {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.PatientList> GetAsync(global::GrpcService.PatientVoid request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GrpcService.PatientObj> GetUser(global::GrpcService.Name request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -97,6 +115,7 @@ namespace GrpcService {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateAsync, serviceImpl.CreateAsync)
+          .AddMethod(__Method_GetAsync, serviceImpl.GetAsync)
           .AddMethod(__Method_GetUser, serviceImpl.GetUser).Build();
     }
 
@@ -108,6 +127,7 @@ namespace GrpcService {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, PatientBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_CreateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.PatientObj, global::GrpcService.PatientObj>(serviceImpl.CreateAsync));
+      serviceBinder.AddMethod(__Method_GetAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.PatientVoid, global::GrpcService.PatientList>(serviceImpl.GetAsync));
       serviceBinder.AddMethod(__Method_GetUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.Name, global::GrpcService.PatientObj>(serviceImpl.GetUser));
     }
 

@@ -1,4 +1,5 @@
-﻿using Domain.DTOs;
+﻿using System.Collections;
+using Domain.DTOs;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -22,6 +23,13 @@ public class PatientDao : IPatientDao
         return newPatient.Entity;
     }
 
+    public async Task<IEnumerable<Patient>> GetAsync()
+    {
+        IQueryable<Patient> patientsQuery = context.Patients.AsQueryable();
+        List<Patient> patients = await patientsQuery.ToListAsync();
+        return patients;
+    }
+
     public async Task<IEnumerable<Patient>> GetAsync(PatientSearchDto dto)
     {
         IQueryable<Patient> patientsQuery = context.Patients.AsQueryable(); 
@@ -29,7 +37,6 @@ public class PatientDao : IPatientDao
         {
             patientsQuery = patientsQuery.Where(p => p.Name.ToLower().Contains(dto.NameContains.ToLower()));
         }
-
         IEnumerable<Patient> result = await patientsQuery.ToListAsync();
         return result;
     }

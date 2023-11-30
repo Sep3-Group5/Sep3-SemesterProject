@@ -6,6 +6,7 @@ package patient;
 
 service Patient {
   rpc CreateAsync (PatientObj) returns (PatientObj);
+  rpc GetAsync (PatientVoid) returns (PatientList);
   rpc GetUser (Name) returns (PatientObj);
 }
 
@@ -18,4 +19,12 @@ message PatientObj {
 
 message Name {
   string name = 1;
+}
+
+message PatientVoid {
+  
+}
+
+message PatientList {
+  repeated PatientObj patients = 1;
 }
