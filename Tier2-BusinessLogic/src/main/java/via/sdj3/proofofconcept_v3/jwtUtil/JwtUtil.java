@@ -21,6 +21,8 @@ public class JwtUtil {
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
+                .claim("username",username)
+                .claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name", username)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
                 .compact();

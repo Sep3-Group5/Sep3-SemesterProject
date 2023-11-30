@@ -25,7 +25,7 @@ public class PatientController {
     @PostMapping(value = "/Patient/Login")
     public ResponseEntity<Object> loginPatient(@RequestBody LoginDto dto) {
 
-            String username = authenticateUser(dto.getUserName(), dto.getPassword());
+            String username = authenticatePatient(dto.getUserName(), dto.getPassword());
 
             if (username != null) {
                 String token = jwtUtil.generateToken(username);
@@ -35,7 +35,7 @@ public class PatientController {
             }
     }
 
-    private String authenticateUser(String username, String password) {
+    private String authenticatePatient(String username, String password) {
         // Implement your logic to authenticate the user
         // Return username if authentication is successful, otherwise return null
         // For simplicity, you can use a hardcoded check, but in real-world scenarios, use a proper authentication mechanism
