@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/GrpcService/GrpcService.csproj": {}
+    "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\GrpcService\\GrpcService.csproj": {}
   },
   "projects": {
-    "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/Domain/Domain.csproj": {
+    "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/Domain/Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/Domain/Domain.csproj",
-        "packagesPath": "/Users/jakubkuka/.nuget/packages/",
-        "outputPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/Domain/obj/",
+        "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jakubkuka/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,21 +53,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/EFC/EFC.csproj": {
+    "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/EFC/EFC.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
         "projectName": "EFC",
-        "projectPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/EFC/EFC.csproj",
-        "packagesPath": "/Users/jakubkuka/.nuget/packages/",
-        "outputPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/EFC/obj/",
+        "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jakubkuka/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -79,8 +79,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/Domain/Domain.csproj": {
-                "projectPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/Domain/Domain.csproj"
+              "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj"
               }
             }
           }
@@ -126,21 +126,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/GrpcService/GrpcService.csproj": {
+    "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\GrpcService\\GrpcService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/GrpcService/GrpcService.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\GrpcService\\GrpcService.csproj",
         "projectName": "GrpcService",
-        "projectPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/GrpcService/GrpcService.csproj",
-        "packagesPath": "/Users/jakubkuka/.nuget/packages/",
-        "outputPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/GrpcService/obj/",
+        "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\GrpcService\\GrpcService.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\GrpcService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jakubkuka/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -152,8 +152,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/EFC/EFC.csproj": {
-                "projectPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier3-DataAccess/EFC/EFC.csproj"
+              "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj"
               }
             }
           }
@@ -198,7 +198,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

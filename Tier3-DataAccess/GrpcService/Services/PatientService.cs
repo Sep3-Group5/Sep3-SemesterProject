@@ -41,4 +41,28 @@ public class PatientService : Patient.PatientBase
             throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
         }
     }
+
+    public override async Task<PatientList> GetAsync(PatientVoid request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Domain.Models.Patient> patients = await service.GetAsync();
+            PatientList patientList = new PatientList();
+            foreach (Domain.Models.Patient p in patients)
+            {
+                PatientObj patientObj = new PatientObj()
+                {
+                    Id = p.Id,
+                    Name = p.Name
+                };
+                patientList.Patients.Add(patientObj);
+            }
+
+            return patientList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
+        }
+    }
 }
