@@ -3,7 +3,6 @@ package via.sdj3.proofofconcept_v3.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import via.sdj3.proofofconcept_v3.Dtos.AppointmentCreationDto;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
 import via.sdj3.proofofconcept_v3.service.AppointmentService;
 import via.sdj3.proofofconcept_v3.service.AppointmentServiceInterface;

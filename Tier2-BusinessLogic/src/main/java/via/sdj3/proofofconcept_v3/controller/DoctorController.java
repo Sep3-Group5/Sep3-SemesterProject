@@ -1,17 +1,16 @@
 package via.sdj3.proofofconcept_v3.controller;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.Dto.RegisterDoctorDto;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
 import via.sdj3.proofofconcept_v3.service.DoctorServiceInterface;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -49,14 +48,12 @@ public class DoctorController {
 			return ResponseEntity.status(401).body("Something went wrong");
 		}
 
-        	public DoctorController(DoctorService doctorService) {
-			this.doctorService = doctorService;
-		}
+	}
 
 		@PostMapping(value = "/doctors")
 		public ResponseEntity<Object> addDoctor (@RequestBody Doctor doctor){
 			try {
-				doctorService.addDoctor(doctor);
+				doctorInterface.addDoctor(doctor);
 				System.out.println("Doctor successfully added");
 				return ResponseEntity.ok().body(doctor);
 			} catch (Exception e) {
@@ -66,13 +63,13 @@ public class DoctorController {
 
 		@GetMapping("/doctors")
 		public ResponseEntity<List<Doctor>> getAllDoctors () {
-			List<Doctor> doctors = doctorService.getAllDoctors();
+			List<Doctor> doctors = doctorInterface.getAllDoctors();
 			return new ResponseEntity<>(doctors, HttpStatus.OK);
 		}
 
 		@GetMapping("/doctors/{id}")
 		public ResponseEntity<Object> getDoctorById ( @PathVariable("id") int id){
-			Optional<Doctor> doctor = doctorService.getDoctorById(id);
+			Optional<Doctor> doctor = doctorInterface.getDoctorById(id);
 			if (!doctor.isPresent()) {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
@@ -80,4 +77,3 @@ public class DoctorController {
 		}
 
 	}
-}
