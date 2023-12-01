@@ -49,6 +49,30 @@ public class PatientController {
             return ResponseEntity.status(401).body("Something went wrong");
         }
 
+            @PostMapping(value="/patients")
+    public ResponseEntity<Object> addPatient(@RequestBody Patient patient){
+        try {
+			patientService.addPatient(patient);
+			System.out.println("Patient successfully added");
+			return ResponseEntity.ok().body(patient);
+		}
+		catch (Exception e){
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
     }
 
+	@GetMapping("/patients")
+	public ResponseEntity<List<Patient>> getAllPatients(){
+		List<Patient> patients = patientService.getAllPatients();
+		return new ResponseEntity<>(patients, HttpStatus.OK);
+	}
+
+	@GetMapping("/patients/{id}")
+	public ResponseEntity<Object> getPatientById(@PathVariable ("id") int id){
+		Optional<Patient> patient = patientService.getPatientById(id);
+		if (!patient.isPresent()){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(patient.get(), HttpStatus.OK);
+	}
 }

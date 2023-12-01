@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();
 
 builder.Services.AddScoped<IPatientDao, PatientDao>();
+builder.Services.AddScoped<IDoctorDao, DoctorDao>();
+builder.Services.AddScoped<IAppointmentDao, AppointmentDao>();
 
 builder.Services.AddDbContext<Context>();
 

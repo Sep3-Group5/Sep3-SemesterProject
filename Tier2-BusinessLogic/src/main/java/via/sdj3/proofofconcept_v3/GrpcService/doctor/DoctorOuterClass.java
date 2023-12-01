@@ -20,10 +20,15 @@ public final class DoctorOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_doctor_DoctorObj_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_doctor_Name_descriptor;
+    internal_static_doctor_DoctorId_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_doctor_Name_fieldAccessorTable;
+      internal_static_doctor_DoctorId_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_doctor_DoctorResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_doctor_DoctorResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,14 +38,19 @@ public final class DoctorOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014doctor.proto\022\006doctor\"a\n\tDoctorObj\022\n\n\002i" +
-      "d\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\020\n\010username\030\003 \001(\t\022" +
-      "\026\n\016specialization\030\004 \001(\t\022\020\n\010password\030\005 \001(" +
-      "\t\"\024\n\004Name\022\014\n\004name\030\001 \001(\t2i\n\006Doctor\0223\n\013Cre" +
-      "ateAsync\022\021.doctor.DoctorObj\032\021.doctor.Doc" +
-      "torObj\022*\n\007GetUser\022\014.doctor.Name\032\021.doctor" +
-      ".DoctorObjB*\n&via.sdj3.proofofconcept_v3" +
-      ".GrpcServiceP\001b\006proto3"
+      "\n\014doctor.proto\022\006doctor\"x\n\tDoctorObj\022\n\n\002i" +
+      "d\030\001 \001(\005\022\020\n\010username\030\002 \001(\t\022\020\n\010password\030\003 " +
+      "\001(\t\022\020\n\010fullname\030\004 \001(\t\022\026\n\016specialization\030" +
+      "\005 \001(\t\022\021\n\tvalidated\030\006 \001(\010\"\026\n\010DoctorId\022\n\n\002" +
+      "id\030\001 \001(\005\"$\n\016DoctorResponse\022\022\n\nsuccessful" +
+      "\030\001 \001(\0102\341\001\n\006Doctor\0223\n\013CreateAsync\022\021.docto" +
+      "r.DoctorObj\032\021.doctor.DoctorObj\022/\n\010GetAsy" +
+      "nc\022\020.doctor.DoctorId\032\021.doctor.DoctorObj\022" +
+      "8\n\013UpdateAsync\022\021.doctor.DoctorObj\032\026.doct" +
+      "or.DoctorResponse\0227\n\013DeleteAsync\022\020.docto" +
+      "r.DoctorId\032\026.doctor.DoctorResponseB1\n-vi" +
+      "a.sdj3.proofofconcept_v3.GrpcService.doc" +
+      "torP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -51,13 +61,19 @@ public final class DoctorOuterClass {
     internal_static_doctor_DoctorObj_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_doctor_DoctorObj_descriptor,
-        new java.lang.String[] { "Id", "Name", "Username", "Specialization", "Password", });
-    internal_static_doctor_Name_descriptor =
+        new java.lang.String[] { "Id", "Username", "Password", "Fullname", "Specialization", "Validated", });
+    internal_static_doctor_DoctorId_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_doctor_Name_fieldAccessorTable = new
+    internal_static_doctor_DoctorId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_doctor_Name_descriptor,
-        new java.lang.String[] { "Name", });
+        internal_static_doctor_DoctorId_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_doctor_DoctorResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_doctor_DoctorResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_doctor_DoctorResponse_descriptor,
+        new java.lang.String[] { "Successful", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

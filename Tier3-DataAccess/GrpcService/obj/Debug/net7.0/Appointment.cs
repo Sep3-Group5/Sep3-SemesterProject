@@ -24,29 +24,30 @@ namespace GrpcService {
     static AppointmentReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFhcHBvaW50bWVudC5wcm90bxILYXBwb2ludG1lbnQicgoOQXBwb2ludG1l",
-            "bnRPYmoSCgoCaWQYASABKAUSEgoKcGF0aWVudF9pZBgCIAEoBRIRCglkb2N0",
-            "b3JfaWQYAyABKAUSDAoEZGF0ZRgEIAEoCRIMCgR0aW1lGAUgASgJEhEKCWRp",
-            "YWdub3NpcxgGIAEoCSIbCg1BcHBvaW50bWVudElkEgoKAmlkGAEgASgFIiwK",
-            "DkFwcG9pbnRtZW50RHRvEgwKBGRhdGUYASABKAkSDAoEdGltZRgCIAEoCSIp",
-            "ChNBcHBvaW50bWVudFJlc3BvbnNlEhIKCnN1Y2Nlc3NmdWwYASABKAgiEQoP",
-            "QXBwb2ludG1lbnRWb2lkIkQKD0FwcG9pbnRtZW50TGlzdBIxCgxhcHBvaW50",
-            "bWVudHMYASADKAsyGy5hcHBvaW50bWVudC5BcHBvaW50bWVudE9iajLSAwoL",
-            "QXBwb2ludG1lbnQSTAoLQ3JlYXRlQXN5bmMSGy5hcHBvaW50bWVudC5BcHBv",
-            "aW50bWVudE9iahogLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50UmVzcG9uc2US",
-            "RgoIR2V0QXN5bmMSHC5hcHBvaW50bWVudC5BcHBvaW50bWVudFZvaWQaHC5h",
-            "cHBvaW50bWVudC5BcHBvaW50bWVudExpc3QSRwoMR2V0QnlJZEFzeW5jEhou",
-            "YXBwb2ludG1lbnQuQXBwb2ludG1lbnRJZBobLmFwcG9pbnRtZW50LkFwcG9p",
-            "bnRtZW50T2JqEkkKDUdldEJ5RHRvQXN5bmMSGy5hcHBvaW50bWVudC5BcHBv",
-            "aW50bWVudER0bxobLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50T2JqEkwKC1Vw",
-            "ZGF0ZUFzeW5jEhsuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRPYmoaIC5hcHBv",
-            "aW50bWVudC5BcHBvaW50bWVudFJlc3BvbnNlEksKC0RlbGV0ZUFzeW5jEhou",
-            "YXBwb2ludG1lbnQuQXBwb2ludG1lbnRJZBogLmFwcG9pbnRtZW50LkFwcG9p",
-            "bnRtZW50UmVzcG9uc2VCDqoCC0dycGNTZXJ2aWNlYgZwcm90bzM="));
+            "ChFhcHBvaW50bWVudC5wcm90bxILYXBwb2ludG1lbnQiggEKDkFwcG9pbnRt",
+            "ZW50T2JqEgoKAmlkGAEgASgFEhIKCnBhdGllbnRfaWQYAiABKAUSEQoJZG9j",
+            "dG9yX2lkGAMgASgFEgwKBGRhdGUYBCABKAkSDAoEdGltZRgFIAEoCRIRCglk",
+            "aWFnbm9zaXMYBiABKAkSDgoGc3RhdHVzGAcgASgIIhsKDUFwcG9pbnRtZW50",
+            "SWQSCgoCaWQYASABKAUiLAoOQXBwb2ludG1lbnREdG8SDAoEZGF0ZRgBIAEo",
+            "CRIMCgR0aW1lGAIgASgJIikKE0FwcG9pbnRtZW50UmVzcG9uc2USEgoKc3Vj",
+            "Y2Vzc2Z1bBgBIAEoCCIRCg9BcHBvaW50bWVudFZvaWQiRAoPQXBwb2ludG1l",
+            "bnRMaXN0EjEKDGFwcG9pbnRtZW50cxgBIAMoCzIbLmFwcG9pbnRtZW50LkFw",
+            "cG9pbnRtZW50T2JqMs0DCgtBcHBvaW50bWVudBJHCgtDcmVhdGVBc3luYxIb",
+            "LmFwcG9pbnRtZW50LkFwcG9pbnRtZW50T2JqGhsuYXBwb2ludG1lbnQuQXBw",
+            "b2ludG1lbnRPYmoSRgoIR2V0QXN5bmMSHC5hcHBvaW50bWVudC5BcHBvaW50",
+            "bWVudFZvaWQaHC5hcHBvaW50bWVudC5BcHBvaW50bWVudExpc3QSRwoMR2V0",
+            "QnlJZEFzeW5jEhouYXBwb2ludG1lbnQuQXBwb2ludG1lbnRJZBobLmFwcG9p",
+            "bnRtZW50LkFwcG9pbnRtZW50T2JqEkkKDUdldEJ5RHRvQXN5bmMSGy5hcHBv",
+            "aW50bWVudC5BcHBvaW50bWVudER0bxobLmFwcG9pbnRtZW50LkFwcG9pbnRt",
+            "ZW50T2JqEkwKC1VwZGF0ZUFzeW5jEhsuYXBwb2ludG1lbnQuQXBwb2ludG1l",
+            "bnRPYmoaIC5hcHBvaW50bWVudC5BcHBvaW50bWVudFJlc3BvbnNlEksKC0Rl",
+            "bGV0ZUFzeW5jEhouYXBwb2ludG1lbnQuQXBwb2ludG1lbnRJZBogLmFwcG9p",
+            "bnRtZW50LkFwcG9pbnRtZW50UmVzcG9uc2VCDqoCC0dycGNTZXJ2aWNlYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentObj), global::GrpcService.AppointmentObj.Parser, new[]{ "Id", "PatientId", "DoctorId", "Date", "Time", "Diagnosis" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentObj), global::GrpcService.AppointmentObj.Parser, new[]{ "Id", "PatientId", "DoctorId", "Date", "Time", "Diagnosis", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentId), global::GrpcService.AppointmentId.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentDto), global::GrpcService.AppointmentDto.Parser, new[]{ "Date", "Time" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentResponse), global::GrpcService.AppointmentResponse.Parser, new[]{ "Successful" }, null, null, null, null),
@@ -98,6 +99,7 @@ namespace GrpcService {
       date_ = other.date_;
       time_ = other.time_;
       diagnosis_ = other.diagnosis_;
+      status_ = other.status_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -179,6 +181,18 @@ namespace GrpcService {
       }
     }
 
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 7;
+    private bool status_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Status {
+      get { return status_; }
+      set {
+        status_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -200,6 +214,7 @@ namespace GrpcService {
       if (Date != other.Date) return false;
       if (Time != other.Time) return false;
       if (Diagnosis != other.Diagnosis) return false;
+      if (Status != other.Status) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -213,6 +228,7 @@ namespace GrpcService {
       if (Date.Length != 0) hash ^= Date.GetHashCode();
       if (Time.Length != 0) hash ^= Time.GetHashCode();
       if (Diagnosis.Length != 0) hash ^= Diagnosis.GetHashCode();
+      if (Status != false) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -255,6 +271,10 @@ namespace GrpcService {
         output.WriteRawTag(50);
         output.WriteString(Diagnosis);
       }
+      if (Status != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(Status);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -289,6 +309,10 @@ namespace GrpcService {
         output.WriteRawTag(50);
         output.WriteString(Diagnosis);
       }
+      if (Status != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(Status);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -316,6 +340,9 @@ namespace GrpcService {
       }
       if (Diagnosis.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Diagnosis);
+      }
+      if (Status != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -346,6 +373,9 @@ namespace GrpcService {
       }
       if (other.Diagnosis.Length != 0) {
         Diagnosis = other.Diagnosis;
+      }
+      if (other.Status != false) {
+        Status = other.Status;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -386,6 +416,10 @@ namespace GrpcService {
             Diagnosis = input.ReadString();
             break;
           }
+          case 56: {
+            Status = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -423,6 +457,10 @@ namespace GrpcService {
           }
           case 50: {
             Diagnosis = input.ReadString();
+            break;
+          }
+          case 56: {
+            Status = input.ReadBool();
             break;
           }
         }

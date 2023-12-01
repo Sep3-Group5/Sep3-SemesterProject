@@ -15,29 +15,29 @@ public final class DoctorGrpc {
   public static final java.lang.String SERVICE_NAME = "doctor.Doctor";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<DoctorObj,
-          DoctorObj> getCreateAsyncMethod;
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> getCreateAsyncMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateAsync",
-      requestType = DoctorObj.class,
-      responseType = DoctorObj.class,
+      requestType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.class,
+      responseType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<DoctorObj,
-          DoctorObj> getCreateAsyncMethod() {
-    io.grpc.MethodDescriptor<DoctorObj, DoctorObj> getCreateAsyncMethod;
+  public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> getCreateAsyncMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> getCreateAsyncMethod;
     if ((getCreateAsyncMethod = DoctorGrpc.getCreateAsyncMethod) == null) {
       synchronized (DoctorGrpc.class) {
         if ((getCreateAsyncMethod = DoctorGrpc.getCreateAsyncMethod) == null) {
           DoctorGrpc.getCreateAsyncMethod = getCreateAsyncMethod =
-              io.grpc.MethodDescriptor.<DoctorObj, DoctorObj>newBuilder()
+              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateAsync"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  DoctorObj.getDefaultInstance()))
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  DoctorObj.getDefaultInstance()))
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.getDefaultInstance()))
               .setSchemaDescriptor(new DoctorMethodDescriptorSupplier("CreateAsync"))
               .build();
         }
@@ -46,35 +46,97 @@ public final class DoctorGrpc {
     return getCreateAsyncMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.Name,
-          DoctorObj> getGetUserMethod;
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> getGetAsyncMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetUser",
-      requestType = via.sdj3.proofofconcept_v3.GrpcService.Name.class,
-      responseType = DoctorObj.class,
+      fullMethodName = SERVICE_NAME + '/' + "GetAsync",
+      requestType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId.class,
+      responseType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.Name,
-          DoctorObj> getGetUserMethod() {
-    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.Name, DoctorObj> getGetUserMethod;
-    if ((getGetUserMethod = DoctorGrpc.getGetUserMethod) == null) {
+  public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> getGetAsyncMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> getGetAsyncMethod;
+    if ((getGetAsyncMethod = DoctorGrpc.getGetAsyncMethod) == null) {
       synchronized (DoctorGrpc.class) {
-        if ((getGetUserMethod = DoctorGrpc.getGetUserMethod) == null) {
-          DoctorGrpc.getGetUserMethod = getGetUserMethod =
-              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.Name, DoctorObj>newBuilder()
+        if ((getGetAsyncMethod = DoctorGrpc.getGetAsyncMethod) == null) {
+          DoctorGrpc.getGetAsyncMethod = getGetAsyncMethod =
+              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetUser"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAsync"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sdj3.proofofconcept_v3.GrpcService.Name.getDefaultInstance()))
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  DoctorObj.getDefaultInstance()))
-              .setSchemaDescriptor(new DoctorMethodDescriptorSupplier("GetUser"))
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.getDefaultInstance()))
+              .setSchemaDescriptor(new DoctorMethodDescriptorSupplier("GetAsync"))
               .build();
         }
       }
     }
-    return getGetUserMethod;
+    return getGetAsyncMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> getUpdateAsyncMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateAsync",
+      requestType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.class,
+      responseType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> getUpdateAsyncMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> getUpdateAsyncMethod;
+    if ((getUpdateAsyncMethod = DoctorGrpc.getUpdateAsyncMethod) == null) {
+      synchronized (DoctorGrpc.class) {
+        if ((getUpdateAsyncMethod = DoctorGrpc.getUpdateAsyncMethod) == null) {
+          DoctorGrpc.getUpdateAsyncMethod = getUpdateAsyncMethod =
+              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateAsync"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new DoctorMethodDescriptorSupplier("UpdateAsync"))
+              .build();
+        }
+      }
+    }
+    return getUpdateAsyncMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> getDeleteAsyncMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DeleteAsync",
+      requestType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId.class,
+      responseType = via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId,
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> getDeleteAsyncMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> getDeleteAsyncMethod;
+    if ((getDeleteAsyncMethod = DoctorGrpc.getDeleteAsyncMethod) == null) {
+      synchronized (DoctorGrpc.class) {
+        if ((getDeleteAsyncMethod = DoctorGrpc.getDeleteAsyncMethod) == null) {
+          DoctorGrpc.getDeleteAsyncMethod = getDeleteAsyncMethod =
+              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteAsync"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new DoctorMethodDescriptorSupplier("DeleteAsync"))
+              .build();
+        }
+      }
+    }
+    return getDeleteAsyncMethod;
   }
 
   /**
@@ -127,16 +189,30 @@ public final class DoctorGrpc {
 
     /**
      */
-    default void createAsync(DoctorObj request,
-                             io.grpc.stub.StreamObserver<DoctorObj> responseObserver) {
+    default void createAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateAsyncMethod(), responseObserver);
     }
 
     /**
      */
-    default void getUser(via.sdj3.proofofconcept_v3.GrpcService.Name request,
-        io.grpc.stub.StreamObserver<DoctorObj> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserMethod(), responseObserver);
+    default void getAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAsyncMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void updateAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateAsyncMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void deleteAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteAsyncMethod(), responseObserver);
     }
   }
 
@@ -169,18 +245,34 @@ public final class DoctorGrpc {
 
     /**
      */
-    public void createAsync(DoctorObj request,
-                            io.grpc.stub.StreamObserver<DoctorObj> responseObserver) {
+    public void createAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateAsyncMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getUser(via.sdj3.proofofconcept_v3.GrpcService.Name request,
-        io.grpc.stub.StreamObserver<DoctorObj> responseObserver) {
+    public void getAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetUserMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetAsyncMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateAsyncMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void deleteAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteAsyncMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -202,16 +294,30 @@ public final class DoctorGrpc {
 
     /**
      */
-    public DoctorObj createAsync(DoctorObj request) {
+    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj createAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateAsyncMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public DoctorObj getUser(via.sdj3.proofofconcept_v3.GrpcService.Name request) {
+    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj getAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetUserMethod(), getCallOptions(), request);
+          getChannel(), getGetAsyncMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse updateAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateAsyncMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse deleteAsync(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteAsyncMethod(), getCallOptions(), request);
     }
   }
 
@@ -233,23 +339,41 @@ public final class DoctorGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<DoctorObj> createAsync(
-        DoctorObj request) {
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> createAsync(
+        via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateAsyncMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<DoctorObj> getUser(
-        via.sdj3.proofofconcept_v3.GrpcService.Name request) {
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj> getAsync(
+        via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetUserMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetAsyncMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> updateAsync(
+        via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateAsyncMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse> deleteAsync(
+        via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteAsyncMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_CREATE_ASYNC = 0;
-  private static final int METHODID_GET_USER = 1;
+  private static final int METHODID_GET_ASYNC = 1;
+  private static final int METHODID_UPDATE_ASYNC = 2;
+  private static final int METHODID_DELETE_ASYNC = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -269,12 +393,20 @@ public final class DoctorGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_ASYNC:
-          serviceImpl.createAsync((DoctorObj) request,
-              (io.grpc.stub.StreamObserver<DoctorObj>) responseObserver);
+          serviceImpl.createAsync((via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj>) responseObserver);
           break;
-        case METHODID_GET_USER:
-          serviceImpl.getUser((via.sdj3.proofofconcept_v3.GrpcService.Name) request,
-              (io.grpc.stub.StreamObserver<DoctorObj>) responseObserver);
+        case METHODID_GET_ASYNC:
+          serviceImpl.getAsync((via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj>) responseObserver);
+          break;
+        case METHODID_UPDATE_ASYNC:
+          serviceImpl.updateAsync((via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse>) responseObserver);
+          break;
+        case METHODID_DELETE_ASYNC:
+          serviceImpl.deleteAsync((via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -298,16 +430,30 @@ public final class DoctorGrpc {
           getCreateAsyncMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-                    DoctorObj,
-                    DoctorObj>(
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj,
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj>(
                 service, METHODID_CREATE_ASYNC)))
         .addMethod(
-          getGetUserMethod(),
+          getGetAsyncMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              via.sdj3.proofofconcept_v3.GrpcService.Name,
-                    DoctorObj>(
-                service, METHODID_GET_USER)))
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId,
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj>(
+                service, METHODID_GET_ASYNC)))
+        .addMethod(
+          getUpdateAsyncMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj,
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse>(
+                service, METHODID_UPDATE_ASYNC)))
+        .addMethod(
+          getDeleteAsyncMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorId,
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorResponse>(
+                service, METHODID_DELETE_ASYNC)))
         .build();
   }
 
@@ -317,7 +463,7 @@ public final class DoctorGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return DoctorOuterClass.getDescriptor();
+      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.getDescriptor();
     }
 
     @java.lang.Override
@@ -357,7 +503,9 @@ public final class DoctorGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new DoctorFileDescriptorSupplier())
               .addMethod(getCreateAsyncMethod())
-              .addMethod(getGetUserMethod())
+              .addMethod(getGetAsyncMethod())
+              .addMethod(getUpdateAsyncMethod())
+              .addMethod(getDeleteAsyncMethod())
               .build();
         }
       }

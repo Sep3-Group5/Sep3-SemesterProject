@@ -13,7 +13,7 @@ public class AppointmentService : Appointment.AppointmentBase
         this.service = service;
     }
 
-    public override async Task<AppointmentResponse> CreateAsync(AppointmentObj request, ServerCallContext context)
+    public override async Task<AppointmentObj> CreateAsync(AppointmentObj request, ServerCallContext context)
     {
         try
         {
@@ -26,12 +26,17 @@ public class AppointmentService : Appointment.AppointmentBase
                 Time = request.Time,
                 Diagnosis = request.Diagnosis
             };
-            await service.CreateAsync(addingAppointment);
-            AppointmentResponse response = new AppointmentResponse()
+            Domain.Models.Appointment addedAppointment = await service.CreateAsync(addingAppointment);
+            AppointmentObj appointmentObj = new AppointmentObj()
             {
-                Successful = true
+                Id = addedAppointment.Id,
+                Date = addedAppointment.Date,
+                Diagnosis = addedAppointment.Diagnosis,
+                DoctorId = addedAppointment.DoctorId,
+                PatientId = addedAppointment.PatientId,
+                Time = addedAppointment.Time
             };
-            return response;
+            return appointmentObj;
         }
         catch (Exception e)
         {
@@ -54,7 +59,8 @@ public class AppointmentService : Appointment.AppointmentBase
                     DoctorId = a.DoctorId,
                     Date = a.Date,
                     Time = a.Time,
-                    Diagnosis = a.Diagnosis
+                    Diagnosis = a.Diagnosis,
+                    // Status = a.Status
                 };
                 appointmentList.Appointments.Add(appointmentObj);
             }
@@ -80,7 +86,8 @@ public class AppointmentService : Appointment.AppointmentBase
                 DoctorId = fetchedAppointment.DoctorId,
                 Date = fetchedAppointment.Date,
                 Time = fetchedAppointment.Time,
-                Diagnosis = fetchedAppointment.Diagnosis
+                Diagnosis = fetchedAppointment.Diagnosis,
+                // Status = fetchedAppointment.Status
             };
             return appointmentObj;
         }

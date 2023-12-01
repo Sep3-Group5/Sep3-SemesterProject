@@ -5,7 +5,7 @@ option csharp_namespace = "GrpcService";
 package appointment;
 
 service Appointment {
-    rpc CreateAsync (AppointmentObj) returns (AppointmentResponse);
+    rpc CreateAsync (AppointmentObj) returns (AppointmentObj);
     rpc GetAsync (AppointmentVoid) returns (AppointmentList);
     rpc GetByIdAsync (AppointmentId) returns (AppointmentObj);
     rpc GetByDtoAsync (AppointmentDto) returns (AppointmentObj);
@@ -20,6 +20,7 @@ message AppointmentObj {
     string date = 4;
     string time = 5;
     string diagnosis = 6;
+    bool status = 7;
 }
 
 message AppointmentId {

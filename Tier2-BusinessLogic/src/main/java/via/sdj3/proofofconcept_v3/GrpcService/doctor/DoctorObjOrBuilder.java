@@ -14,50 +14,56 @@ public interface DoctorObjOrBuilder extends
   int getId();
 
   /**
-   * <code>string name = 2;</code>
-   * @return The name.
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 2;</code>
-   * @return The bytes for name.
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
-
-  /**
-   * <code>string username = 3;</code>
+   * <code>string username = 2;</code>
    * @return The username.
    */
   java.lang.String getUsername();
   /**
-   * <code>string username = 3;</code>
+   * <code>string username = 2;</code>
    * @return The bytes for username.
    */
   com.google.protobuf.ByteString
       getUsernameBytes();
 
   /**
-   * <code>string specialization = 4;</code>
+   * <code>string password = 3;</code>
+   * @return The password.
+   */
+  java.lang.String getPassword();
+  /**
+   * <code>string password = 3;</code>
+   * @return The bytes for password.
+   */
+  com.google.protobuf.ByteString
+      getPasswordBytes();
+
+  /**
+   * <code>string fullname = 4;</code>
+   * @return The fullname.
+   */
+  java.lang.String getFullname();
+  /**
+   * <code>string fullname = 4;</code>
+   * @return The bytes for fullname.
+   */
+  com.google.protobuf.ByteString
+      getFullnameBytes();
+
+  /**
+   * <code>string specialization = 5;</code>
    * @return The specialization.
    */
   java.lang.String getSpecialization();
   /**
-   * <code>string specialization = 4;</code>
+   * <code>string specialization = 5;</code>
    * @return The bytes for specialization.
    */
   com.google.protobuf.ByteString
       getSpecializationBytes();
 
   /**
-   * <code>string password = 5;</code>
-   * @return The password.
+   * <code>bool validated = 6;</code>
+   * @return The validated.
    */
-  java.lang.String getPassword();
-  /**
-   * <code>string password = 5;</code>
-   * @return The bytes for password.
-   */
-  com.google.protobuf.ByteString
-      getPasswordBytes();
+  boolean getValidated();
 }

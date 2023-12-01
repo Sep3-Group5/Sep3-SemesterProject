@@ -13,19 +13,19 @@ public class GRPCPatientClientImpl implements PatientClient {
     private PatientGrpc.PatientBlockingStub patientBlockingStub;
 
     public PatientGrpc.PatientBlockingStub getPatientBlockingStub() {
-        if (patientBlockingStub == null) {
-            ManagedChannel managedChannel = ManagedChannelBuilder
-                    .forAddress("localhost", 5021)
-                    .usePlaintext()
-                    .build();
-            patientBlockingStub = PatientGrpc.newBlockingStub(managedChannel);
-        }
-        return patientBlockingStub;
-    }
+		if (patientBlockingStub == null) {
+			ManagedChannel managedChannel = ManagedChannelBuilder
+				.forAddress("localhost", 5021)
+				.usePlaintext()
+				.build();
+			patientBlockingStub = PatientGrpc.newBlockingStub(managedChannel);
+		}
+		return patientBlockingStub;
+	}
 
     @Override
     public Patient addPatient(Patient patient) {
-        PatientObj patientObj = PatientObj.newBuilder().setId(patient.getId()).setName(patient.getName()).build();
+        PatientObj patientObj = PatientObj.newBuilder().setId(patient.getPatientId()).setName(patient.getFullName()).build();
 
         PatientObj patientObjFromServer;
         try{
@@ -42,14 +42,14 @@ public class GRPCPatientClientImpl implements PatientClient {
         System.out.println(patientObjFromServer.getName());
 
         Patient realObj = getPatient(patientObjFromServer);
-        System.out.println(realObj.getName());
+        System.out.println(realObj.getFullName());
         return realObj;
     }
 
     private Patient getPatient(PatientObj patientObjFromServer) {
         Patient returnedPatient = new Patient();
-        returnedPatient.setId(patientObjFromServer.getId());
-        returnedPatient.setName(patientObjFromServer.getName());
+        returnedPatient.setPatientId(patientObjFromServer.getId());
+        returnedPatient.setFullName(patientObjFromServer.getName());
         return returnedPatient;
     }
 }
