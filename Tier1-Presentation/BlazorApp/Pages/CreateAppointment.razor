@@ -95,7 +95,7 @@
 
         try
         {
-            AppointmentCreationDto dto = new(1,1, 1, appointmentDate.ToString(), selectedAppointmentTime.ToString()); //select somehow the user that created this post
+            AppointmentCreationDto dto = new(5,1, 1, appointmentDate.ToString(), selectedAppointmentTime.ToString()); //select somehow the user that created this post
             await AppointmentService.CreateAsync(dto);
             NavMgr.NavigateTo("/");
         }
