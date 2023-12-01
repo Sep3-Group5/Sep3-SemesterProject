@@ -153,3 +153,14 @@ C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\pr
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\PatientRegister.razor.rz.scp.css
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\LoginButtons.razor.rz.scp.css
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\DoctorLogin.razor.rz.scp.css
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\DoctorRegister.razor.rz.scp.css
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\LoginButtons.razor.rz.scp.css
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\PatientLogin.razor.rz.scp.css
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\PatientRegister.razor.rz.scp.css
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\bin\Debug\net7.0\Microsoft.AspNetCore.Components.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\bin\Debug\net7.0\Microsoft.AspNetCore.Components.Authorization.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\bin\Debug\net7.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
