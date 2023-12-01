@@ -18,7 +18,7 @@ public class PatientController {
     private PatientServiceInterface patientService;
     private JwtUtil jwtUtil;
 
-    public PatientController(PatientServiceInterface patientService,JwtUtil jwtUtil) {
+    public PatientController(PatientService patientService,JwtUtil jwtUtil) {
         this.patientService = patientService;
         this.jwtUtil = jwtUtil;
     }
