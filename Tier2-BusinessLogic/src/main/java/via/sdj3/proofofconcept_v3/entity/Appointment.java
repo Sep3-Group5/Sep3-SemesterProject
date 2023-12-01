@@ -28,12 +28,12 @@ public class Appointment {
 	@Column
 	private boolean status;
 
-	public Appointment(int doctorId, int patientId, String date, String time, String diagnosis) {
+	public Appointment(int id, int doctorId, int patientId, String date, String time) {
+		this.appointmentId = id;
 		this.doctorId = doctorId;
 		this.patientId = patientId;
 		this.date = date;
 		this.time = time;
-		this.diagnosis = diagnosis;
 	}
 
 	public Appointment() {
