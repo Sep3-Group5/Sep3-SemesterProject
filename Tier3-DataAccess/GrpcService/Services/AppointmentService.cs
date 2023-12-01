@@ -60,7 +60,7 @@ public class AppointmentService : Appointment.AppointmentBase
                     Date = a.Date,
                     Time = a.Time,
                     Diagnosis = a.Diagnosis,
-                    Status = a.Status
+                    // Status = a.Status
                 };
                 appointmentList.Appointments.Add(appointmentObj);
             }
@@ -87,7 +87,7 @@ public class AppointmentService : Appointment.AppointmentBase
                 Date = fetchedAppointment.Date,
                 Time = fetchedAppointment.Time,
                 Diagnosis = fetchedAppointment.Diagnosis,
-                Status = fetchedAppointment.Status
+                // Status = fetchedAppointment.Status
             };
             return appointmentObj;
         }
