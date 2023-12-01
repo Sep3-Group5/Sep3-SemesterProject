@@ -3297,19 +3297,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/jakubkuka/.nuget/packages/": {}
+    "C:\\Users\\37062\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/BlazorApp.csproj",
+      "projectUniqueName": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\BlazorApp\\BlazorApp.csproj",
       "projectName": "BlazorApp",
-      "projectPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/BlazorApp.csproj",
-      "packagesPath": "/Users/jakubkuka/.nuget/packages/",
-      "outputPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/BlazorApp/obj/",
+      "projectPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\BlazorApp\\BlazorApp.csproj",
+      "packagesPath": "C:\\Users\\37062\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\BlazorApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jakubkuka/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\37062\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3321,8 +3321,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/HttpClients/HttpClients.csproj": {
-              "projectPath": "/Users/jakubkuka/Desktop/school/Third semester/proofOfConcept_v4/Tier1-Presentation/HttpClients/HttpClients.csproj"
+            "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\HttpClients\\HttpClients.csproj": {
+              "projectPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\HttpClients\\HttpClients.csproj"
             }
           }
         }
@@ -3369,7 +3369,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
