@@ -12,12 +12,14 @@ public class Doctor {
 		this.fullName = fullName;
 		this.userName = userName;
 		this.specialization = specialization;
-		this.validated = validated;
-		this.id = id;
 		this.password = password;
 	}
 
 	public Doctor() {
+	}
+	public Doctor(int id, boolean validated) {
+		this.validated = validated;
+		this.id = id;
 	}
 
 	public String getFullName() {
