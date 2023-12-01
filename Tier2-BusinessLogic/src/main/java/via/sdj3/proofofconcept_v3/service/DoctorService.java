@@ -6,6 +6,7 @@ import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.grpcClient.doctor.DoctorClient;
 import via.sdj3.proofofconcept_v3.repository.DoctorRepository;
 
+import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -51,13 +52,17 @@ public class DoctorService implements DoctorServiceInterface{
     public Doctor registerDoctor(String name, String username, String specialization, String password) {
         // check username/password constraints
 
-        // construct doctor object
-        Doctor doctor = new Doctor();
+        // check if already exists
+
+
+        Doctor doctor = new Doctor(name,username,specialization,password,false);
+
 
         try
         {
             // Send doctor to database
-            throw new ExecutionControl.NotImplementedException("not implemented yet");
+            client.addDoctor(doctor);
+            return doctor;
         }
         catch (Exception e)
         {

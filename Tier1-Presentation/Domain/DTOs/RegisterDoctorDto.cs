@@ -2,14 +2,14 @@ namespace Domain.DTOs;
 
 public class RegisterDoctorDto
 {
-    public string Username { get; }
-    public string Password { get; }
-    public string FullName { get; }
-    public string Specialization { get; }
+    public string UserName { get;set; }
+    public string Password { get; set; }
+    public string FullName { get; set; }
+    public string Specialization { get; set; }
 
     public RegisterDoctorDto(string username, string password, string fullName, string specialization)
     {
-        Username = username;
+        UserName = username;
         Password = password;
         FullName = fullName;
         Specialization = specialization;

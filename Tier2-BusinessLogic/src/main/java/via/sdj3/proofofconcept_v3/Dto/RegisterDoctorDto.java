@@ -1,11 +1,18 @@
 package via.sdj3.proofofconcept_v3.Dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class RegisterDoctorDto {
+    @JsonProperty("UserName")
     private String UserName;
+
+    @JsonProperty("Password")
     private String Password;
 
+    @JsonProperty("FullName")
     private String FullName;
 
+    @JsonProperty("Specialization")
     private String Specialization;
 
 
@@ -14,6 +21,9 @@ public class RegisterDoctorDto {
         this.UserName = username;
         this.Specialization = specialization;
         this.Password = password;
+    }
+
+    public RegisterDoctorDto() {
     }
 
     public String getName() {

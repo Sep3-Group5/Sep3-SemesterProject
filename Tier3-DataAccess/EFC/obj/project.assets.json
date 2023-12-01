@@ -1282,19 +1282,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {}
+    "C:\\Users\\37062\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
+      "projectUniqueName": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
       "projectName": "EFC",
-      "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\obj\\",
+      "projectPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\EFC.csproj",
+      "packagesPath": "C:\\Users\\37062\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier3-DataAccess\\EFC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\37062\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1306,8 +1306,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj"
+            "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj"
             }
           }
         }
@@ -1353,7 +1353,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

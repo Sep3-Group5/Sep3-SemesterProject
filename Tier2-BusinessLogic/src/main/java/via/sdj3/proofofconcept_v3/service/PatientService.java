@@ -52,12 +52,11 @@ public class PatientService implements PatientServiceInterface{
        // check username/password constraints
 
         // construct patient object
-        Patient patient = new Patient();
-
+        Patient patient = new Patient(username,username,password);
         try
         {
-            // Send patient to database
-            throw new ExecutionControl.NotImplementedException("not implemented yet");
+            patientClient.addPatient(patient);
+            return patient;
         }
         catch (Exception e)
         {
