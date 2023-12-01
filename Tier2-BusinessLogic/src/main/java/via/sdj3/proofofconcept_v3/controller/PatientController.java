@@ -19,7 +19,7 @@ public class PatientController {
     private PatientServiceInterface patientService;
     private JwtUtil jwtUtil;
 
-    public PatientController(PatientServiceInterface patientService,JwtUtil jwtUtil) {
+    public PatientController(PatientService patientService,JwtUtil jwtUtil) {
         this.patientService = patientService;
         this.jwtUtil = jwtUtil;
     }
@@ -52,7 +52,7 @@ public class PatientController {
     @PostMapping(value="/patients")
     public ResponseEntity<Object> addPatient(@RequestBody Patient patient){
         try {
-			patientService.addPatient(patient);
+			//patientService.addPatient(patient);
 			System.out.println("Patient successfully added");
 			return ResponseEntity.ok().body(patient);
 		}

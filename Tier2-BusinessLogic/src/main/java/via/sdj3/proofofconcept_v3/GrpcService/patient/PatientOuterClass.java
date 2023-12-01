@@ -19,9 +19,9 @@ public final class PatientOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_patient_PatientObj_fieldAccessorTable;
-  public static final com.google.protobuf.Descriptors.Descriptor
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_patient_Name_descriptor;
-  public static final
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_patient_Name_fieldAccessorTable;
 

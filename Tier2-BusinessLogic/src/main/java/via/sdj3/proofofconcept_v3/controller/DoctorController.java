@@ -8,6 +8,7 @@ import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.Dto.RegisterDoctorDto;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
+import via.sdj3.proofofconcept_v3.service.DoctorService;
 import via.sdj3.proofofconcept_v3.service.DoctorServiceInterface;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class DoctorController {
     private DoctorServiceInterface doctorInterface;
     private JwtUtil jwtUtil;
 
-    public DoctorController(@Qualifier("doctorService") DoctorServiceInterface doctorInterface, JwtUtil jwtUtil) {
+    public DoctorController(@Qualifier("doctorService") DoctorService doctorInterface, JwtUtil jwtUtil) {
         this.doctorInterface = doctorInterface;
         this.jwtUtil = jwtUtil;
     }
