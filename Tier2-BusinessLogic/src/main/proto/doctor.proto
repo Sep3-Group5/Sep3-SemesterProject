@@ -8,9 +8,9 @@ package doctor;
 service Doctor {
 	rpc CreateAsync (DoctorObj) returns (DoctorObj);
 	rpc GetAsync (DoctorId) returns (DoctorObj);
-	rpc GetLogginAsync (DoctorLogginObj) returns (DoctorLogginObj);
 	rpc UpdateAsync (DoctorObj) returns (DoctorResponse);
 	rpc DeleteAsync (DoctorId) returns (DoctorResponse);
+	rpc GetValidatedAsync (DoctorVoid) returns (DoctorList);
 }
 
 message DoctorObj {
@@ -22,15 +22,18 @@ message DoctorObj {
 	bool validated = 6;
 }
 
-message DoctorLogginObj {
-	string username = 1;
-	string password = 2;
-}
-
 message DoctorId {
 	int32 id = 1;
 }
 
 message DoctorResponse {
 	bool successful = 1;
+}
+
+message DoctorVoid {
+
+}
+
+message DoctorList {
+	repeated DoctorObj doctors = 1;
 }

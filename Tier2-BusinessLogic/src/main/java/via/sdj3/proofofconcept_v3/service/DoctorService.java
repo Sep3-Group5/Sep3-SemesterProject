@@ -65,6 +65,11 @@ public class DoctorService implements DoctorServiceInterface{
         }
         return null;
     }
+
+    @Override
+    public List<Doctor> getListOfValidatedDoctors() {
+        return client.getValidatedAsync();
+    }
 }
 
 

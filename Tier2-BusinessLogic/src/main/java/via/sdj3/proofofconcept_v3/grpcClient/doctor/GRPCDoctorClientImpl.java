@@ -4,12 +4,15 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.springframework.stereotype.Service;
-import via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorGrpc;
-import via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj;
+import via.sdj3.proofofconcept_v3.Dto.LoginDto;
+import via.sdj3.proofofconcept_v3.GrpcService.doctor.*;
 import via.sdj3.proofofconcept_v3.GrpcService.patient.PatientGrpc;
 import via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
+import via.sdj3.proofofconcept_v3.grpcClient.ConvertGrpc;
+
+import java.util.List;
 
 @Service
 public class GRPCDoctorClientImpl implements DoctorClient{
@@ -55,6 +58,19 @@ public class GRPCDoctorClientImpl implements DoctorClient{
 		return realObj;
 	}
 
+	@Override
+	public List<Doctor> getValidatedAsync() {
+		DoctorVoid doctorVoid1 = DoctorVoid.newBuilder().build();
+		DoctorList list = getDoctorBlockingStub().getValidatedAsync(doctorVoid1);
+		List<Doctor> doctorList = null;
+		try {
+			doctorList = ConvertGrpc.getListOfDoctorFromListOfGrpcDoctorObjects(list.getDoctorsList());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return doctorList;
+	}
+
 	private Doctor getDoctor(DoctorObj doctorFromServer) {
 		Doctor returnedDoctor = new Doctor();
 		returnedDoctor.setId(doctorFromServer.getId());
@@ -65,5 +81,7 @@ public class GRPCDoctorClientImpl implements DoctorClient{
         returnedDoctor.setValidated(doctorFromServer.getValidated());
 		return returnedDoctor;
 	}
+
+
 }
 

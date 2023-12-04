@@ -14,5 +14,6 @@ public interface DoctorServiceInterface {
     Doctor registerDoctor(String name, String username, String specialization, String password);
     List<Doctor> getAllDoctors();
 	Optional<Doctor> getDoctorById(int id);
+    List<Doctor> getListOfValidatedDoctors();
 
 }

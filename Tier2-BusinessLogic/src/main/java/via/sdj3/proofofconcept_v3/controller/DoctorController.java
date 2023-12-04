@@ -68,6 +68,12 @@ public class DoctorController {
 			return new ResponseEntity<>(doctors, HttpStatus.OK);
 		}
 
+		@GetMapping("/doctors/test")
+		public ResponseEntity<List<Doctor>> getValidatedDoctors () {
+		List<Doctor> doctors = doctorInterface.getListOfValidatedDoctors();
+		return new ResponseEntity<>(doctors, HttpStatus.OK);
+		}
+
 		@GetMapping("/doctors/{id}")
 		public ResponseEntity<Object> getDoctorById ( @PathVariable("id") int id){
 			Optional<Doctor> doctor = doctorInterface.getDoctorById(id);
