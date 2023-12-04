@@ -4,5 +4,5 @@ namespace HttpClients.ClientInterfaces;
 
 public interface IDoctorService
 {
-    Task<IEnumerable<Doctor>> GetDoctorsAsync(string? usernameContains = null);
+    Task<IEnumerable<Doctor>> GetValidatedDoctorsAsync();
 }

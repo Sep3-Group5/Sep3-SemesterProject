@@ -7,9 +7,9 @@ public class Doctor
     public string Password { get; }
     public string FullName { get; }
     public string Specialization { get; }
-    public int Validated { get; }
+    public bool Validated { get; }
 
-    public Doctor(int id, string username, string password, string fullName, string specialization, int validated)
+    public Doctor(string fullName, string username, string password, string specialization, int id, bool validated)
     {
         this.Id = id;
         this.Username = username;

@@ -3,56 +3,69 @@
 @using Domain.Models
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
+@using BlazorWasm.Services
 @inject IDoctorService DoctorService
 @inject IAppointmentService AppointmentService
 @inject NavigationManager NavMgr
+@inject IAuthService authService
 
 <div class="card">
-    <h3>CreateBooking</h3>
-    @* <div class="form-group field"> *@
-    @*     <label>Doctor:</label> *@
-    @*     <select @bind="selectedDoctorId"> *@
-    @*         <option>Choose</option> *@
-    @*         @foreach (Doctor doctor in doctors) *@
-    @*         { *@
-    @*             <option value="@doctor.Id">@doctor.Username</option> *@
-    @*         } *@
-    @*     </select> *@
-    @* </div> *@
-    <div class="form-group field">
-        <label>Date:</label>
-        <InputDate @bind-Value="appointmentDate"/>
-    </div>
-    <div class="form-group field">
-        <label>Time:</label>
-        <select @bind="selectedAppointmentTime">
-            <option>Choose</option>
-            @* @foreach (Appointment appointment in appointments) *@
-            @* { *@
-            @*     $1$ if (appointment.IsAvailable(selectedDoctorId, appointmentDate)) #1# *@
-            @*     $1$ { #1# *@
-            @*     $1$     <option value="@appointment.Id">@appointment.Time</option> #1# *@
-            @*     $1$ } #1# *@
-            @*     <option value="@appointment.Id">@appointment.Time</option> *@
-            @* } *@
-            <option value="9">9:00</option>
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
-            <option value="13">13:00</option>
-            <option value="14">14:00</option>
-            <option value="15">15:00</option>
-            <option value="16">16:00</option>
-            <option value="17">17:00</option>
-        </select>
-    </div>
-    <div class="button-row">
-        @if (!string.IsNullOrEmpty(msg))
-        {
-            <label style="color: red">@msg</label>
-        }
-        <button @onclick="Create" class="acceptbtn">Create</button>
-    </div>
+@if (doctors == null)
+    {
+        <label>Loading users...</label>
+    }
+    else if (!doctors.Any())
+    {
+        <label>No users, you cannot create a post without assignee.</label>
+    }
+    else
+    {
+        <h3>CreateBooking</h3>
+        <div class="form-group field">
+            <label>Doctor:</label>
+            <select @bind="selectedDoctorId">
+                <option>Choose</option>
+                @foreach (Doctor doctor in doctors)
+                {
+                    <option value="@doctor.Id">@doctor.FullName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group field">
+            <label>Date:</label>
+            <InputDate @bind-Value="appointmentDate"/>
+        </div>
+        <div class="form-group field">
+            <label>Time:</label>
+            <select @bind="selectedAppointmentTime">
+                <option>Choose</option>
+                @* @foreach (Appointment appointment in appointments) *@
+                @* { *@
+                @*     $1$ if (appointment.IsAvailable(selectedDoctorId, appointmentDate)) #1# *@
+                @*     $1$ { #1# *@
+                @*     $1$     <option value="@appointment.Id">@appointment.Time</option> #1# *@
+                @*     $1$ } #1# *@
+                @*     <option value="@appointment.Id">@appointment.Time</option> *@
+                @* } *@
+                <option value="9">9:00</option>
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+            </select>
+        </div>
+        <div class="button-row">
+            @if (!string.IsNullOrEmpty(msg))
+            {
+                <label style="color: red">@msg</label>
+            }
+            <button @onclick="Create" class="acceptbtn">Create</button>
+        </div>
+    }
 </div>
 
 @code {
@@ -61,6 +74,7 @@
     private int? selectedDoctorId;
     private DateOnly appointmentDate;
     private TimeOnly selectedAppointmentTime;
+    
 
     private string msg = "";
 
@@ -69,7 +83,7 @@
         msg = "";
         try
         {
-            // doctors = await DoctorService.GetDoctorsAsync();
+            doctors = await DoctorService.GetValidatedDoctorsAsync();
         }
         catch (Exception e)
         {
@@ -82,11 +96,11 @@
     {
         msg = "";
         
-        // if (selectedDoctorId == null)
-        // {
-        //     msg = "You must select a doctor!";
-        //     return;
-        // }
+        if (selectedDoctorId == null)
+        {
+            msg = "You must select a doctor!";
+            return;
+        }
 
         if (selectedAppointmentTime == null)
         {
@@ -95,7 +109,7 @@
 
         try
         {
-            AppointmentCreationDto dto = new(5,1, 1, appointmentDate.ToString(), selectedAppointmentTime.ToString()); //select somehow the user that created this post
+            AppointmentCreationDto dto = new(5,(int)selectedDoctorId, 1, appointmentDate.ToString(), selectedAppointmentTime.ToString()); //select somehow the user that created this post
             await AppointmentService.CreateAsync(dto);
             NavMgr.NavigateTo("/");
         }
