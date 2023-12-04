@@ -8,6 +8,7 @@ service Patient {
   rpc CreateAsync (PatientObj) returns (PatientObj);
   rpc GetAsync (PatientVoid) returns (PatientList);
   rpc GetUser (Name) returns (PatientObj);
+  rpc LoginAsPatient (PatientLogin) returns (PatientObj);
 }
 
 
@@ -27,4 +28,9 @@ message PatientVoid {
 
 message PatientList {
   repeated PatientObj patients = 1;
+}
+
+message PatientLogin{
+  string username = 1;
+  string password = 2;
 }

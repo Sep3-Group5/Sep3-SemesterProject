@@ -77,6 +77,37 @@ public final class PatientGrpc {
     return getGetUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin,
+      via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj> getLoginAsPatientMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "LoginAsPatient",
+      requestType = via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin.class,
+      responseType = via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin,
+      via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj> getLoginAsPatientMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin, via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj> getLoginAsPatientMethod;
+    if ((getLoginAsPatientMethod = PatientGrpc.getLoginAsPatientMethod) == null) {
+      synchronized (PatientGrpc.class) {
+        if ((getLoginAsPatientMethod = PatientGrpc.getLoginAsPatientMethod) == null) {
+          PatientGrpc.getLoginAsPatientMethod = getLoginAsPatientMethod =
+              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin, via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "LoginAsPatient"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj.getDefaultInstance()))
+              .setSchemaDescriptor(new PatientMethodDescriptorSupplier("LoginAsPatient"))
+              .build();
+        }
+      }
+    }
+    return getLoginAsPatientMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class PatientGrpc {
         io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void loginAsPatient(via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getLoginAsPatientMethod(), responseObserver);
+    }
   }
 
   /**
@@ -182,6 +220,14 @@ public final class PatientGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void loginAsPatient(via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getLoginAsPatientMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -212,6 +258,13 @@ public final class PatientGrpc {
     public via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj getUser(via.sdj3.proofofconcept_v3.GrpcService.patient.Name request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj loginAsPatient(via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getLoginAsPatientMethod(), getCallOptions(), request);
     }
   }
 
@@ -246,10 +299,19 @@ public final class PatientGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetUserMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj> loginAsPatient(
+        via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getLoginAsPatientMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_ASYNC = 0;
   private static final int METHODID_GET_USER = 1;
+  private static final int METHODID_LOGIN_AS_PATIENT = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -274,6 +336,10 @@ public final class PatientGrpc {
           break;
         case METHODID_GET_USER:
           serviceImpl.getUser((via.sdj3.proofofconcept_v3.GrpcService.patient.Name) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj>) responseObserver);
+          break;
+        case METHODID_LOGIN_AS_PATIENT:
+          serviceImpl.loginAsPatient((via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin) request,
               (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj>) responseObserver);
           break;
         default:
@@ -308,6 +374,13 @@ public final class PatientGrpc {
               via.sdj3.proofofconcept_v3.GrpcService.patient.Name,
               via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj>(
                 service, METHODID_GET_USER)))
+        .addMethod(
+          getLoginAsPatientMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              via.sdj3.proofofconcept_v3.GrpcService.patient.PatientLogin,
+              via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj>(
+                service, METHODID_LOGIN_AS_PATIENT)))
         .build();
   }
 
@@ -358,6 +431,7 @@ public final class PatientGrpc {
               .setSchemaDescriptor(new PatientFileDescriptorSupplier())
               .addMethod(getCreateAsyncMethod())
               .addMethod(getGetUserMethod())
+              .addMethod(getLoginAsPatientMethod())
               .build();
         }
       }

@@ -4,8 +4,10 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.springframework.stereotype.Service;
-import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.GrpcService.doctor.*;
+import via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorGrpc;
+import via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogin;
+import via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorObj;
 import via.sdj3.proofofconcept_v3.GrpcService.patient.PatientGrpc;
 import via.sdj3.proofofconcept_v3.GrpcService.patient.PatientObj;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
@@ -70,6 +72,32 @@ public class GRPCDoctorClientImpl implements DoctorClient{
 		}
 		return doctorList;
 	}
+
+	public Doctor authenticateDoctor(String username, String pswd) {
+		DoctorLogin doctorObj = DoctorLogin.newBuilder()
+				.setUsername(username)
+				.setPassword(pswd)
+				.build();
+
+		DoctorObj doctorObjFromServer;
+		try{
+			doctorObjFromServer = getDoctorBlockingStub().loginAsDoctor(doctorObj);
+		}
+		catch (StatusRuntimeException e) {
+			System.out.println(e.getStatus().getDescription());
+			throw new RuntimeException(e.getStatus().getDescription());
+		}
+		finally {
+			doctorBlockingStub = null;
+		}
+
+		System.out.println(doctorObjFromServer.getFullname());
+		Doctor realObj = getDoctor(doctorObjFromServer);
+		System.out.println(realObj.getFullName());
+		return realObj;
+
+	}
+
 
 	private Doctor getDoctor(DoctorObj doctorFromServer) {
 		Doctor returnedDoctor = new Doctor();

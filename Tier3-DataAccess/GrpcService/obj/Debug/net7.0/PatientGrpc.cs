@@ -53,6 +53,8 @@ namespace GrpcService {
     static readonly grpc::Marshaller<global::GrpcService.PatientList> __Marshaller_patient_PatientList = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.PatientList.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.Name> __Marshaller_patient_Name = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.Name.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.PatientLogin> __Marshaller_patient_PatientLogin = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.PatientLogin.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcService.PatientObj, global::GrpcService.PatientObj> __Method_CreateAsync = new grpc::Method<global::GrpcService.PatientObj, global::GrpcService.PatientObj>(
@@ -76,6 +78,14 @@ namespace GrpcService {
         __ServiceName,
         "GetUser",
         __Marshaller_patient_Name,
+        __Marshaller_patient_PatientObj);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.PatientLogin, global::GrpcService.PatientObj> __Method_LoginAsPatient = new grpc::Method<global::GrpcService.PatientLogin, global::GrpcService.PatientObj>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "LoginAsPatient",
+        __Marshaller_patient_PatientLogin,
         __Marshaller_patient_PatientObj);
 
     /// <summary>Service descriptor</summary>
@@ -106,6 +116,12 @@ namespace GrpcService {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.PatientObj> LoginAsPatient(global::GrpcService.PatientLogin request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -116,7 +132,8 @@ namespace GrpcService {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateAsync, serviceImpl.CreateAsync)
           .AddMethod(__Method_GetAsync, serviceImpl.GetAsync)
-          .AddMethod(__Method_GetUser, serviceImpl.GetUser).Build();
+          .AddMethod(__Method_GetUser, serviceImpl.GetUser)
+          .AddMethod(__Method_LoginAsPatient, serviceImpl.LoginAsPatient).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -129,6 +146,7 @@ namespace GrpcService {
       serviceBinder.AddMethod(__Method_CreateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.PatientObj, global::GrpcService.PatientObj>(serviceImpl.CreateAsync));
       serviceBinder.AddMethod(__Method_GetAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.PatientVoid, global::GrpcService.PatientList>(serviceImpl.GetAsync));
       serviceBinder.AddMethod(__Method_GetUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.Name, global::GrpcService.PatientObj>(serviceImpl.GetUser));
+      serviceBinder.AddMethod(__Method_LoginAsPatient, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.PatientLogin, global::GrpcService.PatientObj>(serviceImpl.LoginAsPatient));
     }
 
   }

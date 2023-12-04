@@ -8,6 +8,7 @@ package patient;
 service Patient {
   rpc CreateAsync (PatientObj) returns (PatientObj);
   rpc GetUser (Name) returns (PatientObj);
+  rpc LoginAsPatient (PatientLogin) returns (PatientObj);
 }
 
 
@@ -19,4 +20,9 @@ message PatientObj {
 
 message Name {
   string name = 1;
+}
+
+message PatientLogin{
+  string username = 1;
+  string password = 2;
 }

@@ -2,6 +2,8 @@ package via.sdj3.proofofconcept_v3.service;
 
 import org.springframework.stereotype.Service;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
+
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
 import java.util.Optional;
 

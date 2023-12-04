@@ -11,4 +11,5 @@ import java.util.List;
 public interface DoctorClient {
 	Doctor addDoctor(Doctor doctor);
 	List<Doctor> getValidatedAsync();
+	Doctor authenticateDoctor(String username, String pswd);
 }

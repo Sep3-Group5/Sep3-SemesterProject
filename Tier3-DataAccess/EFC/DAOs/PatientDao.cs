@@ -72,4 +72,20 @@ public class PatientDao : IPatientDao
         context.Patients.Remove(existing);
         await context.SaveChangesAsync();
     }
+
+    public Task<Patient?> LoginAsPatient(string username, string paswd)
+    {
+        throw new NotImplementedException();
+        /*
+        Patient? patient = await context.Patients.FirstOrDefaultAsync(patient =>
+            patient.Name.Equals(username) && patient.Password.Equals(paswd));
+
+        if (patient == null)
+        {
+            throw new Exception("Username or password incorrect");
+        }
+        
+        return patient;
+        */
+    }
 }
