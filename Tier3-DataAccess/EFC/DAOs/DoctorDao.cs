@@ -59,4 +59,22 @@ public class DoctorDao : IDoctorDao
         context.Doctors.Remove(existing);
         await context.SaveChangesAsync();
     }
+
+    public async Task<Doctor?> LoginAsDoctor(string username, string paswd)
+    {
+        Doctor? doctor = await context.Doctors.FirstOrDefaultAsync(doctor =>
+            doctor.Username.Equals(username) && doctor.Password.Equals(paswd));
+
+        if (doctor == null)
+        {
+            throw new Exception("Username or password incorrect");
+        }
+        
+        if (!doctor.Validated)
+        {
+            throw new Exception("Doctor account is not validated yet, please contact the administration.");
+        }
+        
+        return doctor;
+    }
 }

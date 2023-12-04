@@ -11,6 +11,7 @@ service Doctor {
 	rpc GetLogginAsync (DoctorLogginObj) returns (DoctorLogginObj);
 	rpc UpdateAsync (DoctorObj) returns (DoctorResponse);
 	rpc DeleteAsync (DoctorId) returns (DoctorResponse);
+	rpc LoginAsDoctor (DoctorLogin) returns (DoctorObj);
 }
 
 message DoctorObj {
@@ -33,4 +34,9 @@ message DoctorId {
 
 message DoctorResponse {
 	bool successful = 1;
+}
+
+message DoctorLogin{
+	string username = 1;
+	string password = 2;
 }

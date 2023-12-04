@@ -1,11 +1,14 @@
 package via.sdj3.proofofconcept_v3.service;
 
 import jdk.jshell.spi.ExecutionControl;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.grpcClient.doctor.DoctorClient;
+import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
 import via.sdj3.proofofconcept_v3.repository.DoctorRepository;
 
+import javax.annotation.Nullable;
 import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +18,14 @@ import java.util.Optional;
 public class DoctorService implements DoctorServiceInterface{
     private DoctorRepository doctorRepository;
 
+    private JwtUtil jwtUtil;
+
     private final DoctorClient client;
 
-    public DoctorService(DoctorClient doctorClient) {
-        this.client = doctorClient;}
+    public DoctorService(DoctorClient doctorClient,JwtUtil jwtUtil) {
+        this.client = doctorClient;
+        this.jwtUtil = jwtUtil;
+    }
 
     // METHODS //
 
@@ -39,13 +46,24 @@ public class DoctorService implements DoctorServiceInterface{
 
     public String authenticateDoctor(String username, String password) {
         // Implement your logic to authenticate the user
-        // Return username if authentication is successful, otherwise return null
-        // For simplicity, you can use a hardcoded check, but in real-world scenarios, use a proper authentication mechanism
-        if ("test2".equals(username) && "test2".equals(password)) {
-            return username;
-        } else {
-            return null;
+        try
+        {
+            Doctor doctor = client.authenticateDoctor(username, password);
+
+            if (doctor != null) {
+                String token = jwtUtil.generateDoctorToken(doctor);
+                return token;
+            } else {
+                return null;
+            }
+
         }
+        catch (Exception e)
+        {
+            throw e;
+        }
+
+
     }
 
     @Override
