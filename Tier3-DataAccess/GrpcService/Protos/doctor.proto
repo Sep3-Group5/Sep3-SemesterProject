@@ -10,6 +10,7 @@ service Doctor {
     rpc GetByIdAsync (DoctorId) returns (DoctorObj);
     rpc UpdateAsync (DoctorObj) returns (DoctorResponse);
     rpc DeleteAsync (DoctorId) returns (DoctorResponse);
+    rpc GetValidatedAsync (DoctorVoid) returns (DoctorList);
 }
 
 message DoctorObj {

@@ -66,6 +66,37 @@ public class DoctorService : Doctor.DoctorBase
             throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
         }
     }
+    
+    public override async Task<DoctorList> GetValidatedAsync(DoctorVoid request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Domain.Models.Doctor> doctors = await service.GetAsync();
+            DoctorList doctorList = new DoctorList();
+            foreach (Domain.Models.Doctor d in doctors)
+            {
+                if (d.Validated)
+                {
+                    DoctorObj doctorObj = new DoctorObj()
+                    {
+                        Id = d.Id,
+                        Username = d.Username,
+                        Password = d.Password,
+                        Fullname = d.FullName,
+                        Specialization = d.Specialization,
+                        Validated = d.Validated
+                    };
+                    doctorList.Doctors.Add(doctorObj);
+                }
+            }
+
+            return doctorList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
+        }
+    }
 
     public override async Task<DoctorObj> GetByIdAsync(DoctorId request, ServerCallContext context)
     {
