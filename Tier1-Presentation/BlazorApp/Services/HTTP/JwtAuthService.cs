@@ -17,12 +17,18 @@ public class JwtAuthService : IAuthService
 
     // this private variable for simple caching
     public static string? Jwt { get; private set; } = "";
+    
+    public static Dictionary<string, object>? ClaimsMap { get; private set; }
+
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
 
     public async Task LoginDoctorAsync(LoginDto userLoginDto)
     {
 
+        
+        
+        
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
 
@@ -37,6 +43,8 @@ public class JwtAuthService : IAuthService
         string token = responseContent;
         Jwt = token;
         System.Console.WriteLine(Jwt);
+        ClaimsMap = ParseClaimsFromJwtAsDictionary(token);
+        
         ClaimsPrincipal principal = CreateClaimsPrincipal();
 
         OnAuthStateChanged.Invoke(principal);
@@ -67,22 +75,21 @@ public class JwtAuthService : IAuthService
 
     private static ClaimsPrincipal CreateClaimsPrincipal()
     {
-        if (string.IsNullOrEmpty(Jwt))
+        if (ClaimsMap == null || ClaimsMap.Count == 0)
         {
             return new ClaimsPrincipal();
         }
 
-        IEnumerable<Claim> claims = ParseClaimsFromJwt(Jwt);
-        
-        ClaimsIdentity identity = new(claims, "jwt");
+        ClaimsIdentity identity = new ClaimsIdentity(ClaimsMap.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString())), "jwt");
 
-        ClaimsPrincipal principal = new(identity);
+        ClaimsPrincipal principal = new ClaimsPrincipal(identity);
         return principal;
     }
 
     public Task LogoutAsync()
     {
         Jwt = null;
+        ClaimsMap = null;
         ClaimsPrincipal principal = new();
         OnAuthStateChanged.Invoke(principal);
         return Task.CompletedTask;
@@ -129,6 +136,18 @@ public class JwtAuthService : IAuthService
         byte[] jsonBytes = ParseBase64WithoutPadding(payload);
         Dictionary<string, object>? keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
         return keyValuePairs!.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString()!));
+    }
+    
+    private static Dictionary<string, object> ParseClaimsFromJwtAsDictionary(string jwt)
+    {
+        string payload = jwt.Split('.')[1];
+        byte[] jsonBytes = ParseBase64WithoutPadding(payload);
+        Dictionary<string, object>? keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+        return keyValuePairs ?? new Dictionary<string, object>();
+    }
+    private static IEnumerable<Claim> ParseClaimsFromMap(Dictionary<string, string> claimsMap)
+    {
+        return claimsMap.Select(kvp => new Claim(kvp.Key, kvp.Value));
     }
 
     private static byte[] ParseBase64WithoutPadding(string base64)
