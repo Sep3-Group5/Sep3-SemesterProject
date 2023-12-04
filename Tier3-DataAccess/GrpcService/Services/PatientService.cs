@@ -65,4 +65,35 @@ public class PatientService : Patient.PatientBase
             throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
         }
     }
+    
+   /*
+    public override async Task<PatientObj> LoginAsPatient(PatientLogin obj, ServerCallContext context)
+    {
+        
+        
+        string username, pswd;
+        username = obj.Username;
+        pswd = obj.Password;
+    
+        try
+        {
+            Domain.Models.Patient? patient = await service.LoginAsPatient(username,pswd);
+
+            PatientObj patientObj = new PatientObj()
+            {
+                Username = patient.Username,
+                Password = "",
+                Fullname = patient.FullName,
+                Id = patient.Id,
+            };
+
+            return await Task.FromResult(patientObj);
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+        
+    }
+    */
 }

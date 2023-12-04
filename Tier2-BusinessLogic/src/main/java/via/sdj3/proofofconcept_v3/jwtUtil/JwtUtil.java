@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
+import via.sdj3.proofofconcept_v3.entity.Patient;
 
 import java.security.SecureRandom;
 import java.util.Date;
@@ -31,6 +32,22 @@ public class JwtUtil {
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
                 .compact();
+    }
+
+    public String generatePatientToken(Patient patient) {
+        return null;
+        /*
+        return Jwts.builder()
+                .setSubject("doctor")
+                .claim("username",patient.getUserName())
+                .claim("id",patient.getId())
+                .claim("fullName",patient.getFullName())
+                .claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name", patient.getFullName())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
+                .compact();
+
+         */
     }
 
     public  String extractUsername(String token) {

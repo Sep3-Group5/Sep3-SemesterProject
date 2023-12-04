@@ -14,4 +14,5 @@ public interface PatientServiceInterface {
     Patient registerPatient(String username, String password);
     List<Patient> getAllPatients();
 	Optional<Patient> getPatientById(int id);
+
 }

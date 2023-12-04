@@ -53,3 +53,14 @@ C:/Users/darja/Documents/FROM OTHER DOCUMENTS FOLDER/GitHub/proofOfConcept_v4/pr
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier1-Presentation/Domain/obj/Debug/net7.0/refint/Domain.dll
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier1-Presentation/Domain/obj/Debug/net7.0/Domain.pdb
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier1-Presentation/Domain/obj/Debug/net7.0/ref/Domain.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\bin\Debug\net7.0\Domain.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\bin\Debug\net7.0\Domain.pdb
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\Domain.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\Domain.pdb
+C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\Domain\obj\Debug\net7.0\ref\Domain.dll
