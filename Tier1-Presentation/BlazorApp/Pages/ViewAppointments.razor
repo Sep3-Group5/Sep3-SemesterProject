@@ -10,8 +10,6 @@
 @if (appointments == null)
 {
 }
-
-
 else if (!appointments.Any())
 	{
 		<p>No Appointments to display</p>
@@ -41,7 +39,6 @@ else{
 				<td>@appointment.Status</td>
 				<td>@appointment.Date</td>
 				<td>@appointment.Time</td>
-				<!-- btn to readirect to individual post page -->
 			</tr>
 		}
 		</tbody>
@@ -56,7 +53,6 @@ else{
 @code {
 	private IEnumerable<Appointment> appointments;
 	private string msg = "";
-
 
 	private int idFilter;
 	private int patientIdFilter;
