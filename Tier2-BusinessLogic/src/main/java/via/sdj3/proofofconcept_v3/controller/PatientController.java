@@ -30,8 +30,9 @@ public class PatientController {
             String username = patientService.authenticatePatient(dto.getUserName(), dto.getPassword());
 
             if (username != null) {
-                String token = jwtUtil.generateToken(username);
-                return ResponseEntity.ok(token);
+                //String token = jwtUtil.generateToken(username);
+                //return ResponseEntity.ok(token);
+                return ResponseEntity.status(400).body("Unimplemented");
             } else {
                 return ResponseEntity.status(401).body("Invalid credentials");
             }
