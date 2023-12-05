@@ -4,27 +4,26 @@
 package via.sdj3.proofofconcept_v3.GrpcService.doctor;
 
 /**
- * Protobuf type {@code doctor.DoctorLogginObj}
+ * Protobuf type {@code doctor.DoctorUsername}
  */
-public  final class DoctorLogginObj extends
+public  final class DoctorUsername extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:doctor.DoctorLogginObj)
-    DoctorLogginObjOrBuilder {
+    // @@protoc_insertion_point(message_implements:doctor.DoctorUsername)
+    DoctorUsernameOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use DoctorLogginObj.newBuilder() to construct.
-  private DoctorLogginObj(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use DoctorUsername.newBuilder() to construct.
+  private DoctorUsername(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private DoctorLogginObj() {
+  private DoctorUsername() {
     username_ = "";
-    password_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new DoctorLogginObj();
+    return new DoctorUsername();
   }
 
   @java.lang.Override
@@ -32,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DoctorLogginObj(
+  private DoctorUsername(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,16 +49,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            username_ = s;
-            break;
-          }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            password_ = s;
+            username_ = s;
             break;
           }
           default: {
@@ -83,21 +76,21 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorLogginObj_descriptor;
+    return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorUsername_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorLogginObj_fieldAccessorTable
+    return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorUsername_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj.class, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj.Builder.class);
+            via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername.class, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername.Builder.class);
   }
 
-  public static final int USERNAME_FIELD_NUMBER = 1;
+  public static final int USERNAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object username_;
   /**
-   * <code>string username = 1;</code>
+   * <code>string username = 2;</code>
    * @return The username.
    */
   public java.lang.String getUsername() {
@@ -113,7 +106,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string username = 1;</code>
+   * <code>string username = 2;</code>
    * @return The bytes for username.
    */
   public com.google.protobuf.ByteString
@@ -124,42 +117,6 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       username_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PASSWORD_FIELD_NUMBER = 2;
-  private volatile java.lang.Object password_;
-  /**
-   * <code>string password = 2;</code>
-   * @return The password.
-   */
-  public java.lang.String getPassword() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      password_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string password = 2;</code>
-   * @return The bytes for password.
-   */
-  public com.google.protobuf.ByteString
-      getPasswordBytes() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      password_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -181,10 +138,7 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getUsernameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
-    }
-    if (!getPasswordBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, username_);
     }
     unknownFields.writeTo(output);
   }
@@ -196,10 +150,7 @@ private static final long serialVersionUID = 0L;
 
     size = 0;
     if (!getUsernameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
-    }
-    if (!getPasswordBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, username_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -211,15 +162,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj)) {
+    if (!(obj instanceof via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername)) {
       return super.equals(obj);
     }
-    via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj other = (via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj) obj;
+    via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername other = (via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername) obj;
 
     if (!getUsername()
         .equals(other.getUsername())) return false;
-    if (!getPassword()
-        .equals(other.getPassword())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -233,76 +182,74 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USERNAME_FIELD_NUMBER;
     hash = (53 * hash) + getUsername().hashCode();
-    hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-    hash = (53 * hash) + getPassword().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(byte[] data)
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(java.io.InputStream input)
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseDelimitedFrom(java.io.InputStream input)
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseDelimitedFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parseFrom(
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -315,7 +262,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj prototype) {
+  public static Builder newBuilder(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -331,26 +278,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code doctor.DoctorLogginObj}
+   * Protobuf type {@code doctor.DoctorUsername}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:doctor.DoctorLogginObj)
-      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObjOrBuilder {
+      // @@protoc_insertion_point(builder_implements:doctor.DoctorUsername)
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsernameOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorLogginObj_descriptor;
+      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorUsername_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorLogginObj_fieldAccessorTable
+      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorUsername_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj.class, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj.Builder.class);
+              via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername.class, via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername.Builder.class);
     }
 
-    // Construct using via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj.newBuilder()
+    // Construct using via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -370,25 +317,23 @@ private static final long serialVersionUID = 0L;
       super.clear();
       username_ = "";
 
-      password_ = "";
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorLogginObj_descriptor;
+      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorOuterClass.internal_static_doctor_DoctorUsername_descriptor;
     }
 
     @java.lang.Override
-    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj getDefaultInstanceForType() {
-      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj.getDefaultInstance();
+    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername getDefaultInstanceForType() {
+      return via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername.getDefaultInstance();
     }
 
     @java.lang.Override
-    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj build() {
-      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj result = buildPartial();
+    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername build() {
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -396,10 +341,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj buildPartial() {
-      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj result = new via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj(this);
+    public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername buildPartial() {
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername result = new via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername(this);
       result.username_ = username_;
-      result.password_ = password_;
       onBuilt();
       return result;
     }
@@ -438,22 +382,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj) {
-        return mergeFrom((via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj)other);
+      if (other instanceof via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername) {
+        return mergeFrom((via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj other) {
-      if (other == via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj.getDefaultInstance()) return this;
+    public Builder mergeFrom(via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername other) {
+      if (other == via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername.getDefaultInstance()) return this;
       if (!other.getUsername().isEmpty()) {
         username_ = other.username_;
-        onChanged();
-      }
-      if (!other.getPassword().isEmpty()) {
-        password_ = other.password_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -471,11 +411,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj parsedMessage = null;
+      via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj) e.getUnfinishedMessage();
+        parsedMessage = (via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -487,7 +427,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object username_ = "";
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 2;</code>
      * @return The username.
      */
     public java.lang.String getUsername() {
@@ -503,7 +443,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 2;</code>
      * @return The bytes for username.
      */
     public com.google.protobuf.ByteString
@@ -520,7 +460,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 2;</code>
      * @param value The username to set.
      * @return This builder for chaining.
      */
@@ -535,7 +475,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearUsername() {
@@ -545,7 +485,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 2;</code>
      * @param value The bytes for username to set.
      * @return This builder for chaining.
      */
@@ -557,82 +497,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       username_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object password_ = "";
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @param value The password to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPassword(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      password_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPassword() {
-      
-      password_ = getDefaultInstance().getPassword();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @param value The bytes for password to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPasswordBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      password_ = value;
       onChanged();
       return this;
     }
@@ -649,41 +513,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:doctor.DoctorLogginObj)
+    // @@protoc_insertion_point(builder_scope:doctor.DoctorUsername)
   }
 
-  // @@protoc_insertion_point(class_scope:doctor.DoctorLogginObj)
-  private static final via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:doctor.DoctorUsername)
+  private static final via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj();
+    DEFAULT_INSTANCE = new via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername();
   }
 
-  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj getDefaultInstance() {
+  public static via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<DoctorLogginObj>
-      PARSER = new com.google.protobuf.AbstractParser<DoctorLogginObj>() {
+  private static final com.google.protobuf.Parser<DoctorUsername>
+      PARSER = new com.google.protobuf.AbstractParser<DoctorUsername>() {
     @java.lang.Override
-    public DoctorLogginObj parsePartialFrom(
+    public DoctorUsername parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DoctorLogginObj(input, extensionRegistry);
+      return new DoctorUsername(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<DoctorLogginObj> parser() {
+  public static com.google.protobuf.Parser<DoctorUsername> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<DoctorLogginObj> getParserForType() {
+  public com.google.protobuf.Parser<DoctorUsername> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorLogginObj getDefaultInstanceForType() {
+  public via.sdj3.proofofconcept_v3.GrpcService.doctor.DoctorUsername getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -77,4 +77,16 @@ public class DoctorDao : IDoctorDao
         
         return doctor;
     }
+
+    public async Task<Doctor?> GetDoctorByUsername(string username)
+    {
+        Doctor? doctor = await context.Doctors.FirstOrDefaultAsync(doctor =>
+            doctor.Username.Equals(username));
+
+        if (doctor == null)
+        {
+            throw new Exception($"No Doctor with username: {username}");
+        }
+        return doctor;
+    }
 }

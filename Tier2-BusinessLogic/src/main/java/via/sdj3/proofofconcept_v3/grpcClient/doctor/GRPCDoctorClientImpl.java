@@ -98,6 +98,30 @@ public class GRPCDoctorClientImpl implements DoctorClient{
 
 	}
 
+	@Override
+	public Doctor GetByUsername(String username) {
+		DoctorUsername doctorUsername = DoctorUsername.newBuilder()
+				.setUsername(username)
+				.build();
+
+		DoctorObj doctorObjFromServer;
+		try{
+			doctorObjFromServer = getDoctorBlockingStub().getByUsername(doctorUsername);
+		}
+		catch (StatusRuntimeException e) {
+			System.out.println(e.getStatus().getDescription());
+			throw new RuntimeException(e.getStatus().getDescription());
+		}
+		finally {
+			doctorBlockingStub = null;
+		}
+
+		System.out.println(doctorObjFromServer.getFullname());
+		Doctor realObj = getDoctor(doctorObjFromServer);
+		System.out.println(realObj.getFullName());
+		return realObj;
+	}
+
 
 	private Doctor getDoctor(DoctorObj doctorFromServer) {
 		Doctor returnedDoctor = new Doctor();

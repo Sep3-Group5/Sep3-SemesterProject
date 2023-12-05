@@ -186,4 +186,33 @@ public class DoctorService : Doctor.DoctorBase
         }
         
     }
+
+    public override async Task<DoctorObj> GetByUsername(DoctorUsername obj, ServerCallContext context)
+    {
+        string username;
+        username = obj.Username;
+    
+        try
+        {
+            Domain.Models.Doctor? doctor = await service.GetDoctorByUsername(username);
+
+            DoctorObj doctorObj = new DoctorObj()
+            {
+                Username = doctor.Username,
+                Password = "",
+                Fullname = doctor.FullName,
+                Specialization = doctor.Specialization,
+                Id = doctor.Id,
+                Validated = doctor.Validated
+            };
+
+            return await Task.FromResult(doctorObj);
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+
+    }
+    
 }

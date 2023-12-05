@@ -67,31 +67,59 @@ public class DoctorService implements DoctorServiceInterface{
     }
 
     @Override
-    public Doctor registerDoctor(String name, String username, String specialization, String password) {
+    public Doctor registerDoctor(String name, String username, String specialization, String password) throws Exception {
         // check username/password constraints
+        if (!isValidUsername(username)) {
+            throw new Exception("Invalid username. Username must be at least 5 characters long.");
+        }
+        if (!isValidPassword(password)) {
+            throw new Exception("Invalid password. Password must be at least 8 characters long.");
+        }
 
-        // check if already exists
-
-
-        Doctor doctor = new Doctor(name,username,specialization,password,false);
-
-
-        try
+        Boolean exists = usernameExists(username);
+        if(exists)
         {
-            // Send doctor to database
+            throw new Exception("Username already taken");
+        }
+
+        // Continue with the registration process
+        Doctor doctor = new Doctor(name, username, specialization, password, false);
+
+        try {
+            // Send doctor to the database
             client.addDoctor(doctor);
             return doctor;
+        } catch (Exception e) {
+            // Handle database-related exceptions
+            e.printStackTrace(); // Example: log the exception
+            throw new Exception("Error registering doctor", e);
         }
-        catch (Exception e)
-        {
-          // return exception
-        }
-        return null;
     }
 
     @Override
     public List<Doctor> getListOfValidatedDoctors() {
         return client.getValidatedAsync();
+    }
+
+    private boolean isValidUsername(String username) {
+        // Customize the username constraints as needed
+        return username != null && username.length() >= 5;
+    }
+
+    private boolean isValidPassword(String password) {
+        // Customize the password constraints as needed
+        return password != null && password.length() >= 8;
+    }
+
+    private boolean usernameExists(String username)
+    {
+        try {
+            return (client.GetByUsername(username) != null);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 }
 

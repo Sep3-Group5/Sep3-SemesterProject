@@ -10,4 +10,5 @@ public interface IDoctorDao
     Task UpdateAsync(Doctor doctor);
     Task DeleteAsync(int id);
     Task<Doctor?> LoginAsDoctor(string username, string paswd);
+    Task<Doctor?> GetDoctorByUsername(string username);
 }

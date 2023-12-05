@@ -56,7 +56,7 @@ public class DoctorController {
 			doctorInterface.registerDoctor(dto.getFullName(), dto.getName(), dto.getSpecialization(), dto.getPassword());
 			return ResponseEntity.ok("Doctor account registered");
 		} catch (Exception e) {
-			return ResponseEntity.status(401).body("Something went wrong");
+			return ResponseEntity.status(401).body(e.getMessage());
 		}
 
 	}

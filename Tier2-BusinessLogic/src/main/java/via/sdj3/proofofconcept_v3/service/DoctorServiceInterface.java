@@ -13,7 +13,7 @@ public interface DoctorServiceInterface {
     Doctor addDoctor(Doctor doctor) throws Exception;
 
     String authenticateDoctor(String name, String password);
-    Doctor registerDoctor(String name, String username, String specialization, String password);
+    Doctor registerDoctor(String name, String username, String specialization, String password) throws Exception;
     List<Doctor> getAllDoctors();
 	Optional<Doctor> getDoctorById(int id);
     List<Doctor> getListOfValidatedDoctors();

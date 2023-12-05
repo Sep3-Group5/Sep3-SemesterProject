@@ -12,6 +12,7 @@ service Doctor {
 	rpc DeleteAsync (DoctorId) returns (DoctorResponse);
 	rpc GetValidatedAsync (DoctorVoid) returns (DoctorList);
 	rpc LoginAsDoctor (DoctorLogin) returns (DoctorObj);
+	rpc GetByUsername (DoctorUsername) returns (DoctorObj);
 }
 
 message DoctorObj {
@@ -21,6 +22,10 @@ message DoctorObj {
 	string fullname = 4;
 	string specialization = 5;
 	bool validated = 6;
+}
+
+message DoctorUsername {
+	string username = 2;
 }
 
 message DoctorId {

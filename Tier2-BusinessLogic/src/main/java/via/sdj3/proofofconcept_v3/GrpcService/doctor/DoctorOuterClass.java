@@ -20,10 +20,10 @@ public final class DoctorOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_doctor_DoctorObj_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_doctor_DoctorLogginObj_descriptor;
+    internal_static_doctor_DoctorUsername_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_doctor_DoctorLogginObj_fieldAccessorTable;
+      internal_static_doctor_DoctorUsername_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_doctor_DoctorId_descriptor;
   static final 
@@ -34,6 +34,16 @@ public final class DoctorOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_doctor_DoctorResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_doctor_DoctorVoid_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_doctor_DoctorVoid_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_doctor_DoctorList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_doctor_DoctorList_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_doctor_DoctorLogin_descriptor;
   static final 
@@ -51,22 +61,24 @@ public final class DoctorOuterClass {
       "\n\014doctor.proto\022\006doctor\"x\n\tDoctorObj\022\n\n\002i" +
       "d\030\001 \001(\005\022\020\n\010username\030\002 \001(\t\022\020\n\010password\030\003 " +
       "\001(\t\022\020\n\010fullname\030\004 \001(\t\022\026\n\016specialization\030" +
-      "\005 \001(\t\022\021\n\tvalidated\030\006 \001(\010\"5\n\017DoctorLoggin" +
-      "Obj\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"" +
-      "\026\n\010DoctorId\022\n\n\002id\030\001 \001(\005\"$\n\016DoctorRespons" +
-      "e\022\022\n\nsuccessful\030\001 \001(\010\"1\n\013DoctorLogin\022\020\n\010" +
-      "username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t2\336\002\n\006Doc" +
-      "tor\0223\n\013CreateAsync\022\021.doctor.DoctorObj\032\021." +
-      "doctor.DoctorObj\022/\n\010GetAsync\022\020.doctor.Do" +
-      "ctorId\032\021.doctor.DoctorObj\022B\n\016GetLogginAs" +
-      "ync\022\027.doctor.DoctorLogginObj\032\027.doctor.Do" +
-      "ctorLogginObj\0228\n\013UpdateAsync\022\021.doctor.Do" +
-      "ctorObj\032\026.doctor.DoctorResponse\0227\n\013Delet" +
-      "eAsync\022\020.doctor.DoctorId\032\026.doctor.Doctor" +
-      "Response\0227\n\rLoginAsDoctor\022\023.doctor.Docto" +
-      "rLogin\032\021.doctor.DoctorObjB1\n-via.sdj3.pr" +
-      "oofofconcept_v3.GrpcService.doctorP\001b\006pr" +
-      "oto3"
+      "\005 \001(\t\022\021\n\tvalidated\030\006 \001(\010\"\"\n\016DoctorUserna" +
+      "me\022\020\n\010username\030\002 \001(\t\"\026\n\010DoctorId\022\n\n\002id\030\001" +
+      " \001(\005\"$\n\016DoctorResponse\022\022\n\nsuccessful\030\001 \001" +
+      "(\010\"\014\n\nDoctorVoid\"0\n\nDoctorList\022\"\n\007doctor" +
+      "s\030\001 \003(\0132\021.doctor.DoctorObj\"1\n\013DoctorLogi" +
+      "n\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t2\223\003" +
+      "\n\006Doctor\0223\n\013CreateAsync\022\021.doctor.DoctorO" +
+      "bj\032\021.doctor.DoctorObj\022/\n\010GetAsync\022\020.doct" +
+      "or.DoctorId\032\021.doctor.DoctorObj\0228\n\013Update" +
+      "Async\022\021.doctor.DoctorObj\032\026.doctor.Doctor" +
+      "Response\0227\n\013DeleteAsync\022\020.doctor.DoctorI" +
+      "d\032\026.doctor.DoctorResponse\022;\n\021GetValidate" +
+      "dAsync\022\022.doctor.DoctorVoid\032\022.doctor.Doct" +
+      "orList\0227\n\rLoginAsDoctor\022\023.doctor.DoctorL" +
+      "ogin\032\021.doctor.DoctorObj\022:\n\rGetByUsername" +
+      "\022\026.doctor.DoctorUsername\032\021.doctor.Doctor" +
+      "ObjB1\n-via.sdj3.proofofconcept_v3.GrpcSe" +
+      "rvice.doctorP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -78,12 +90,12 @@ public final class DoctorOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_doctor_DoctorObj_descriptor,
         new java.lang.String[] { "Id", "Username", "Password", "Fullname", "Specialization", "Validated", });
-    internal_static_doctor_DoctorLogginObj_descriptor =
+    internal_static_doctor_DoctorUsername_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_doctor_DoctorLogginObj_fieldAccessorTable = new
+    internal_static_doctor_DoctorUsername_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_doctor_DoctorLogginObj_descriptor,
-        new java.lang.String[] { "Username", "Password", });
+        internal_static_doctor_DoctorUsername_descriptor,
+        new java.lang.String[] { "Username", });
     internal_static_doctor_DoctorId_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_doctor_DoctorId_fieldAccessorTable = new
@@ -96,8 +108,20 @@ public final class DoctorOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_doctor_DoctorResponse_descriptor,
         new java.lang.String[] { "Successful", });
-    internal_static_doctor_DoctorLogin_descriptor =
+    internal_static_doctor_DoctorVoid_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_doctor_DoctorVoid_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_doctor_DoctorVoid_descriptor,
+        new java.lang.String[] { });
+    internal_static_doctor_DoctorList_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_doctor_DoctorList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_doctor_DoctorList_descriptor,
+        new java.lang.String[] { "Doctors", });
+    internal_static_doctor_DoctorLogin_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_doctor_DoctorLogin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_doctor_DoctorLogin_descriptor,
