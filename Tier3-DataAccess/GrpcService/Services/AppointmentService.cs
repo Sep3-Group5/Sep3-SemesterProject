@@ -24,7 +24,8 @@ public class AppointmentService : Appointment.AppointmentBase
                 DoctorId = request.DoctorId,
                 Date = request.Date,
                 Time = request.Time,
-                Diagnosis = request.Diagnosis
+                Diagnosis = request.Diagnosis,
+                Status = request.Status
             };
             Domain.Models.Appointment addedAppointment = await service.CreateAsync(addingAppointment);
             AppointmentObj appointmentObj = new AppointmentObj()
@@ -60,7 +61,7 @@ public class AppointmentService : Appointment.AppointmentBase
                     Date = a.Date,
                     Time = a.Time,
                     Diagnosis = a.Diagnosis,
-                    // Status = a.Status
+                    Status = a.Status
                 };
                 appointmentList.Appointments.Add(appointmentObj);
             }

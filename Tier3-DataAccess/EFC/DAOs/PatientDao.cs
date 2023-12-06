@@ -14,10 +14,10 @@ public class PatientDao : IPatientDao
     {
         this.context = context;
     }
-    
+
     public async Task<Patient> CreateAsync(Patient patient)
     {
-        Console.Write(patient.Name);
+        Console.Write(patient.Fullname);
         EntityEntry<Patient> newPatient = await context.Patients.AddAsync(patient);
         await context.SaveChangesAsync();
         return newPatient.Entity;
@@ -32,10 +32,10 @@ public class PatientDao : IPatientDao
 
     public async Task<IEnumerable<Patient>> GetAsync(PatientSearchDto dto)
     {
-        IQueryable<Patient> patientsQuery = context.Patients.AsQueryable(); 
+        IQueryable<Patient> patientsQuery = context.Patients.AsQueryable();
         if (dto.NameContains != null)
         {
-            patientsQuery = patientsQuery.Where(p => p.Name.ToLower().Contains(dto.NameContains.ToLower()));
+            patientsQuery = patientsQuery.Where(p => p.Fullname.ToLower().Contains(dto.NameContains.ToLower()));
         }
         IEnumerable<Patient> result = await patientsQuery.ToListAsync();
         return result;

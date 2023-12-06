@@ -3,12 +3,19 @@
 public class PatientCreationDto
 {
     public int Id { get; }
-    public string Name { get; }
+    public string Fullname { get; }
+    public string Username { get; }
+    public string Password { get; }
 
-    public PatientCreationDto(int Id, string Name)
+    public PatientCreationDto(int id, string fullname, string username, string password)
     {
-        this.Id = Id;
-        this.Name = Name;
+	    Id = id;
+	    Fullname = fullname;
+	    Username = username;
+	    Password = password;
     }
 
+    public PatientCreationDto()
+    {
+    }
 }

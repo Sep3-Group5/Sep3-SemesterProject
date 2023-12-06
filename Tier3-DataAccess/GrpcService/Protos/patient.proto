@@ -10,19 +10,19 @@ service Patient {
   rpc GetUser (Name) returns (PatientObj);
 }
 
-
 message PatientObj {
   int32 id = 1;
   string name = 2;
+  string fullname = 3;
+  string password = 4;
 }
-
 
 message Name {
   string name = 1;
 }
 
 message PatientVoid {
-  
+
 }
 
 message PatientList {

@@ -7,10 +7,10 @@ public class Appointment
     public int DoctorId {get; set;}
     public string Date {get; set;}
     public string Time {get; set;}
-    
     public string? Diagnosis { get; set; }
-    
-    public Appointment (int id, int patientId, int doctorId, string date, string time, string? diagnosis)
+    public bool Status { get; set; }
+
+    public Appointment (int id, int patientId, int doctorId, string date, string time, string? diagnosis, bool status)
     {
         if (!(time.EndsWith("00") || time.EndsWith("30")))
         {
@@ -23,10 +23,11 @@ public class Appointment
         Date = date;
         Time = time;
         Diagnosis = diagnosis;
+        Status = status;
     }
 
     public Appointment()
     {
-        
+
     }
 }

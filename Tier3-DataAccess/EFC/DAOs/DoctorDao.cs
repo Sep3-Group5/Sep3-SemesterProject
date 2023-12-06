@@ -12,10 +12,10 @@ public class DoctorDao : IDoctorDao
     {
         this.context = context;
     }
-    
+
     public async Task<Doctor> CreateAsync(Doctor doctor)
     {
-        Console.Write(doctor.FullName);
+        Console.Write(doctor.Fullname);
         EntityEntry<Doctor> newDoctor = await context.Doctors.AddAsync(doctor);
         await context.SaveChangesAsync();
         return newDoctor.Entity;

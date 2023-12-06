@@ -5,22 +5,22 @@ public class Doctor
     public int Id { get; set; }
     public string Username { get; set; }
     public string Password { get; set; }
-    public string FullName { get; set; }
+    public string Fullname { get; set; }
     public string? Specialization { get; set; }
     public bool Validated { get; set; }
 
-    public Doctor(int id, string username, string password, string fullName, string? specialization, bool validated)
+    public Doctor(int id, string username, string password, string fullname, string? specialization, bool validated)
     {
         Id = id;
         Username = username;
         Password = password;
-        FullName = fullName;
-        Specialization = Specialization;
+        Fullname = fullname;
+        Specialization = specialization;
         Validated = validated;
     }
 
     public Doctor()
     {
-        
+
     }
 }
