@@ -12,13 +12,8 @@ service Patient {
 
 message PatientObj {
   int32 id = 1;
-<<<<<<< Updated upstream
   string username = 2;
   string fullname = 3;
-=======
-  string fullname = 2;
-  string username = 3;
->>>>>>> Stashed changes
   string password = 4;
 }
 

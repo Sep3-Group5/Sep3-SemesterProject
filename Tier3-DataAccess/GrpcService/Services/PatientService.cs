@@ -26,13 +26,8 @@ public class PatientService : Patient.PatientBase
             {
                 Id = request.Id,
                 Fullname = request.Fullname,
-<<<<<<< Updated upstream
                 Username = request.Username,
                 Password = request.Password
-=======
-                Password = request.Password,
-                Username = request.Username
->>>>>>> Stashed changes
             };
             Domain.Models.Patient addedPatient = await service.CreateAsync(addingPatient);
 
@@ -40,16 +35,9 @@ public class PatientService : Patient.PatientBase
             {
                 Id = addedPatient.Id,
                 Fullname = addedPatient.Fullname,
-<<<<<<< Updated upstream
                 Username = addedPatient.Username,
                 Password = addedPatient.Password
             };
-
-=======
-                Password = addedPatient.Password,
-                Username = addedPatient.Username
-            };
->>>>>>> Stashed changes
             return patientObj;
         }
         catch (Exception e)

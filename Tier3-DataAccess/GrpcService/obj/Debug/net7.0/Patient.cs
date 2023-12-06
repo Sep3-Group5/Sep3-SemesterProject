@@ -25,11 +25,7 @@ namespace GrpcService {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg1wYXRpZW50LnByb3RvEgdwYXRpZW50Ik4KClBhdGllbnRPYmoSCgoCaWQY",
-<<<<<<< Updated upstream
             "ASABKAUSEAoIdXNlcm5hbWUYAiABKAkSEAoIZnVsbG5hbWUYAyABKAkSEAoI",
-=======
-            "ASABKAUSEAoIZnVsbG5hbWUYAiABKAkSEAoIdXNlcm5hbWUYAyABKAkSEAoI",
->>>>>>> Stashed changes
             "cGFzc3dvcmQYBCABKAkiFAoETmFtZRIMCgRuYW1lGAEgASgJIg0KC1BhdGll",
             "bnRWb2lkIjQKC1BhdGllbnRMaXN0EiUKCHBhdGllbnRzGAEgAygLMhMucGF0",
             "aWVudC5QYXRpZW50T2JqMqkBCgdQYXRpZW50EjcKC0NyZWF0ZUFzeW5jEhMu",
@@ -40,11 +36,7 @@ namespace GrpcService {
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-<<<<<<< Updated upstream
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientObj), global::GrpcService.PatientObj.Parser, new[]{ "Id", "Username", "Fullname", "Password" }, null, null, null, null),
-=======
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientObj), global::GrpcService.PatientObj.Parser, new[]{ "Id", "Fullname", "Username", "Password" }, null, null, null, null),
->>>>>>> Stashed changes
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.Name), global::GrpcService.Name.Parser, new[]{ "Name_" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientVoid), global::GrpcService.PatientVoid.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientList), global::GrpcService.PatientList.Parser, new[]{ "Patients" }, null, null, null, null)
@@ -89,13 +81,8 @@ namespace GrpcService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PatientObj(PatientObj other) : this() {
       id_ = other.id_;
-<<<<<<< Updated upstream
       username_ = other.username_;
       fullname_ = other.fullname_;
-=======
-      fullname_ = other.fullname_;
-      username_ = other.username_;
->>>>>>> Stashed changes
       password_ = other.password_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -118,7 +105,6 @@ namespace GrpcService {
       }
     }
 
-<<<<<<< Updated upstream
     /// <summary>Field number for the "username" field.</summary>
     public const int UsernameFieldNumber = 2;
     private string username_ = "";
@@ -140,29 +126,6 @@ namespace GrpcService {
       get { return fullname_; }
       set {
         fullname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-=======
-    /// <summary>Field number for the "fullname" field.</summary>
-    public const int FullnameFieldNumber = 2;
-    private string fullname_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Fullname {
-      get { return fullname_; }
-      set {
-        fullname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "username" field.</summary>
-    public const int UsernameFieldNumber = 3;
-    private string username_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Username {
-      get { return username_; }
-      set {
-        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
->>>>>>> Stashed changes
       }
     }
 
@@ -194,13 +157,8 @@ namespace GrpcService {
         return true;
       }
       if (Id != other.Id) return false;
-<<<<<<< Updated upstream
       if (Username != other.Username) return false;
       if (Fullname != other.Fullname) return false;
-=======
-      if (Fullname != other.Fullname) return false;
-      if (Username != other.Username) return false;
->>>>>>> Stashed changes
       if (Password != other.Password) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -210,13 +168,8 @@ namespace GrpcService {
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
-<<<<<<< Updated upstream
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (Fullname.Length != 0) hash ^= Fullname.GetHashCode();
-=======
-      if (Fullname.Length != 0) hash ^= Fullname.GetHashCode();
-      if (Username.Length != 0) hash ^= Username.GetHashCode();
->>>>>>> Stashed changes
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -240,7 +193,6 @@ namespace GrpcService {
         output.WriteRawTag(8);
         output.WriteInt32(Id);
       }
-<<<<<<< Updated upstream
       if (Username.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Username);
@@ -249,16 +201,6 @@ namespace GrpcService {
         output.WriteRawTag(26);
         output.WriteString(Fullname);
       }
-=======
-      if (Fullname.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Fullname);
-      }
-      if (Username.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Username);
-      }
->>>>>>> Stashed changes
       if (Password.Length != 0) {
         output.WriteRawTag(34);
         output.WriteString(Password);
@@ -277,7 +219,6 @@ namespace GrpcService {
         output.WriteRawTag(8);
         output.WriteInt32(Id);
       }
-<<<<<<< Updated upstream
       if (Username.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Username);
@@ -286,16 +227,6 @@ namespace GrpcService {
         output.WriteRawTag(26);
         output.WriteString(Fullname);
       }
-=======
-      if (Fullname.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Fullname);
-      }
-      if (Username.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Username);
-      }
->>>>>>> Stashed changes
       if (Password.Length != 0) {
         output.WriteRawTag(34);
         output.WriteString(Password);
@@ -313,21 +244,12 @@ namespace GrpcService {
       if (Id != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
       }
-<<<<<<< Updated upstream
       if (Username.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
       }
       if (Fullname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Fullname);
       }
-=======
-      if (Fullname.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Fullname);
-      }
-      if (Username.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
-      }
->>>>>>> Stashed changes
       if (Password.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
@@ -346,21 +268,12 @@ namespace GrpcService {
       if (other.Id != 0) {
         Id = other.Id;
       }
-<<<<<<< Updated upstream
       if (other.Username.Length != 0) {
         Username = other.Username;
       }
       if (other.Fullname.Length != 0) {
         Fullname = other.Fullname;
       }
-=======
-      if (other.Fullname.Length != 0) {
-        Fullname = other.Fullname;
-      }
-      if (other.Username.Length != 0) {
-        Username = other.Username;
-      }
->>>>>>> Stashed changes
       if (other.Password.Length != 0) {
         Password = other.Password;
       }
@@ -384,19 +297,11 @@ namespace GrpcService {
             break;
           }
           case 18: {
-<<<<<<< Updated upstream
             Username = input.ReadString();
             break;
           }
           case 26: {
             Fullname = input.ReadString();
-=======
-            Fullname = input.ReadString();
-            break;
-          }
-          case 26: {
-            Username = input.ReadString();
->>>>>>> Stashed changes
             break;
           }
           case 34: {
@@ -423,19 +328,11 @@ namespace GrpcService {
             break;
           }
           case 18: {
-<<<<<<< Updated upstream
             Username = input.ReadString();
             break;
           }
           case 26: {
             Fullname = input.ReadString();
-=======
-            Fullname = input.ReadString();
-            break;
-          }
-          case 26: {
-            Username = input.ReadString();
->>>>>>> Stashed changes
             break;
           }
           case 34: {
