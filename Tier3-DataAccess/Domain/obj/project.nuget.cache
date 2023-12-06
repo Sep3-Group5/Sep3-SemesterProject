@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iR6zAf4jZcrJInb32EX8HVZo+AEWpD5tGY3Wj27V2nS5OMLDJLijW8vNC6PuVG4bFrBJqNrF72hZtZDYg9olVw==",
+  "dgSpecHash": "16w+ABBZwfR5DaeFZD85ZhAoKwXUniPm0e53QjCCBfqfAWEhNTiAYj5bzf/U6XeI0kJZBDonXFN1HJG8KGYSVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
+  "projectFilePath": "/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/Domain/Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

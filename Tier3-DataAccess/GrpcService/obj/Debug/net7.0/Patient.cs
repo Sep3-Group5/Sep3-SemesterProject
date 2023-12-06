@@ -24,18 +24,19 @@ namespace GrpcService {
     static PatientReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg1wYXRpZW50LnByb3RvEgdwYXRpZW50IiYKClBhdGllbnRPYmoSCgoCaWQY",
-            "ASABKAUSDAoEbmFtZRgCIAEoCSIUCgROYW1lEgwKBG5hbWUYASABKAkiDQoL",
-            "UGF0aWVudFZvaWQiNAoLUGF0aWVudExpc3QSJQoIcGF0aWVudHMYASADKAsy",
-            "Ey5wYXRpZW50LlBhdGllbnRPYmoyqQEKB1BhdGllbnQSNwoLQ3JlYXRlQXN5",
-            "bmMSEy5wYXRpZW50LlBhdGllbnRPYmoaEy5wYXRpZW50LlBhdGllbnRPYmoS",
-            "NgoIR2V0QXN5bmMSFC5wYXRpZW50LlBhdGllbnRWb2lkGhQucGF0aWVudC5Q",
-            "YXRpZW50TGlzdBItCgdHZXRVc2VyEg0ucGF0aWVudC5OYW1lGhMucGF0aWVu",
-            "dC5QYXRpZW50T2JqQg6qAgtHcnBjU2VydmljZWIGcHJvdG8z"));
+            "Cg1wYXRpZW50LnByb3RvEgdwYXRpZW50Ik4KClBhdGllbnRPYmoSCgoCaWQY",
+            "ASABKAUSEAoIdXNlcm5hbWUYAiABKAkSEAoIZnVsbG5hbWUYAyABKAkSEAoI",
+            "cGFzc3dvcmQYBCABKAkiFAoETmFtZRIMCgRuYW1lGAEgASgJIg0KC1BhdGll",
+            "bnRWb2lkIjQKC1BhdGllbnRMaXN0EiUKCHBhdGllbnRzGAEgAygLMhMucGF0",
+            "aWVudC5QYXRpZW50T2JqMqkBCgdQYXRpZW50EjcKC0NyZWF0ZUFzeW5jEhMu",
+            "cGF0aWVudC5QYXRpZW50T2JqGhMucGF0aWVudC5QYXRpZW50T2JqEjYKCEdl",
+            "dEFzeW5jEhQucGF0aWVudC5QYXRpZW50Vm9pZBoULnBhdGllbnQuUGF0aWVu",
+            "dExpc3QSLQoHR2V0VXNlchINLnBhdGllbnQuTmFtZRoTLnBhdGllbnQuUGF0",
+            "aWVudE9iakIOqgILR3JwY1NlcnZpY2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientObj), global::GrpcService.PatientObj.Parser, new[]{ "Id", "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientObj), global::GrpcService.PatientObj.Parser, new[]{ "Id", "Username", "Fullname", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.Name), global::GrpcService.Name.Parser, new[]{ "Name_" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientVoid), global::GrpcService.PatientVoid.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.PatientList), global::GrpcService.PatientList.Parser, new[]{ "Patients" }, null, null, null, null)
@@ -80,7 +81,9 @@ namespace GrpcService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PatientObj(PatientObj other) : this() {
       id_ = other.id_;
-      name_ = other.name_;
+      username_ = other.username_;
+      fullname_ = other.fullname_;
+      password_ = other.password_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -102,15 +105,39 @@ namespace GrpcService {
       }
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
-    private string name_ = "";
+    /// <summary>Field number for the "username" field.</summary>
+    public const int UsernameFieldNumber = 2;
+    private string username_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Name {
-      get { return name_; }
+    public string Username {
+      get { return username_; }
       set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "fullname" field.</summary>
+    public const int FullnameFieldNumber = 3;
+    private string fullname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Fullname {
+      get { return fullname_; }
+      set {
+        fullname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "password" field.</summary>
+    public const int PasswordFieldNumber = 4;
+    private string password_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Password {
+      get { return password_; }
+      set {
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -130,7 +157,9 @@ namespace GrpcService {
         return true;
       }
       if (Id != other.Id) return false;
-      if (Name != other.Name) return false;
+      if (Username != other.Username) return false;
+      if (Fullname != other.Fullname) return false;
+      if (Password != other.Password) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -139,7 +168,9 @@ namespace GrpcService {
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Username.Length != 0) hash ^= Username.GetHashCode();
+      if (Fullname.Length != 0) hash ^= Fullname.GetHashCode();
+      if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -162,9 +193,17 @@ namespace GrpcService {
         output.WriteRawTag(8);
         output.WriteInt32(Id);
       }
-      if (Name.Length != 0) {
+      if (Username.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Name);
+        output.WriteString(Username);
+      }
+      if (Fullname.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Fullname);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Password);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -180,9 +219,17 @@ namespace GrpcService {
         output.WriteRawTag(8);
         output.WriteInt32(Id);
       }
-      if (Name.Length != 0) {
+      if (Username.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Name);
+        output.WriteString(Username);
+      }
+      if (Fullname.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Fullname);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Password);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -197,8 +244,14 @@ namespace GrpcService {
       if (Id != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
       }
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      if (Username.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
+      }
+      if (Fullname.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Fullname);
+      }
+      if (Password.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -215,8 +268,14 @@ namespace GrpcService {
       if (other.Id != 0) {
         Id = other.Id;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
+      if (other.Username.Length != 0) {
+        Username = other.Username;
+      }
+      if (other.Fullname.Length != 0) {
+        Fullname = other.Fullname;
+      }
+      if (other.Password.Length != 0) {
+        Password = other.Password;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -238,7 +297,15 @@ namespace GrpcService {
             break;
           }
           case 18: {
-            Name = input.ReadString();
+            Username = input.ReadString();
+            break;
+          }
+          case 26: {
+            Fullname = input.ReadString();
+            break;
+          }
+          case 34: {
+            Password = input.ReadString();
             break;
           }
         }
@@ -261,7 +328,15 @@ namespace GrpcService {
             break;
           }
           case 18: {
-            Name = input.ReadString();
+            Username = input.ReadString();
+            break;
+          }
+          case 26: {
+            Fullname = input.ReadString();
+            break;
+          }
+          case 34: {
+            Password = input.ReadString();
             break;
           }
         }
