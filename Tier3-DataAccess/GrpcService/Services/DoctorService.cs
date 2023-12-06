@@ -22,7 +22,7 @@ public class DoctorService : Doctor.DoctorBase
                 Id = request.Id,
                 Username = request.Username,
                 Password = request.Password,
-                FullName = request.Fullname,
+                Fullname = request.Fullname,
                 Specialization = request.Specialization,
                 Validated = request.Validated
             };
@@ -52,7 +52,7 @@ public class DoctorService : Doctor.DoctorBase
                     Id = d.Id,
                     Username = d.Username,
                     Password = d.Password,
-                    Fullname = d.FullName,
+                    Fullname = d.Fullname,
                     Specialization = d.Specialization,
                     Validated = d.Validated
                 };
@@ -78,7 +78,7 @@ public class DoctorService : Doctor.DoctorBase
                 Id = fetchedDoctor.Id,
                 Username = fetchedDoctor.Username,
                 Password = fetchedDoctor.Password,
-                Fullname = fetchedDoctor.FullName,
+                Fullname = fetchedDoctor.Fullname,
                 Specialization = fetchedDoctor.Specialization,
                 Validated = fetchedDoctor.Validated
             };

@@ -35,7 +35,8 @@ public class AppointmentService : Appointment.AppointmentBase
                 Diagnosis = addedAppointment.Diagnosis,
                 DoctorId = addedAppointment.DoctorId,
                 PatientId = addedAppointment.PatientId,
-                Time = addedAppointment.Time
+                Time = addedAppointment.Time,
+                Status = addedAppointment.Status
             };
             return appointmentObj;
         }
@@ -88,7 +89,7 @@ public class AppointmentService : Appointment.AppointmentBase
                 Date = fetchedAppointment.Date,
                 Time = fetchedAppointment.Time,
                 Diagnosis = fetchedAppointment.Diagnosis,
-                // Status = fetchedAppointment.Status
+                Status = fetchedAppointment.Status
             };
             return appointmentObj;
         }
@@ -110,7 +111,8 @@ public class AppointmentService : Appointment.AppointmentBase
                 DoctorId = fetchedAppointment.DoctorId,
                 Date = fetchedAppointment.Date,
                 Time = fetchedAppointment.Time,
-                Diagnosis = fetchedAppointment.Diagnosis
+                Diagnosis = fetchedAppointment.Diagnosis,
+                Status = fetchedAppointment.Status
             };
             return appointmentObj;
         }
@@ -124,8 +126,7 @@ public class AppointmentService : Appointment.AppointmentBase
     {
         try
         {
-            Domain.Models.Appointment updatingAppointment = new Domain.Models.Appointment(request.Id, request.PatientId,
-                request.DoctorId, request.Date, request.Time, request.Diagnosis);
+            Domain.Models.Appointment updatingAppointment = new Domain.Models.Appointment(request.Id, request.PatientId, request.DoctorId, request.Date, request.Time, request.Diagnosis,request.Status);
             await service.UpdateAsync(updatingAppointment);
             AppointmentResponse response = new AppointmentResponse()
             {

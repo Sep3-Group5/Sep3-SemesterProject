@@ -7,7 +7,7 @@ using Patient = Domain.Models.Patient;
 namespace GrpcService.Services;
 
 public class PatientService : Patient.PatientBase
-    
+
 {
     private IPatientDao service;
 
@@ -18,22 +18,26 @@ public class PatientService : Patient.PatientBase
 
     public override async Task<PatientObj> CreateAsync(PatientObj request, ServerCallContext context)
     {
-        Console.WriteLine(request.Name);
+        Console.WriteLine(request.Fullname);
         try
         {
             Domain.Models.Patient addingPatient = new Domain.Models.Patient()
             {
                 Id = request.Id,
-                Name = request.Name
+                Fullname = request.Fullname,
+                Username = request.Username,
+                Password = request.Password
             };
             Domain.Models.Patient addedPatient = await service.CreateAsync(addingPatient);
-    
+
             PatientObj patientObj = new PatientObj()
             {
                 Id = addedPatient.Id,
-                Name = addedPatient.Name
+                Fullname = addedPatient.Fullname,
+                Username = addedPatient.Username,
+                Password = addedPatient.Password
             };
-    
+
             return patientObj;
         }
         catch (Exception e)
@@ -53,7 +57,9 @@ public class PatientService : Patient.PatientBase
                 PatientObj patientObj = new PatientObj()
                 {
                     Id = p.Id,
-                    Name = p.Name
+                    Fullname = p.Fullname,
+                    Username = p.Username,
+                    Password = p.Password
                 };
                 patientList.Patients.Add(patientObj);
             }
