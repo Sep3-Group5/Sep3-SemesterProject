@@ -46,4 +46,57 @@ public class AppointmentHttpClient : IAppointmentService
         });
         return appointments;
     }
+
+    public async Task<ICollection<Appointment>> GetAsync(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
+    {
+	    string query = ConstructQuery(appointmentId, patientId, doctorId, diagnostic, status,date, time);
+
+	    HttpResponseMessage response = await client.GetAsync("/appointments"+query);
+	    string content = await response.Content.ReadAsStringAsync();
+	    if (!response.IsSuccessStatusCode)
+	    {
+		    throw new Exception(content);
+	    }
+
+	    ICollection<Appointment> appointments = JsonSerializer.Deserialize<ICollection<Appointment>>(content, new JsonSerializerOptions
+	    {
+		    PropertyNameCaseInsensitive = true
+	    })!;
+	    return appointments;
+    }
+
+    private static string ConstructQuery(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
+    {
+	    string query = "";
+	    if (appointmentId != null)
+	    {
+		    query += $"?appointmentId={appointmentId}";
+	    }
+	    if (patientId != null)
+	    {
+		    query += $"?patientId={patientId}";
+	    }
+	    if (doctorId != null)
+	    {
+		    query += $"?doctorId={doctorId}";
+	    }
+	    if (string.IsNullOrEmpty(diagnostic))
+	    {
+		    query += $"?diagnostic={diagnostic}";
+	    }
+	    if (status != null)
+	    {
+		    query += $"?=status{status}";
+	    }
+	    if (string.IsNullOrEmpty(date))
+	    {
+		    query += $"?date={date}";
+	    }
+	    if (string.IsNullOrEmpty(time))
+	    {
+		    query += $"?time={time}";
+	    }
+
+	    return query;
+    }
 }
