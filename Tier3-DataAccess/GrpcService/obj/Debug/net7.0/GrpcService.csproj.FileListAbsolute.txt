@@ -270,15 +270,6 @@ C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier3-DataAccess/GrpcService/o
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/bin/Debug/net7.0/EFC.dll
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/bin/Debug/net7.0/EFC.pdb
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/bin/Debug/net7.0/Domain.pdb
-<<<<<<< Updated upstream
-=======
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.csproj.AssemblyReference.cache
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.GeneratedMSBuildEditorConfig.editorconfig
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.AssemblyInfoInputs.cache
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.AssemblyInfo.cs
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.csproj.CoreCompileInputs.cache
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.MvcApplicationPartsAssemblyInfo.cache
->>>>>>> Stashed changes
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/staticwebassets/msbuild.GrpcService.Microsoft.AspNetCore.StaticWebAssets.props
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/staticwebassets/msbuild.build.GrpcService.props
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.GrpcService.props
@@ -288,11 +279,5 @@ C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier3-DataAccess/GrpcService/o
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/staticwebassets.development.json
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/scopedcss/bundle/GrpcService.styles.css
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.csproj.CopyComplete
-<<<<<<< Updated upstream
-=======
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.dll
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/refint/GrpcService.dll
-/Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.pdb
->>>>>>> Stashed changes
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/GrpcService.genruntimeconfig.cache
 /Users/jakubkuka/Desktop/school/ThirdSemester/proofOfConcept_v4/Sep3-SemesterProject/Tier3-DataAccess/GrpcService/obj/Debug/net7.0/ref/GrpcService.dll
