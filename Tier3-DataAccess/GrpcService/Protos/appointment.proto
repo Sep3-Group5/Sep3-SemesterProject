@@ -11,6 +11,7 @@ service Appointment {
     rpc GetByDtoAsync (AppointmentDto) returns (AppointmentObj);
     rpc UpdateAsync (AppointmentObj) returns (AppointmentResponse);
     rpc DeleteAsync (AppointmentId) returns (AppointmentResponse);
+    rpc findAppointmentsForDoctor (RequestFindAppointmentsForDoctorObj) returns (AppointmentList);
 }
 
 message AppointmentObj {
@@ -42,4 +43,9 @@ message AppointmentVoid {
 
 message AppointmentList {
     repeated AppointmentObj appointments = 1;
+}
+
+message RequestFindAppointmentsForDoctorObj{
+    string date = 1;
+    int32 id = 2;
 }

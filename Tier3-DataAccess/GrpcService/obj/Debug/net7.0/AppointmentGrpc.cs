@@ -57,6 +57,8 @@ namespace GrpcService {
     static readonly grpc::Marshaller<global::GrpcService.AppointmentDto> __Marshaller_appointment_AppointmentDto = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentDto.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.AppointmentResponse> __Marshaller_appointment_AppointmentResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.AppointmentResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.RequestFindAppointmentsForDoctorObj> __Marshaller_appointment_RequestFindAppointmentsForDoctorObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.RequestFindAppointmentsForDoctorObj.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentObj> __Method_CreateAsync = new grpc::Method<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentObj>(
@@ -106,6 +108,14 @@ namespace GrpcService {
         __Marshaller_appointment_AppointmentId,
         __Marshaller_appointment_AppointmentResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.RequestFindAppointmentsForDoctorObj, global::GrpcService.AppointmentList> __Method_findAppointmentsForDoctor = new grpc::Method<global::GrpcService.RequestFindAppointmentsForDoctorObj, global::GrpcService.AppointmentList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "findAppointmentsForDoctor",
+        __Marshaller_appointment_RequestFindAppointmentsForDoctorObj,
+        __Marshaller_appointment_AppointmentList);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -152,6 +162,12 @@ namespace GrpcService {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.AppointmentList> findAppointmentsForDoctor(global::GrpcService.RequestFindAppointmentsForDoctorObj request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -165,7 +181,8 @@ namespace GrpcService {
           .AddMethod(__Method_GetByIdAsync, serviceImpl.GetByIdAsync)
           .AddMethod(__Method_GetByDtoAsync, serviceImpl.GetByDtoAsync)
           .AddMethod(__Method_UpdateAsync, serviceImpl.UpdateAsync)
-          .AddMethod(__Method_DeleteAsync, serviceImpl.DeleteAsync).Build();
+          .AddMethod(__Method_DeleteAsync, serviceImpl.DeleteAsync)
+          .AddMethod(__Method_findAppointmentsForDoctor, serviceImpl.findAppointmentsForDoctor).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -181,6 +198,7 @@ namespace GrpcService {
       serviceBinder.AddMethod(__Method_GetByDtoAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentDto, global::GrpcService.AppointmentObj>(serviceImpl.GetByDtoAsync));
       serviceBinder.AddMethod(__Method_UpdateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentObj, global::GrpcService.AppointmentResponse>(serviceImpl.UpdateAsync));
       serviceBinder.AddMethod(__Method_DeleteAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.AppointmentId, global::GrpcService.AppointmentResponse>(serviceImpl.DeleteAsync));
+      serviceBinder.AddMethod(__Method_findAppointmentsForDoctor, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.RequestFindAppointmentsForDoctorObj, global::GrpcService.AppointmentList>(serviceImpl.findAppointmentsForDoctor));
     }
 
   }

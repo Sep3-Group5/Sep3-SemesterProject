@@ -78,4 +78,16 @@ public class AppointmentDao : IAppointmentDao
         context.Bookings.Remove(existing);
         await context.SaveChangesAsync();
     }
+
+    public async Task<List<Appointment>> GetDoctorAppoitmentsByDateAndId(int doctorId, string date)
+    {
+        
+            IQueryable<Appointment> bookingsQuery =
+                context.Bookings.Where(b => b.Date.Equals(date) && b.DoctorId.Equals(doctorId));
+
+            List<Appointment> appointments = await bookingsQuery.ToListAsync();
+
+            return appointments;
+        
+    }
 }

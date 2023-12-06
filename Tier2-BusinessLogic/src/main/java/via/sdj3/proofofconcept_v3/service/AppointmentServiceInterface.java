@@ -14,4 +14,6 @@ public interface AppointmentServiceInterface {
 	List<Appointment> getAllAppointments();
 
 	Optional<Appointment> getAppointmentById(int id);
+
+	public Optional<List<Appointment>> getAppointmentsByDateDoctor(String date, int id);
 }

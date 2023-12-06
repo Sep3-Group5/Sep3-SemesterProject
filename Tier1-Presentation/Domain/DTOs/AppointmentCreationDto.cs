@@ -10,9 +10,9 @@ public class AppointmentCreationDto
     public string Date { get; set; }
     public string Time { get; set; }
 
-    public AppointmentCreationDto(int id, int doctorId, int patientId, string date, string time)
+    public AppointmentCreationDto( int doctorId, int patientId, string date, string time)
     {
-        AppointmentId = id;
+        AppointmentId = 0;
         DoctorId = doctorId;
         PatientId = patientId;
         Date = date;

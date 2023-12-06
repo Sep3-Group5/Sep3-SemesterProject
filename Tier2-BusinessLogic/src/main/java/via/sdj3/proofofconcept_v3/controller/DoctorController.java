@@ -93,4 +93,5 @@ public class DoctorController {
 			return new ResponseEntity<>(doctor.get(), HttpStatus.OK);
 		}
 
+
 	}

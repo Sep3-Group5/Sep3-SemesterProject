@@ -1,0 +1,85 @@
+@page "/Doctor/ViewAppointments"
+@attribute [Authorize]
+@using Domain.Models
+@using Domain.DTOs
+@using HttpClients.ClientInterfaces
+@using BlazorWasm.Services
+@inject IDoctorService DoctorService
+@inject IAppointmentService AppointmentService
+@inject NavigationManager NavMgr
+@inject IAuthService authService
+
+
+<AuthorizeView>
+    <Authorize>
+    <div class="card">
+        <h3>View appointments</h3>
+        <h1>Select date to view:</h1>
+        <div class="form-group field">
+        </div>
+        <div class="form-group field">
+            <label>Date:</label>
+            <InputDate @bind-Value="appointmentsDate"/>
+        </div>
+        <div class="button-row">
+            @if (!string.IsNullOrEmpty(msg))
+            {
+                <label style="color: red">@msg</label>
+            }
+            <button @onclick="GetAppointments" class="acceptbtn">Show</button>
+        </div>
+    </div>
+    <div class="table">
+         @if (appointments != null)
+         {
+             <p>
+                 Bookings:
+                 <ul>
+                     @foreach (Appointment appointment in appointments!)
+                     {
+                         <li style="color:darkblue" @onclick="@(() => NavMgr.NavigateTo($"/Posts"))">
+                             <label>Date: @appointment.Date  Time: @appointment.Time Diagnosis: @appointment.Diagnostic  AppointmentId: @appointment.Id AppointmentStatus: @appointment.Status  DoctorId: @appointment.DoctorId PatientId: @appointment.PatientId</label>
+                         </li>
+                     }
+                 </ul>
+             </p>
+         }
+        </div>
+    </Authorize>
+    
+</AuthorizeView>
+
+
+
+@code {
+    private List<Appointment> appointments;
+    private DateOnly appointmentsDate;
+    
+
+    private string msg = "";
+    
+
+    private async Task GetAppointments()
+    {
+        msg = "";
+        
+
+        try
+        {
+            DoctorViewAppointmentsDto dto = new DoctorViewAppointmentsDto();
+            dto.Appointments = new List<Appointment>();
+            dto.Date = appointmentsDate.ToString();
+        
+            appointments = await AppointmentService.getAppointmentsByDateDoctor(dto);
+            
+            System.Console.WriteLine(appointments.ToString());
+            // update the and list the appointments
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+}

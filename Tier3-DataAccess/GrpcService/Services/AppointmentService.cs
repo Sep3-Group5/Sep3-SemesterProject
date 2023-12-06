@@ -155,4 +155,36 @@ public class AppointmentService : Appointment.AppointmentBase
             throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
         }
     }
+    public override async Task<AppointmentList> findAppointmentsForDoctor(RequestFindAppointmentsForDoctorObj obj, ServerCallContext context)
+    {
+        int id = obj.Id;
+        string date = obj.Date;
+    
+        try
+        {
+            List<Domain.Models.Appointment> appointments = await service.GetDoctorAppoitmentsByDateAndId(id,date);
+            AppointmentList appointmentList = new AppointmentList();
+            foreach (Domain.Models.Appointment d in appointments)
+            {
+                    AppointmentObj appointmentObj = new AppointmentObj()
+                    {
+                        Id = d.Id,
+                        PatientId = d.PatientId,
+                        DoctorId = d.DoctorId,
+                        Date = d.Date,
+                        Time = d.Time,
+                        Diagnosis = d.Diagnosis
+                    };
+                    appointmentList.Appointments.Add(appointmentObj);
+            }
+
+            return appointmentList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+
+    }
+    
 }

@@ -3,6 +3,8 @@ package via.sdj3.proofofconcept_v3.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import via.sdj3.proofofconcept_v3.Dto.DoctorViewAppointmentsDto;
+import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
 import via.sdj3.proofofconcept_v3.service.AppointmentService;
 import via.sdj3.proofofconcept_v3.service.AppointmentServiceInterface;
@@ -45,5 +47,30 @@ public class AppointmentController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(appointment.get(), HttpStatus.OK);
+	}
+
+
+	@PostMapping(value = "/Doctor/Appointments")
+	public ResponseEntity<Object> getAppointmentsByDate(@RequestBody DoctorViewAppointmentsDto dto) {
+		//get who is the sender, autorise
+
+		int doctorId = 3;
+
+		Optional<List<Appointment>> dtoAnswer;
+		try {
+			dtoAnswer = appointmentService.getAppointmentsByDateDoctor(dto.getDate(),doctorId);
+
+			if (dtoAnswer.isPresent()) {
+				// If appointments are present, return the list
+				List<Appointment> appointments = dtoAnswer.get();
+				return new ResponseEntity<>(appointments,HttpStatus.OK);
+			} else {
+				// If no appointments are found, return an appropriate response
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }

@@ -10,4 +10,5 @@ public interface IAppointmentDao
     Task<Appointment?> GetAsync(string date, string time);
     Task UpdateAsync(Appointment appointment);
     Task DeleteAsync(int id);
+    Task<List<Appointment>> GetDoctorAppoitmentsByDateAndId(int id, string date);
 }
