@@ -2,7 +2,6 @@ package via.sdj3.proofofconcept_v3.service;
 
 import org.springframework.stereotype.Service;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
-import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.grpcClient.appointment.AppointmentClient;
 import via.sdj3.proofofconcept_v3.repository.AppointmentRepository;
 
@@ -16,7 +15,8 @@ public class AppointmentService implements AppointmentServiceInterface{
 
 	private final AppointmentClient appointmentClient;
 
-	public AppointmentService(AppointmentClient appointmentClient) {
+	public AppointmentService(AppointmentRepository appointmentRepository, AppointmentClient appointmentClient) {
+		this.appointmentRepository = appointmentRepository;
 		this.appointmentClient = appointmentClient;
 	}
 

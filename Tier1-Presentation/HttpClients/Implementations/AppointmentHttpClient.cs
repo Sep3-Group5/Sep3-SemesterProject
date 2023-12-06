@@ -29,11 +29,10 @@ public class AppointmentHttpClient : IAppointmentService
         return appointment;
     }
 
-    public async Task<ICollection<Appointment>> GetAsync(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
+    public async Task<ICollection<Appointment>> GetAsync()
     {
-	    string query = ConstructQuery(appointmentId, patientId, doctorId, diagnostic, status,date, time);
 
-	    HttpResponseMessage response = await client.GetAsync("/appointments"+query);
+	    HttpResponseMessage response = await client.GetAsync("http://localhost:8989/appointments");
 	    string content = await response.Content.ReadAsStringAsync();
 	    if (!response.IsSuccessStatusCode)
 	    {

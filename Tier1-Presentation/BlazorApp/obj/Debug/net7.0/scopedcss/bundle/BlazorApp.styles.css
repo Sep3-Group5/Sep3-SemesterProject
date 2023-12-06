@@ -659,6 +659,137 @@ body[b-f4fqapsyqy] {
 .field[b-f4fqapsyqy] {
     margin-top: 20px;
 }
+/* _content/BlazorApp/Pages/ViewAppointments.razor.rz.scp.css */
+
+*[b-ucdrdq3swn] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body[b-ucdrdq3swn] {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-size: 200% 100% !important;
+    animation: move-b-ucdrdq3swn 5s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    height: 100vh
+}
+
+.user[b-ucdrdq3swn] {
+    width: 90%;
+    max-width: 340px;
+    margin: auto;
+}
+
+.user__title[b-ucdrdq3swn] {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: -10px;
+    padding-top: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+
+.form[b-ucdrdq3swn] {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive-b-ucdrdq3swn 500ms ease-in-out 0.3s forwards;
+}
+
+.form--no[b-ucdrdq3swn] {
+    animation: NO-b-ucdrdq3swn 0.3s ease-in-out;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.form__input[b-ucdrdq3swn] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+p[b-ucdrdq3swn]{
+    padding: 20px;
+}
+
+.loginbtn[b-ucdrdq3swn] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #ABA194;
+    transition: 0.3s;
+}
+
+.loginbtn:hover[b-ucdrdq3swn] {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+    );
+
+}
+
+
+@keyframes NO-b-ucdrdq3swn {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes arrive-b-ucdrdq3swn {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move-b-ucdrdq3swn {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }}
+
+.field[b-ucdrdq3swn] {
+    margin-top: 20px;
+}
 /* _content/BlazorApp/Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dsd3z3yec] {
     position: relative;

@@ -48,7 +48,6 @@ public class DoctorController {
 		} catch (Exception e) {
 			return ResponseEntity.status(401).body("Something went wrong");
 		}
-
 	}
 
 		@PostMapping(value = "/doctors")

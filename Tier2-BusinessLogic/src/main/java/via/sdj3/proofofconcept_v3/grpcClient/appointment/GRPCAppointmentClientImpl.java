@@ -1,6 +1,7 @@
 
 package via.sdj3.proofofconcept_v3.grpcClient.appointment;
 
+import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
@@ -8,6 +9,9 @@ import org.springframework.stereotype.Service;
 import via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentGrpc;
 import via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class GRPCAppointmentClientImpl implements AppointmentClient {
@@ -53,8 +57,6 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 		Appointment realObj = getAppointment(appointmentObjFromServer);
 		System.out.println(realObj.getAppointmentId());
 		return realObj;
-
-
 	}
 
 	private Appointment getAppointment(AppointmentObj appointmentObjFromServer) {
@@ -68,5 +70,25 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 		returnedAppointment.setStatus(appointmentObjFromServer.getStatus());
 		return returnedAppointment;
 	}
+
+	@Override
+	public List<Appointment> getAllAppointments() {
+		try {
+			AppointmentList appointmentList = getAppointmentBlockingStub().getAllAppointments(Empty.newBuilder().build());
+
+			// Convert AppointmentList to List<Appointment>
+			return appointmentList.getAppointmentsList()
+				.stream()
+				.map(this::getAppointment)
+				.collect(Collectors.toList());
+		} catch (StatusRuntimeException e) {
+			System.out.println(e.getStatus().getDescription());
+			throw new RuntimeException(e.getStatus().getDescription());
+		} finally {
+			appointmentBlockingStub = null;
+		}
+	}
+
+
 }
 

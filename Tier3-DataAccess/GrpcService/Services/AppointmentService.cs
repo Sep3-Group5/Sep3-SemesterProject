@@ -126,7 +126,11 @@ public class AppointmentService : Appointment.AppointmentBase
     {
         try
         {
+<<<<<<< Updated upstream
             Domain.Models.Appointment updatingAppointment = new Domain.Models.Appointment(request.Id, request.PatientId, request.DoctorId, request.Date, request.Time, request.Diagnosis,request.Status);
+=======
+            Domain.Models.Appointment updatingAppointment = new Domain.Models.Appointment(request.Id, request.PatientId, request.DoctorId, request.Date, request.Time, request.Diagnosis, request.Status);
+>>>>>>> Stashed changes
             await service.UpdateAsync(updatingAppointment);
             AppointmentResponse response = new AppointmentResponse()
             {

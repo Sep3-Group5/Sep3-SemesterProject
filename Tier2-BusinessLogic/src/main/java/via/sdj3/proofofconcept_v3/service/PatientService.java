@@ -17,7 +17,8 @@ public class PatientService implements PatientServiceInterface{
     private final PatientClient patientClient;
 
     public PatientService(PatientClient patientClient) {
-        this.patientClient = patientClient;}
+        this.patientClient = patientClient;
+	}
 
     // METHODS //
 
