@@ -14,11 +14,11 @@ public class Context : DbContext
         builder.UseSqlite("Data Source = ../EFC/Hospital.db");
         builder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Patient>().HasKey(patient => patient.Id);
         modelBuilder.Entity<Doctor>().HasKey(doctor => doctor.Id);
-        modelBuilder.Entity<Appointment>().HasKey(appointment =>  appointment.Id);
+        modelBuilder.Entity<Appointment>().HasKey(appointment => appointment.Id);
     }
 }

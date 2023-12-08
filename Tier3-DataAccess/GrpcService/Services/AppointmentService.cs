@@ -24,8 +24,8 @@ public class AppointmentService : Appointment.AppointmentBase
                 DoctorId = request.DoctorId,
                 Date = request.Date,
                 Time = request.Time,
-                Diagnosis = request.Diagnosis,
-                Status = request.Status
+                Status = request.Status,
+                Diagnosis = request.Diagnosis
             };
             Domain.Models.Appointment addedAppointment = await service.CreateAsync(addingAppointment);
             AppointmentObj appointmentObj = new AppointmentObj()
@@ -36,7 +36,7 @@ public class AppointmentService : Appointment.AppointmentBase
                 DoctorId = addedAppointment.DoctorId,
                 PatientId = addedAppointment.PatientId,
                 Time = addedAppointment.Time,
-                Status = addedAppointment.Status
+                Status = request.Status
             };
             return appointmentObj;
         }
@@ -126,7 +126,8 @@ public class AppointmentService : Appointment.AppointmentBase
     {
         try
         {
-            Domain.Models.Appointment updatingAppointment = new Domain.Models.Appointment(request.Id, request.PatientId, request.DoctorId, request.Date, request.Time, request.Diagnosis, request.Status);
+            Domain.Models.Appointment updatingAppointment = new Domain.Models.Appointment(request.Id, request.PatientId,
+                request.DoctorId, request.Date, request.Time, request.Status, request.Diagnosis);
             await service.UpdateAsync(updatingAppointment);
             AppointmentResponse response = new AppointmentResponse()
             {
@@ -157,4 +158,37 @@ public class AppointmentService : Appointment.AppointmentBase
             throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
         }
     }
+    public override async Task<AppointmentList> findAppointmentsForDoctor(RequestFindAppointmentsForDoctorObj obj, ServerCallContext context)
+    {
+        int id = obj.Id;
+        string date = obj.Date;
+    
+        try
+        {
+            List<Domain.Models.Appointment> appointments = await service.GetDoctorAppoitmentsByDateAndId(id,date);
+            AppointmentList appointmentList = new AppointmentList();
+            foreach (Domain.Models.Appointment d in appointments)
+            {
+                    AppointmentObj appointmentObj = new AppointmentObj()
+                    {
+                        Id = d.Id,
+                        PatientId = d.PatientId,
+                        DoctorId = d.DoctorId,
+                        Date = d.Date,
+                        Time = d.Time,
+                        Diagnosis = d.Diagnosis,
+                        Status = d.Status
+                    };
+                    appointmentList.Appointments.Add(appointmentObj);
+            }
+
+            return appointmentList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+
+    }
+    
 }

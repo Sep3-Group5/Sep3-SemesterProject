@@ -34,6 +34,16 @@ public final class AppointmentOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_appointment_AppointmentResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_appointment_AppointmentList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_appointment_AppointmentList_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_appointment_RequestFindAppointmentsForDoctorObj_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_appointment_RequestFindAppointmentsForDoctorObj_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -50,18 +60,24 @@ public final class AppointmentOuterClass {
       "\007 \001(\010\"\033\n\rAppointmentId\022\n\n\002id\030\001 \001(\005\",\n\016Ap" +
       "pointmentDto\022\014\n\004date\030\001 \001(\t\022\014\n\004time\030\002 \001(\t" +
       "\")\n\023AppointmentResponse\022\022\n\nsuccessful\030\001 " +
-      "\001(\0102\205\003\n\013Appointment\022G\n\013CreateAsync\022\033.app" +
-      "ointment.AppointmentObj\032\033.appointment.Ap" +
-      "pointmentObj\022G\n\014GetByIdAsync\022\032.appointme" +
-      "nt.AppointmentId\032\033.appointment.Appointme" +
-      "ntObj\022I\n\rGetByDtoAsync\022\033.appointment.App" +
-      "ointmentDto\032\033.appointment.AppointmentObj" +
-      "\022L\n\013UpdateAsync\022\033.appointment.Appointmen" +
-      "tObj\032 .appointment.AppointmentResponse\022K" +
-      "\n\013DeleteAsync\022\032.appointment.AppointmentI" +
-      "d\032 .appointment.AppointmentResponseB6\n2v" +
-      "ia.sdj3.proofofconcept_v3.GrpcService.ap" +
-      "pointmentP\001b\006proto3"
+      "\001(\010\"D\n\017AppointmentList\0221\n\014appointments\030\001" +
+      " \003(\0132\033.appointment.AppointmentObj\"?\n#Req" +
+      "uestFindAppointmentsForDoctorObj\022\014\n\004date" +
+      "\030\001 \001(\t\022\n\n\002id\030\002 \001(\0052\362\003\n\013Appointment\022G\n\013Cr" +
+      "eateAsync\022\033.appointment.AppointmentObj\032\033" +
+      ".appointment.AppointmentObj\022G\n\014GetByIdAs" +
+      "ync\022\032.appointment.AppointmentId\032\033.appoin" +
+      "tment.AppointmentObj\022I\n\rGetByDtoAsync\022\033." +
+      "appointment.AppointmentDto\032\033.appointment" +
+      ".AppointmentObj\022L\n\013UpdateAsync\022\033.appoint" +
+      "ment.AppointmentObj\032 .appointment.Appoin" +
+      "tmentResponse\022K\n\013DeleteAsync\022\032.appointme" +
+      "nt.AppointmentId\032 .appointment.Appointme" +
+      "ntResponse\022k\n\031findAppointmentsForDoctor\022" +
+      "0.appointment.RequestFindAppointmentsFor" +
+      "DoctorObj\032\034.appointment.AppointmentListB" +
+      "6\n2via.sdj3.proofofconcept_v3.GrpcServic" +
+      "e.appointmentP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -91,6 +107,18 @@ public final class AppointmentOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_appointment_AppointmentResponse_descriptor,
         new java.lang.String[] { "Successful", });
+    internal_static_appointment_AppointmentList_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_appointment_AppointmentList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_appointment_AppointmentList_descriptor,
+        new java.lang.String[] { "Appointments", });
+    internal_static_appointment_RequestFindAppointmentsForDoctorObj_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_appointment_RequestFindAppointmentsForDoctorObj_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_appointment_RequestFindAppointmentsForDoctorObj_descriptor,
+        new java.lang.String[] { "Date", "Id", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

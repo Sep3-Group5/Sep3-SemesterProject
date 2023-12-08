@@ -14,10 +14,10 @@ public class PatientDao : IPatientDao
     {
         this.context = context;
     }
-
+    
     public async Task<Patient> CreateAsync(Patient patient)
     {
-        Console.Write(patient.Fullname);
+        Console.Write(patient.Name);
         EntityEntry<Patient> newPatient = await context.Patients.AddAsync(patient);
         await context.SaveChangesAsync();
         return newPatient.Entity;
@@ -32,10 +32,10 @@ public class PatientDao : IPatientDao
 
     public async Task<IEnumerable<Patient>> GetAsync(PatientSearchDto dto)
     {
-        IQueryable<Patient> patientsQuery = context.Patients.AsQueryable();
+        IQueryable<Patient> patientsQuery = context.Patients.AsQueryable(); 
         if (dto.NameContains != null)
         {
-            patientsQuery = patientsQuery.Where(p => p.Fullname.ToLower().Contains(dto.NameContains.ToLower()));
+            patientsQuery = patientsQuery.Where(p => p.Name.ToLower().Contains(dto.NameContains.ToLower()));
         }
         IEnumerable<Patient> result = await patientsQuery.ToListAsync();
         return result;
@@ -71,5 +71,21 @@ public class PatientDao : IPatientDao
         }
         context.Patients.Remove(existing);
         await context.SaveChangesAsync();
+    }
+
+    public Task<Patient?> LoginAsPatient(string username, string paswd)
+    {
+        throw new NotImplementedException();
+        /*
+        Patient? patient = await context.Patients.FirstOrDefaultAsync(patient =>
+            patient.Name.Equals(username) && patient.Password.Equals(paswd));
+
+        if (patient == null)
+        {
+            throw new Exception("Username or password incorrect");
+        }
+        
+        return patient;
+        */
     }
 }

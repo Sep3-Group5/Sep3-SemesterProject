@@ -28,14 +28,24 @@ public class DoctorController {
     @PostMapping(value = "/Doctor/Login")
     public ResponseEntity<Object> loginDoctor(@RequestBody LoginDto dto) {
 
-        String username = doctorInterface.authenticateDoctor(dto.getUserName(), dto.getPassword());
+		String jwt;
+        try
+		{
+			jwt = doctorInterface.authenticateDoctor(dto.getUserName(), dto.getPassword());
 
-        if (username != null) {
-            String token = jwtUtil.generateToken(username);
-            return ResponseEntity.ok(token);
-        } else {
-            return ResponseEntity.status(401).body("Invalid credentials");
+		} catch (Exception e) {
+			return ResponseEntity.status(401).body(e.getMessage());
         }
+
+		if (jwt != null)
+		{
+			return ResponseEntity.ok(jwt);
+		}
+		else {
+			return ResponseEntity.status(401).body("Invalid login credentials");
+		}
+
+
     }
 
     @PostMapping(value = "/Doctor/Register")
@@ -46,7 +56,7 @@ public class DoctorController {
 			doctorInterface.registerDoctor(dto.getFullName(), dto.getName(), dto.getSpecialization(), dto.getPassword());
 			return ResponseEntity.ok("Doctor account registered");
 		} catch (Exception e) {
-			return ResponseEntity.status(401).body("Something went wrong");
+			return ResponseEntity.status(401).body(e.getMessage());
 		}
 	}
 
@@ -67,6 +77,12 @@ public class DoctorController {
 			return new ResponseEntity<>(doctors, HttpStatus.OK);
 		}
 
+		@GetMapping("/doctors/test")
+		public ResponseEntity<List<Doctor>> getValidatedDoctors () {
+		List<Doctor> doctors = doctorInterface.getListOfValidatedDoctors();
+		return new ResponseEntity<>(doctors, HttpStatus.OK);
+		}
+
 		@GetMapping("/doctors/{id}")
 		public ResponseEntity<Object> getDoctorById ( @PathVariable("id") int id){
 			Optional<Doctor> doctor = doctorInterface.getDoctorById(id);
@@ -75,5 +91,6 @@ public class DoctorController {
 			}
 			return new ResponseEntity<>(doctor.get(), HttpStatus.OK);
 		}
+
 
 	}

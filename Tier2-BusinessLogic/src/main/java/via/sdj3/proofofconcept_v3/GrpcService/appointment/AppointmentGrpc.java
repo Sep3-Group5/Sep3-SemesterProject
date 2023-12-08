@@ -170,6 +170,37 @@ public final class AppointmentGrpc {
     return getDeleteAsyncMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj,
+      via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList> getFindAppointmentsForDoctorMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "findAppointmentsForDoctor",
+      requestType = via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj.class,
+      responseType = via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj,
+      via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList> getFindAppointmentsForDoctorMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj, via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList> getFindAppointmentsForDoctorMethod;
+    if ((getFindAppointmentsForDoctorMethod = AppointmentGrpc.getFindAppointmentsForDoctorMethod) == null) {
+      synchronized (AppointmentGrpc.class) {
+        if ((getFindAppointmentsForDoctorMethod = AppointmentGrpc.getFindAppointmentsForDoctorMethod) == null) {
+          AppointmentGrpc.getFindAppointmentsForDoctorMethod = getFindAppointmentsForDoctorMethod =
+              io.grpc.MethodDescriptor.<via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj, via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "findAppointmentsForDoctor"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList.getDefaultInstance()))
+              .setSchemaDescriptor(new AppointmentMethodDescriptorSupplier("findAppointmentsForDoctor"))
+              .build();
+        }
+      }
+    }
+    return getFindAppointmentsForDoctorMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -252,6 +283,13 @@ public final class AppointmentGrpc {
         io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteAsyncMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void findAppointmentsForDoctor(via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindAppointmentsForDoctorMethod(), responseObserver);
+    }
   }
 
   /**
@@ -320,6 +358,14 @@ public final class AppointmentGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteAsyncMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void findAppointmentsForDoctor(via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj request,
+        io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getFindAppointmentsForDoctorMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -371,6 +417,13 @@ public final class AppointmentGrpc {
     public via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse deleteAsync(via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentId request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteAsyncMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList findAppointmentsForDoctor(via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getFindAppointmentsForDoctorMethod(), getCallOptions(), request);
     }
   }
 
@@ -429,6 +482,14 @@ public final class AppointmentGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteAsyncMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList> findAppointmentsForDoctor(
+        via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getFindAppointmentsForDoctorMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_ASYNC = 0;
@@ -436,6 +497,7 @@ public final class AppointmentGrpc {
   private static final int METHODID_GET_BY_DTO_ASYNC = 2;
   private static final int METHODID_UPDATE_ASYNC = 3;
   private static final int METHODID_DELETE_ASYNC = 4;
+  private static final int METHODID_FIND_APPOINTMENTS_FOR_DOCTOR = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -473,6 +535,10 @@ public final class AppointmentGrpc {
         case METHODID_DELETE_ASYNC:
           serviceImpl.deleteAsync((via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentId) request,
               (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse>) responseObserver);
+          break;
+        case METHODID_FIND_APPOINTMENTS_FOR_DOCTOR:
+          serviceImpl.findAppointmentsForDoctor((via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -527,6 +593,13 @@ public final class AppointmentGrpc {
               via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentId,
               via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentResponse>(
                 service, METHODID_DELETE_ASYNC)))
+        .addMethod(
+          getFindAppointmentsForDoctorMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj,
+              via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList>(
+                service, METHODID_FIND_APPOINTMENTS_FOR_DOCTOR)))
         .build();
   }
 
@@ -580,6 +653,7 @@ public final class AppointmentGrpc {
               .addMethod(getGetByDtoAsyncMethod())
               .addMethod(getUpdateAsyncMethod())
               .addMethod(getDeleteAsyncMethod())
+              .addMethod(getFindAppointmentsForDoctorMethod())
               .build();
         }
       }

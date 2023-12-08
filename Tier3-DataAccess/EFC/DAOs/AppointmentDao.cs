@@ -16,11 +16,11 @@ public class AppointmentDao : IAppointmentDao
 
     public async Task<Appointment?> CreateAsync(Appointment appointment)
     {
-        IQueryable<Appointment> appointmentQuery = context.Appointments.Where(a => a.Id == appointment.Id &&
+        IQueryable<Appointment> appointmentsQuery = context.Appointments.Where(a =>
             a.DoctorId == appointment.DoctorId && a.PatientId == appointment.PatientId && a.Date.Equals(appointment.Date) &&
-            a.Time.Equals(appointment.Time) && a.Diagnosis.Equals(appointment.Diagnosis) && a.Status == appointment.Status);
-        IEnumerable<Appointment> bookings = await appointmentQuery.ToListAsync();
-        if (bookings.Any())
+            a.Time.Equals(appointment.Time));
+        IEnumerable<Appointment> appointments = await appointmentsQuery.ToListAsync();
+        if (appointments.Any())
         {
             throw new Exception("Appointment with those details already exists");
         }
@@ -49,9 +49,9 @@ public class AppointmentDao : IAppointmentDao
 
     public async Task<Appointment?> GetAsync(string date, string time)
     {
-        IQueryable<Appointment?> bookingsQuery =
-            context.Appointments.AsQueryable().Where(a => a.Date.Equals(date) && a.Time.Equals(time));
-        IEnumerable<Appointment?> appointments = await bookingsQuery.ToListAsync();
+        IQueryable<Appointment?> appointmentsQuery =
+            context.Appointments.AsQueryable().Where(b => b.Date.Equals(date) && b.Time.Equals(time));
+        IEnumerable<Appointment?> appointments = await appointmentsQuery.ToListAsync();
         Appointment? appointment = appointments.FirstOrDefault();
         return appointment;
     }
@@ -77,5 +77,21 @@ public class AppointmentDao : IAppointmentDao
 
         context.Appointments.Remove(existing);
         await context.SaveChangesAsync();
+    }
+
+    public async Task<List<Appointment>> GetDoctorAppoitmentsByDateAndId(int doctorId, string date)
+    {
+        Appointment? existing = await GetAsync(doctorId);
+        if (existing == null)
+        {
+            throw new Exception($"No Appointment with id: {doctorId}");
+        }
+            IQueryable<Appointment> appointmentsQuery =
+                context.Appointments.Where(b => b.Date.Equals(date) && b.DoctorId.Equals(doctorId));
+
+            List<Appointment> appointments = await appointmentsQuery.ToListAsync();
+
+            return appointments;
+        
     }
 }

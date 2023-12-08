@@ -2,8 +2,10 @@ package via.sdj3.proofofconcept_v3.service;
 
 import jdk.jshell.spi.ExecutionControl;
 import org.springframework.stereotype.Service;
+import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.entity.Patient;
 import via.sdj3.proofofconcept_v3.grpcClient.patient.PatientClient;
+import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
 import via.sdj3.proofofconcept_v3.repository.PatientRepository;
 
 import java.util.ArrayList;
@@ -16,9 +18,12 @@ public class PatientService implements PatientServiceInterface{
 
     private final PatientClient patientClient;
 
-    public PatientService(PatientClient patientClient) {
+    private JwtUtil jwtUtil;
+
+    public PatientService(PatientClient patientClient,JwtUtil jwtUtil) {
         this.patientClient = patientClient;
-	}
+        this.jwtUtil = jwtUtil;
+    }
 
     // METHODS //
 
@@ -38,14 +43,23 @@ public class PatientService implements PatientServiceInterface{
     }
 
     public String authenticatePatient(String username, String password) {
-        // Implement your logic to authenticate the user
-        // Return username if authentication is successful, otherwise return null
-        // For simplicity, you can use a hardcoded check, but in real-world scenarios, use a proper authentication mechanism
-        if ("test".equals(username) && "test".equals(password)) {
-            return username;
-        } else {
-            return null;
+        try
+        {
+            Patient patient = patientClient.authenticatePatient(username, password);
+
+            if (patient != null) {
+                String token = jwtUtil.generatePatientToken(patient);
+                return token;
+            } else {
+                return null;
+            }
+
         }
+        catch (Exception e)
+        {
+            throw e;
+        }
+
     }
 
     @Override

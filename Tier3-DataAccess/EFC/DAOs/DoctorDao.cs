@@ -12,10 +12,10 @@ public class DoctorDao : IDoctorDao
     {
         this.context = context;
     }
-
+    
     public async Task<Doctor> CreateAsync(Doctor doctor)
     {
-        Console.Write(doctor.Fullname);
+        Console.Write(doctor.FullName);
         EntityEntry<Doctor> newDoctor = await context.Doctors.AddAsync(doctor);
         await context.SaveChangesAsync();
         return newDoctor.Entity;
@@ -58,5 +58,35 @@ public class DoctorDao : IDoctorDao
         }
         context.Doctors.Remove(existing);
         await context.SaveChangesAsync();
+    }
+
+    public async Task<Doctor?> LoginAsDoctor(string username, string paswd)
+    {
+        Doctor? doctor = await context.Doctors.FirstOrDefaultAsync(doctor =>
+            doctor.Username.Equals(username) && doctor.Password.Equals(paswd));
+
+        if (doctor == null)
+        {
+            throw new Exception("Username or password incorrect");
+        }
+        
+        if (!doctor.Validated)
+        {
+            throw new Exception("Doctor account is not validated yet, please contact the administration.");
+        }
+        
+        return doctor;
+    }
+
+    public async Task<Doctor?> GetDoctorByUsername(string username)
+    {
+        Doctor? doctor = await context.Doctors.FirstOrDefaultAsync(doctor =>
+            doctor.Username.Equals(username));
+
+        if (doctor == null)
+        {
+            throw new Exception($"No Doctor with username: {username}");
+        }
+        return doctor;
     }
 }

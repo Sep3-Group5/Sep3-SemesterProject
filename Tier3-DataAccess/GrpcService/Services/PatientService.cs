@@ -1,5 +1,4 @@
-﻿using Domain.DTOs;
-using Domain.Models;
+﻿using Domain.Models;
 using EFC.DAOs;
 using Grpc.Core;
 using GrpcService;
@@ -8,7 +7,7 @@ using Patient = Domain.Models.Patient;
 namespace GrpcService.Services;
 
 public class PatientService : Patient.PatientBase
-
+    
 {
     private IPatientDao service;
 
@@ -19,25 +18,22 @@ public class PatientService : Patient.PatientBase
 
     public override async Task<PatientObj> CreateAsync(PatientObj request, ServerCallContext context)
     {
-        Console.WriteLine(request.Fullname);
+        Console.WriteLine(request.Name);
         try
         {
             Domain.Models.Patient addingPatient = new Domain.Models.Patient()
             {
                 Id = request.Id,
-                Fullname = request.Fullname,
-                Username = request.Username,
-                Password = request.Password
+                Name = request.Name
             };
             Domain.Models.Patient addedPatient = await service.CreateAsync(addingPatient);
-
+    
             PatientObj patientObj = new PatientObj()
             {
                 Id = addedPatient.Id,
-                Fullname = addedPatient.Fullname,
-                Username = addedPatient.Username,
-                Password = addedPatient.Password
+                Name = addedPatient.Name
             };
+    
             return patientObj;
         }
         catch (Exception e)
@@ -57,9 +53,7 @@ public class PatientService : Patient.PatientBase
                 PatientObj patientObj = new PatientObj()
                 {
                     Id = p.Id,
-                    Fullname = p.Fullname,
-                    Username = p.Username,
-                    Password = p.Password
+                    Name = p.Name
                 };
                 patientList.Patients.Add(patientObj);
             }
@@ -71,4 +65,35 @@ public class PatientService : Patient.PatientBase
             throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
         }
     }
+    
+   /*
+    public override async Task<PatientObj> LoginAsPatient(PatientLogin obj, ServerCallContext context)
+    {
+        
+        
+        string username, pswd;
+        username = obj.Username;
+        pswd = obj.Password;
+    
+        try
+        {
+            Domain.Models.Patient? patient = await service.LoginAsPatient(username,pswd);
+
+            PatientObj patientObj = new PatientObj()
+            {
+                Username = patient.Username,
+                Password = "",
+                Fullname = patient.FullName,
+                Id = patient.Id,
+            };
+
+            return await Task.FromResult(patientObj);
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+        
+    }
+    */
 }

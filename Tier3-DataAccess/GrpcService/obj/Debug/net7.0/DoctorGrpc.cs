@@ -55,6 +55,10 @@ namespace GrpcService {
     static readonly grpc::Marshaller<global::GrpcService.DoctorList> __Marshaller_doctor_DoctorList = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorList.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.DoctorId> __Marshaller_doctor_DoctorId = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorId.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.DoctorLogin> __Marshaller_doctor_DoctorLogin = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorLogin.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.DoctorUsername> __Marshaller_doctor_DoctorUsername = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.DoctorUsername.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcService.DoctorObj, global::GrpcService.DoctorResponse> __Method_CreateAsync = new grpc::Method<global::GrpcService.DoctorObj, global::GrpcService.DoctorResponse>(
@@ -96,6 +100,30 @@ namespace GrpcService {
         __Marshaller_doctor_DoctorId,
         __Marshaller_doctor_DoctorResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.DoctorVoid, global::GrpcService.DoctorList> __Method_GetValidatedAsync = new grpc::Method<global::GrpcService.DoctorVoid, global::GrpcService.DoctorList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetValidatedAsync",
+        __Marshaller_doctor_DoctorVoid,
+        __Marshaller_doctor_DoctorList);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.DoctorLogin, global::GrpcService.DoctorObj> __Method_LoginAsDoctor = new grpc::Method<global::GrpcService.DoctorLogin, global::GrpcService.DoctorObj>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "LoginAsDoctor",
+        __Marshaller_doctor_DoctorLogin,
+        __Marshaller_doctor_DoctorObj);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.DoctorUsername, global::GrpcService.DoctorObj> __Method_GetByUsername = new grpc::Method<global::GrpcService.DoctorUsername, global::GrpcService.DoctorObj>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetByUsername",
+        __Marshaller_doctor_DoctorUsername,
+        __Marshaller_doctor_DoctorObj);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -136,6 +164,24 @@ namespace GrpcService {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.DoctorList> GetValidatedAsync(global::GrpcService.DoctorVoid request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.DoctorObj> LoginAsDoctor(global::GrpcService.DoctorLogin request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.DoctorObj> GetByUsername(global::GrpcService.DoctorUsername request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -148,7 +194,10 @@ namespace GrpcService {
           .AddMethod(__Method_GetAsync, serviceImpl.GetAsync)
           .AddMethod(__Method_GetByIdAsync, serviceImpl.GetByIdAsync)
           .AddMethod(__Method_UpdateAsync, serviceImpl.UpdateAsync)
-          .AddMethod(__Method_DeleteAsync, serviceImpl.DeleteAsync).Build();
+          .AddMethod(__Method_DeleteAsync, serviceImpl.DeleteAsync)
+          .AddMethod(__Method_GetValidatedAsync, serviceImpl.GetValidatedAsync)
+          .AddMethod(__Method_LoginAsDoctor, serviceImpl.LoginAsDoctor)
+          .AddMethod(__Method_GetByUsername, serviceImpl.GetByUsername).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -163,6 +212,9 @@ namespace GrpcService {
       serviceBinder.AddMethod(__Method_GetByIdAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorId, global::GrpcService.DoctorObj>(serviceImpl.GetByIdAsync));
       serviceBinder.AddMethod(__Method_UpdateAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorObj, global::GrpcService.DoctorResponse>(serviceImpl.UpdateAsync));
       serviceBinder.AddMethod(__Method_DeleteAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorId, global::GrpcService.DoctorResponse>(serviceImpl.DeleteAsync));
+      serviceBinder.AddMethod(__Method_GetValidatedAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorVoid, global::GrpcService.DoctorList>(serviceImpl.GetValidatedAsync));
+      serviceBinder.AddMethod(__Method_LoginAsDoctor, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorLogin, global::GrpcService.DoctorObj>(serviceImpl.LoginAsDoctor));
+      serviceBinder.AddMethod(__Method_GetByUsername, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.DoctorUsername, global::GrpcService.DoctorObj>(serviceImpl.GetByUsername));
     }
 
   }

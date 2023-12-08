@@ -22,7 +22,7 @@ public class DoctorService : Doctor.DoctorBase
                 Id = request.Id,
                 Username = request.Username,
                 Password = request.Password,
-                Fullname = request.Fullname,
+                FullName = request.Fullname,
                 Specialization = request.Specialization,
                 Validated = request.Validated
             };
@@ -52,11 +52,42 @@ public class DoctorService : Doctor.DoctorBase
                     Id = d.Id,
                     Username = d.Username,
                     Password = d.Password,
-                    Fullname = d.Fullname,
+                    Fullname = d.FullName,
                     Specialization = d.Specialization,
                     Validated = d.Validated
                 };
                 doctorList.Doctors.Add(doctorObj);
+            }
+
+            return doctorList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
+        }
+    }
+    
+    public override async Task<DoctorList> GetValidatedAsync(DoctorVoid request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Domain.Models.Doctor> doctors = await service.GetAsync();
+            DoctorList doctorList = new DoctorList();
+            foreach (Domain.Models.Doctor d in doctors)
+            {
+                if (d.Validated)
+                {
+                    DoctorObj doctorObj = new DoctorObj()
+                    {
+                        Id = d.Id,
+                        Username = d.Username,
+                        Password = d.Password,
+                        Fullname = d.FullName,
+                        Specialization = d.Specialization,
+                        Validated = d.Validated
+                    };
+                    doctorList.Doctors.Add(doctorObj);
+                }
             }
 
             return doctorList;
@@ -78,7 +109,7 @@ public class DoctorService : Doctor.DoctorBase
                 Id = fetchedDoctor.Id,
                 Username = fetchedDoctor.Username,
                 Password = fetchedDoctor.Password,
-                Fullname = fetchedDoctor.Fullname,
+                Fullname = fetchedDoctor.FullName,
                 Specialization = fetchedDoctor.Specialization,
                 Validated = fetchedDoctor.Validated
             };
@@ -126,4 +157,62 @@ public class DoctorService : Doctor.DoctorBase
             throw new RpcException(new Status(StatusCode.PermissionDenied, e.Message));
         }
     }
+
+    public override async Task<DoctorObj> LoginAsDoctor(DoctorLogin obj, ServerCallContext context)
+    {
+        string username, pswd;
+        username = obj.Username;
+        pswd = obj.Password;
+    
+        try
+        {
+            Domain.Models.Doctor? doctor = await service.LoginAsDoctor(username,pswd);
+
+            DoctorObj doctorObj = new DoctorObj()
+            {
+                Username = doctor.Username,
+                Password = "",
+                Fullname = doctor.FullName,
+                Specialization = doctor.Specialization,
+                Id = doctor.Id,
+                Validated = doctor.Validated
+            };
+
+            return await Task.FromResult(doctorObj);
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+        
+    }
+
+    public override async Task<DoctorObj> GetByUsername(DoctorUsername obj, ServerCallContext context)
+    {
+        string username;
+        username = obj.Username;
+    
+        try
+        {
+            Domain.Models.Doctor? doctor = await service.GetDoctorByUsername(username);
+
+            DoctorObj doctorObj = new DoctorObj()
+            {
+                Username = doctor.Username,
+                Password = "",
+                Fullname = doctor.FullName,
+                Specialization = doctor.Specialization,
+                Id = doctor.Id,
+                Validated = doctor.Validated
+            };
+
+            return await Task.FromResult(doctorObj);
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+
+    }
+    
 }
