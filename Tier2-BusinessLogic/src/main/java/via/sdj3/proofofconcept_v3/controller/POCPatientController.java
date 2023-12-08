@@ -31,6 +31,8 @@ public class POCPatientController {
 		}
     }
 
+	
+
 //    @GetMapping(value="/patients")
 //    public ResponseEntity<Object> getAllPatients(){
 //        List<Patient> patients = patientService.getAllPatients();

@@ -12,7 +12,6 @@ import java.util.Optional;
 @Service
 public class AppointmentService implements AppointmentServiceInterface{
 	private AppointmentRepository appointmentRepository;
-
 	private final AppointmentClient appointmentClient;
 
 	public AppointmentService(AppointmentRepository appointmentRepository, AppointmentClient appointmentClient) {

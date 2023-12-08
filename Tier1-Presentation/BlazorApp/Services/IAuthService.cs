@@ -13,6 +13,5 @@ public interface IAuthService
     public Task RegisterPatientAsync(RegisterPatientDto user);
     public Task RegisterDoctorAsync(RegisterDoctorDto user);
     public Task<ClaimsPrincipal> GetAuthAsync();
-
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
 }

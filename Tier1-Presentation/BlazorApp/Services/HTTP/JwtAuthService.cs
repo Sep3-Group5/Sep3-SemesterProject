@@ -22,10 +22,8 @@ public class JwtAuthService : IAuthService
 
     public async Task LoginDoctorAsync(LoginDto userLoginDto)
     {
-
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
-
         HttpResponseMessage response = await client.PostAsync(url +"/Doctor/Login", content);
         string responseContent = await response.Content.ReadAsStringAsync();
 
@@ -38,17 +36,14 @@ public class JwtAuthService : IAuthService
         Jwt = token;
         System.Console.WriteLine(Jwt);
         ClaimsPrincipal principal = CreateClaimsPrincipal();
-
         OnAuthStateChanged.Invoke(principal);
     }
-    
-    
+
+
     public async Task LoginPatientAsync(LoginDto userLoginDto)
     {
-
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
-
         HttpResponseMessage response = await client.PostAsync(url +"/Patient/Login", content);
         string responseContent = await response.Content.ReadAsStringAsync();
 
@@ -73,9 +68,7 @@ public class JwtAuthService : IAuthService
         }
 
         IEnumerable<Claim> claims = ParseClaimsFromJwt(Jwt);
-        
         ClaimsIdentity identity = new(claims, "jwt");
-
         ClaimsPrincipal principal = new(identity);
         return principal;
     }
@@ -88,7 +81,6 @@ public class JwtAuthService : IAuthService
         return Task.CompletedTask;
     }
 
-    
     public async Task RegisterPatientAsync(RegisterPatientDto patient)
     {
         string userAsJson = JsonSerializer.Serialize(patient);
@@ -101,7 +93,7 @@ public class JwtAuthService : IAuthService
             throw new Exception(responseContent);
         }
     }
-    
+
     public async Task RegisterDoctorAsync(RegisterDoctorDto doctor)
     {
         string userAsJson = JsonSerializer.Serialize(doctor);

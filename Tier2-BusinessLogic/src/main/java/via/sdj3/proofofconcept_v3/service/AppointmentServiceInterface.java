@@ -10,8 +10,6 @@ import java.util.Optional;
 @Service
 public interface AppointmentServiceInterface {
 	Appointment addAppointment(Appointment appointment);
-
 	List<Appointment> getAllAppointments();
-
 	Optional<Appointment> getAppointmentById(int id);
 }

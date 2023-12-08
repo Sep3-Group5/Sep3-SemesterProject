@@ -22,7 +22,6 @@ public class AppointmentController {
 	@PostMapping(value="/appointments")
 	public ResponseEntity<Object> addAppointment(@RequestBody Appointment appointment){
 		try {
-
 			appointmentService.addAppointment(appointment);
 			System.out.println("Appointment successfully added");
 			return ResponseEntity.ok().body(appointment);
