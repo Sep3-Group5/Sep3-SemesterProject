@@ -77,7 +77,7 @@ public class PatientDao : IPatientDao
     {
        
         Patient? patient = await context.Patients.FirstOrDefaultAsync(patient =>
-            patient.Name.Equals(username) && patient.Password.Equals(paswd));
+            patient.Username.Equals(username) && patient.Password.Equals(paswd));
 
         if (patient == null)
         {

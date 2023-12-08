@@ -3,7 +3,7 @@ using Domain.DTOs;
 using Domain.Models;
 
 
-namespace BlazorWasm.Services;
+namespace BlazorApp.Services;
 
 public interface IAuthService
 {

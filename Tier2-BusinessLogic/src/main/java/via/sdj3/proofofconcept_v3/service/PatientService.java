@@ -63,11 +63,11 @@ public class PatientService implements PatientServiceInterface{
     }
 
     @Override
-    public Patient registerPatient(String fullname, String username, String password) {
+    public Patient registerPatient(String fullName, String username, String password) {
        // check username/password constraints
 
         // construct patient object
-        Patient patient = new Patient(fullname,username,password);
+        Patient patient = new Patient(fullName,username,password);
         try
         {
             patientClient.addPatient(patient);
@@ -75,9 +75,8 @@ public class PatientService implements PatientServiceInterface{
         }
         catch (Exception e)
         {
-            // return exception
+            throw e;
         }
-        return null;
     }
 
 }

@@ -1,8 +1,6 @@
-using BlazorWasm.Auth;
-using BlazorWasm.Services;
-using BlazorWasm.Services.Http;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using BlazorApp.Auth;
+using BlazorApp.Services;
+using BlazorApp.Services.Http;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
 using Microsoft.AspNetCore.Components.Authorization;

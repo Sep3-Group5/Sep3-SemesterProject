@@ -1,13 +1,11 @@
-using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
-using Domain.Models;
-using Microsoft.AspNetCore.Mvc;
 
 
-namespace BlazorWasm.Services.Http;
+
+namespace BlazorApp.Services.Http;
 
 public class JwtAuthService : IAuthService
 {

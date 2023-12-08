@@ -67,7 +67,7 @@ public class GRPCPatientClientImpl implements PatientClient {
             patientBlockingStub = null;
         }
 
-        System.out.println(patientObjFromServer.getName());
+        System.out.println(patientObjFromServer.getUsername());
         Patient realObj = getPatient(patientObjFromServer);
         System.out.println(realObj.getFullName());
         return realObj;

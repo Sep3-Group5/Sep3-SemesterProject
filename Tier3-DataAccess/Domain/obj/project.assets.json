@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {}
+    "C:\\Users\\darja\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\darja\\Documents\\FROM OTHER DOCUMENTS FOLDER\\GitHub\\proofOfConcept_v4\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Downloads\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\darja\\Documents\\FROM OTHER DOCUMENTS FOLDER\\GitHub\\proofOfConcept_v4\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\darja\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\darja\\Documents\\FROM OTHER DOCUMENTS FOLDER\\GitHub\\proofOfConcept_v4\\proofOfConcept_v4\\proofOfConcept_v4\\Tier3-DataAccess\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\darja\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -37,9 +37,9 @@ public class JwtUtil {
     public String generatePatientToken(Patient patient) {
         return Jwts.builder()
                 .setSubject("patient")
-                .claim("username",patient.getUsername())
                 .claim("id",patient.getPatientId())
                 .claim("fullName",patient.getFullName())
+                .claim("username",patient.getUsername())
                 .claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name", patient.getFullName())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)

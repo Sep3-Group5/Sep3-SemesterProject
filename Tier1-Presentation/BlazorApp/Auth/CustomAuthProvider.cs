@@ -1,9 +1,8 @@
 using System.Security.Claims;
-using System.Text.Json;
-using BlazorWasm.Services;
+using BlazorApp.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 
-namespace BlazorWasm.Auth;
+namespace BlazorApp.Auth;
 
 public class CustomAuthProvider : AuthenticationStateProvider
 {
