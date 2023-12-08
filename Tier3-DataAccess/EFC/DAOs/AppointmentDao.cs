@@ -94,4 +94,18 @@ public class AppointmentDao : IAppointmentDao
             return appointments;
         
     }
+
+    public async Task UpdateStatusDiagnosis(int id, bool status, string diagnosis)
+    {
+        Appointment? existing = await GetAsync(id);
+        if (existing == null)
+        {
+            throw new Exception($"No Appointment with id: {id}");
+        }
+
+        existing.Status = status;
+        existing.Diagnosis = diagnosis;
+        context.Appointments.Update(existing);
+        await context.SaveChangesAsync();
+    }
 }

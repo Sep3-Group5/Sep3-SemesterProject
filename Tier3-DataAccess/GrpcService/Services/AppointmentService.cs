@@ -190,5 +190,17 @@ public class AppointmentService : Appointment.AppointmentBase
         }
 
     }
-    
+
+    public async Task<AppointmentVoid> UpdateStatusDiagnosis(AppointmentISD isd)
+    {
+        try
+        {
+            await service.UpdateStatusDiagnosis(isd.Id, isd.Status, isd.Diagnosis);
+            return new AppointmentVoid();
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
 }
