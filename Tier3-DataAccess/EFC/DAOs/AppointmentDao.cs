@@ -16,44 +16,44 @@ public class AppointmentDao : IAppointmentDao
 
     public async Task<Appointment?> CreateAsync(Appointment appointment)
     {
-        IQueryable<Appointment> bookingsQuery = context.Bookings.Where(b =>
-            b.DoctorId == appointment.DoctorId && b.PatientId == appointment.PatientId && b.Date.Equals(appointment.Date) &&
-            b.Time.Equals(appointment.Time));
-        IEnumerable<Appointment> bookings = await bookingsQuery.ToListAsync();
-        if (bookings.Any())
+        IQueryable<Appointment> appointmentsQuery = context.Appointments.Where(a =>
+            a.DoctorId == appointment.DoctorId && a.PatientId == appointment.PatientId && a.Date.Equals(appointment.Date) &&
+            a.Time.Equals(appointment.Time));
+        IEnumerable<Appointment> appointments = await appointmentsQuery.ToListAsync();
+        if (appointments.Any())
         {
             throw new Exception("Appointment with those details already exists");
         }
 
-        EntityEntry<Appointment> newBooking = await context.Bookings.AddAsync(appointment);
+        EntityEntry<Appointment> newAppointment = await context.Appointments.AddAsync(appointment);
         await context.SaveChangesAsync();
-        return newBooking.Entity;
+        return newAppointment.Entity;
     }
 
     public async Task<IEnumerable<Appointment>> GetAsync()
     {
-        IQueryable<Appointment> appointmentsQuery = context.Bookings.AsQueryable();
+        IQueryable<Appointment> appointmentsQuery = context.Appointments.AsQueryable();
         List<Appointment> appointments = await appointmentsQuery.ToListAsync();
         return appointments;
     }
 
     public async Task<Appointment?> GetAsync(int id)
     {
-        Appointment? booking = await context.Bookings.FindAsync(id);
-        if (booking == null)
+        Appointment? appointment = await context.Appointments.FindAsync(id);
+        if (appointment == null)
         {
             throw new Exception($"No appointment with id {id}");
         }
-        return booking;
+        return appointment;
     }
 
     public async Task<Appointment?> GetAsync(string date, string time)
     {
-        IQueryable<Appointment?> bookingsQuery =
-            context.Bookings.AsQueryable().Where(b => b.Date.Equals(date) && b.Time.Equals(time));
-        IEnumerable<Appointment?> bookings = await bookingsQuery.ToListAsync();
-        Appointment? booking = bookings.FirstOrDefault();
-        return booking;
+        IQueryable<Appointment?> appointmentsQuery =
+            context.Appointments.AsQueryable().Where(b => b.Date.Equals(date) && b.Time.Equals(time));
+        IEnumerable<Appointment?> appointments = await appointmentsQuery.ToListAsync();
+        Appointment? appointment = appointments.FirstOrDefault();
+        return appointment;
     }
 
     public async Task UpdateAsync(Appointment appointment)
@@ -63,7 +63,7 @@ public class AppointmentDao : IAppointmentDao
         {
             throw new Exception($"No Appointment with id: {appointment.Id}");
         }
-        context.Bookings.Update(appointment);
+        context.Appointments.Update(appointment);
         await context.SaveChangesAsync();
     }
 
@@ -75,17 +75,21 @@ public class AppointmentDao : IAppointmentDao
             throw new Exception($"No Appointment with id: {id}");
         }
 
-        context.Bookings.Remove(existing);
+        context.Appointments.Remove(existing);
         await context.SaveChangesAsync();
     }
 
     public async Task<List<Appointment>> GetDoctorAppoitmentsByDateAndId(int doctorId, string date)
     {
-        
-            IQueryable<Appointment> bookingsQuery =
-                context.Bookings.Where(b => b.Date.Equals(date) && b.DoctorId.Equals(doctorId));
+        Appointment? existing = await GetAsync(doctorId);
+        if (existing == null)
+        {
+            throw new Exception($"No Appointment with id: {doctorId}");
+        }
+            IQueryable<Appointment> appointmentsQuery =
+                context.Appointments.Where(b => b.Date.Equals(date) && b.DoctorId.Equals(doctorId));
 
-            List<Appointment> appointments = await bookingsQuery.ToListAsync();
+            List<Appointment> appointments = await appointmentsQuery.ToListAsync();
 
             return appointments;
         
