@@ -24,14 +24,18 @@ public class PatientService : Patient.PatientBase
             Domain.Models.Patient addingPatient = new Domain.Models.Patient()
             {
                 Id = request.Id,
-                Name = request.Name
+                Name = request.Name,
+                Username = request.Username,
+                Password = request.Password
             };
             Domain.Models.Patient addedPatient = await service.CreateAsync(addingPatient);
     
             PatientObj patientObj = new PatientObj()
             {
                 Id = addedPatient.Id,
-                Name = addedPatient.Name
+                Name = addedPatient.Name,
+                Username = addedPatient.Username,
+                Password = addedPatient.Password
             };
     
             return patientObj;

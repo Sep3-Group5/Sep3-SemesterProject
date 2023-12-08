@@ -12,5 +12,5 @@ public interface IPatientDao
     Task UpdateAsync(Patient patient);
     Task DeleteAsync(int id);
     
-    Task<Patient?> LoginAsPatient(string username, string paswd);
+    Task<Patient?> LoginAsPatient(string username, string password);
 }
