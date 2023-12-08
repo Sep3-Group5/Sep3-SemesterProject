@@ -73,6 +73,7 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 
 	@Override
 	public List<Appointment> getAllAppointments() {
+		/*
 		try {
 			AppointmentList appointmentList = getAppointmentBlockingStub().getAllAppointments(Empty.newBuilder().build());
 
@@ -86,7 +87,8 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 			throw new RuntimeException(e.getStatus().getDescription());
 		} finally {
 			appointmentBlockingStub = null;
-		}
+		}*/
+		return null;
 	}
 
 

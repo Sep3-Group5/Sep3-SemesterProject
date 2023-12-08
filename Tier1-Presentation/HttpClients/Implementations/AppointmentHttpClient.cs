@@ -31,7 +31,6 @@ public class AppointmentHttpClient : IAppointmentService
 
     public async Task<ICollection<Appointment>> GetAsync()
     {
-
 	    HttpResponseMessage response = await client.GetAsync("http://localhost:8989/appointments");
 	    string content = await response.Content.ReadAsStringAsync();
 	    if (!response.IsSuccessStatusCode)
@@ -46,7 +45,7 @@ public class AppointmentHttpClient : IAppointmentService
 	    return appointments;
     }
 
-    private static string ConstructQuery(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
+    /*private static string ConstructQuery(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
     {
 	    string query = "";
 	    if (appointmentId != null)
@@ -77,7 +76,6 @@ public class AppointmentHttpClient : IAppointmentService
 	    {
 		    query += $"?time={time}";
 	    }
-
 	    return query;
-    }
+    }*/
 }
