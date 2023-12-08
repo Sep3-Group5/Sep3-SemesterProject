@@ -73,10 +73,9 @@ public class PatientDao : IPatientDao
         await context.SaveChangesAsync();
     }
 
-    public Task<Patient?> LoginAsPatient(string username, string paswd)
+    public async Task<Patient?> LoginAsPatient(string username, string paswd)
     {
-        throw new NotImplementedException();
-        /*
+       
         Patient? patient = await context.Patients.FirstOrDefaultAsync(patient =>
             patient.Name.Equals(username) && patient.Password.Equals(paswd));
 
@@ -86,6 +85,6 @@ public class PatientDao : IPatientDao
         }
         
         return patient;
-        */
+        
     }
 }

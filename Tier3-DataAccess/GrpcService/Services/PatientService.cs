@@ -57,7 +57,9 @@ public class PatientService : Patient.PatientBase
                 PatientObj patientObj = new PatientObj()
                 {
                     Id = p.Id,
-                    Name = p.Name
+                    Name = p.Name,
+                    Username = p.Username,
+                    Password = p.Password
                 };
                 patientList.Patients.Add(patientObj);
             }
@@ -70,7 +72,7 @@ public class PatientService : Patient.PatientBase
         }
     }
     
-   /*
+   
     public override async Task<PatientObj> LoginAsPatient(PatientLogin obj, ServerCallContext context)
     {
         
@@ -86,8 +88,8 @@ public class PatientService : Patient.PatientBase
             PatientObj patientObj = new PatientObj()
             {
                 Username = patient.Username,
-                Password = "",
-                Fullname = patient.FullName,
+                Password = patient.Password,
+                Name = patient.Name,
                 Id = patient.Id,
             };
 
@@ -99,5 +101,4 @@ public class PatientService : Patient.PatientBase
         }
         
     }
-    */
 }
