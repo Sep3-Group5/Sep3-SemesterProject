@@ -35,19 +35,17 @@ public class JwtUtil {
     }
 
     public String generatePatientToken(Patient patient) {
-        return null;
-        /*
         return Jwts.builder()
-                .setSubject("doctor")
-                .claim("username",patient.getUserName())
-                .claim("id",patient.getId())
+                .setSubject("patient")
+                .claim("username",patient.getUsername())
+                .claim("id",patient.getPatientId())
                 .claim("fullName",patient.getFullName())
                 .claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name", patient.getFullName())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
                 .compact();
 
-         */
+
     }
 
     public  String extractUsername(String token) {
