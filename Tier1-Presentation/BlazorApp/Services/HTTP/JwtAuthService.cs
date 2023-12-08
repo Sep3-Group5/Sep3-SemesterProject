@@ -67,7 +67,7 @@ public class JwtAuthService : IAuthService
 
         string token = responseContent;
         Jwt = token;
-        System.Console.WriteLine(Jwt);
+        Console.WriteLine(Jwt);
         ClaimsPrincipal principal = CreateClaimsPrincipal();
 
         OnAuthStateChanged.Invoke(principal);

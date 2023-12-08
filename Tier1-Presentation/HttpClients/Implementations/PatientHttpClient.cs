@@ -16,7 +16,7 @@ public class PatientHttpClient : IPatientService
     }
 
 
-    public async Task<Patient> ProofOfConcept(PatientCreationDto dto)
+    public async Task<Patient> ProofOfConcept(RegisterPatientDto dto)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("http://localhost:8989/patients/test", dto);
         // HttpClients.Implementations.UserHttpClient.Register(UserRegisterDto dto) in C:\Users\37062\Documents\GitHub\ForumBox\HttpClients\Implementations\UserHttpClient.cs:line 25
