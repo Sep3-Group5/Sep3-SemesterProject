@@ -70,7 +70,7 @@
             dto.Appointments = new List<Appointment>();
             dto.Date = appointmentsDate.ToString();
         
-            appointments = await AppointmentService.getAppointmentsByDateDoctor(dto);
+            appointments = await AppointmentService.getAppointmentsByDateDoctor(dto, authService.getJwt());
             
             System.Console.WriteLine(appointments.ToString());
             // update the and list the appointments

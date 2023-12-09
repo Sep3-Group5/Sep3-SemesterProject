@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RegisterPatientDto {
     @JsonProperty("UserName")
     private String UserName;
+
     @JsonProperty("Password")
     private String Password;
 

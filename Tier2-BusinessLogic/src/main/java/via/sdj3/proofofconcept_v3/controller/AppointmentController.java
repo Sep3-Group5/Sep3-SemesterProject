@@ -1,11 +1,13 @@
 package via.sdj3.proofofconcept_v3.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.proofofconcept_v3.Dto.DoctorViewAppointmentsDto;
 import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
+import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
 import via.sdj3.proofofconcept_v3.service.AppointmentService;
 import via.sdj3.proofofconcept_v3.service.AppointmentServiceInterface;
 
@@ -16,9 +18,11 @@ import java.util.Optional;
 public class AppointmentController {
 
 	private AppointmentServiceInterface appointmentService;
+	private JwtUtil jwtUtil;
 
-	public AppointmentController(AppointmentService appointmentService) {
+	public AppointmentController(AppointmentService appointmentService, JwtUtil jwtUtil) {
 		this.appointmentService = appointmentService;
+		this.jwtUtil = jwtUtil;
 	}
 
 	@PostMapping(value="/appointments")
@@ -51,10 +55,21 @@ public class AppointmentController {
 
 
 	@PostMapping(value = "/Doctor/Appointments")
-	public ResponseEntity<Object> getAppointmentsByDate(@RequestBody DoctorViewAppointmentsDto dto) {
-		//get who is the sender, autorise
+	public ResponseEntity<Object> getAppointmentsByDate(@RequestBody DoctorViewAppointmentsDto dto, HttpServletRequest request) {
+		String jwt = request.getHeader("Authorization");
+		if (jwt != null && jwt.startsWith("Bearer ")) {
+			jwt = jwt.substring(7); // Remove "Bearer " prefix
+		}
+		else {
+		// Handle the case where the Authorization header is missing or does not contain a JWT
+		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	}
 
-		int doctorId = 3;
+		if (!jwtUtil.validateKey(jwt) || (!jwtUtil.extractRole(jwt).equals("Doctor"))) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+		int doctorId = jwtUtil.extractId(jwt);
 
 		Optional<List<Appointment>> dtoAnswer;
 		try {

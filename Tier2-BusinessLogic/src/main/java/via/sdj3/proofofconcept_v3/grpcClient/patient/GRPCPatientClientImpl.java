@@ -26,7 +26,12 @@ public class GRPCPatientClientImpl implements PatientClient {
 
     @Override
     public Patient addPatient(Patient patient) {
-        PatientObj patientObj = PatientObj.newBuilder().setId(patient.getPatientId()).setName(patient.getFullName()).build();
+        PatientObj patientObj = PatientObj.newBuilder()
+                .setId(0)
+                .setName(patient.getFullName())
+                .setUsername(patient.getUsername())
+                .setPassword(patient.getPassword())
+                .build();
 
         PatientObj patientObjFromServer;
         try{
@@ -78,6 +83,8 @@ public class GRPCPatientClientImpl implements PatientClient {
         Patient returnedPatient = new Patient();
         returnedPatient.setPatientId(patientObjFromServer.getId());
         returnedPatient.setFullName(patientObjFromServer.getName());
+        returnedPatient.setUsername(patientObjFromServer.getUsername());
+        returnedPatient.setPassword(patientObjFromServer.getPassword());
         return returnedPatient;
     }
 }

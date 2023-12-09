@@ -2,13 +2,13 @@ namespace Domain.DTOs;
 
 public class RegisterPatientDto
 {
-    private string Name { get; set; }
-    private string UserName { get; set; }
-    private string Password { get; set; }
+    public string UserName { get;set; }
+    public string Password { get; set; }
+    public string FullName { get; set; }
 
     public RegisterPatientDto(string name, string username, string password)
     {
-        Name = name;
+        FullName = name;
         UserName = username;
         Password = password;
     }

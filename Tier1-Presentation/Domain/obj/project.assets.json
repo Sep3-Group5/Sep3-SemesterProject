@@ -2879,19 +2879,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\darja\\.nuget\\packages\\": {}
+    "C:\\Users\\37062\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\darja\\Documents\\FROM OTHER DOCUMENTS FOLDER\\GitHub\\proofOfConcept_v4\\proofOfConcept_v4\\proofOfConcept_v4\\Tier1-Presentation\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\darja\\Documents\\FROM OTHER DOCUMENTS FOLDER\\GitHub\\proofOfConcept_v4\\proofOfConcept_v4\\proofOfConcept_v4\\Tier1-Presentation\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\darja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\darja\\Documents\\FROM OTHER DOCUMENTS FOLDER\\GitHub\\proofOfConcept_v4\\proofOfConcept_v4\\proofOfConcept_v4\\Tier1-Presentation\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\37062\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\darja\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\37062\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -2936,7 +2936,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
