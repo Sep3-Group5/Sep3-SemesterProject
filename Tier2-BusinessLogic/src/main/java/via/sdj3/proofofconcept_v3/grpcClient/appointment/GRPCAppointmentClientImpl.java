@@ -65,6 +65,11 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 	}
 
 	@Override
+	public List<Appointment> getAllAppointmentsForPatient() {
+
+	}
+
+	@Override
 	public Optional<List<Appointment>> getAppointmentsByDateDoctor(String date, int id) {
 		RequestFindAppointmentsForDoctorObj requestObj = RequestFindAppointmentsForDoctorObj.newBuilder()
 				.setDate(date)

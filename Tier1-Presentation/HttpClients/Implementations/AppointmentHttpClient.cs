@@ -13,8 +13,8 @@ namespace HttpClients.Implementations;
 public class AppointmentHttpClient : IAppointmentService
 {
     private readonly HttpClient client;
-    
-    private String url ="http://localhost:8989/"; 
+
+    private String url ="http://localhost:8989/";
 
     public AppointmentHttpClient(HttpClient client)
     {
@@ -72,11 +72,9 @@ public class AppointmentHttpClient : IAppointmentService
 	    }
     }
 
-    public async Task<ICollection<Appointment>> GetAsync(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
+    public async Task<ICollection<Appointment>> GetAsync(int patientId)
     {
-	    string query = ConstructQuery(appointmentId, patientId, doctorId, diagnostic, status,date, time);
-
-	    HttpResponseMessage response = await client.GetAsync("/appointments"+query);
+	    HttpResponseMessage response = await client.GetAsync("/appointments/"+patientId);
 	    string content = await response.Content.ReadAsStringAsync();
 	    if (!response.IsSuccessStatusCode)
 	    {
@@ -90,38 +88,37 @@ public class AppointmentHttpClient : IAppointmentService
 	    return appointments;
     }
 
-    private static string ConstructQuery(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
-    {
-	    string query = "";
-	    if (appointmentId != null)
-	    {
-		    query += $"?appointmentId={appointmentId}";
-	    }
-	    if (patientId != null)
-	    {
-		    query += $"?patientId={patientId}";
-	    }
-	    if (doctorId != null)
-	    {
-		    query += $"?doctorId={doctorId}";
-	    }
-	    if (string.IsNullOrEmpty(diagnostic))
-	    {
-		    query += $"?diagnostic={diagnostic}";
-	    }
-	    if (status != null)
-	    {
-		    query += $"?=status{status}";
-	    }
-	    if (string.IsNullOrEmpty(date))
-	    {
-		    query += $"?date={date}";
-	    }
-	    if (string.IsNullOrEmpty(time))
-	    {
-		    query += $"?time={time}";
-	    }
-
-	    return query;
-    }
+    // private static string ConstructQuery(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
+    // {
+	   //  string query = "";
+	   //  if (appointmentId != null)
+	   //  {
+		  //   query += $"?appointmentId={appointmentId}";
+	   //  }
+	   //  if (patientId != null)
+	   //  {
+		  //   query += $"?patientId={patientId}";
+	   //  }
+	   //  if (doctorId != null)
+	   //  {
+		  //   query += $"?doctorId={doctorId}";
+	   //  }
+	   //  if (string.IsNullOrEmpty(diagnostic))
+	   //  {
+		  //   query += $"?diagnostic={diagnostic}";
+	   //  }
+	   //  if (status != null)
+	   //  {
+		  //   query += $"?=status{status}";
+	   //  }
+	   //  if (string.IsNullOrEmpty(date))
+	   //  {
+		  //   query += $"?date={date}";
+	   //  }
+	   //  if (string.IsNullOrEmpty(time))
+	   //  {
+		  //   query += $"?time={time}";
+	   //  }
+	   //  return query;
+    // }
 }

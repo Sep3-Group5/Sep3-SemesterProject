@@ -15,7 +15,6 @@ public class PatientHttpClient : IPatientService
         this.client = client;
     }
 
-
     public async Task<Patient> ProofOfConcept(RegisterPatientDto dto)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("http://localhost:8989/patients/test", dto);
@@ -29,7 +28,7 @@ public class PatientHttpClient : IPatientService
         Patient patient = JsonSerializer.Deserialize<Patient>(result);
         return patient;
     }
-    
+
     public async Task<IEnumerable<Patient>> GetPatientsAsync(string? usernameContains = null)
     {
         string uri = "/patients";

@@ -2,11 +2,8 @@
 @attribute [Authorize]
 @using Domain.Models
 @using HttpClients.ClientInterfaces
-@using BlazorWasm.Services
+@using Domain.DTOs
 @inject IAppointmentService AppointmentService
-@inject IPatientService PatientService
-@inject IAuthService authService
-@inject NavigationManager NavMgr
 
 <AuthorizeView>
     <Authorize>
@@ -14,16 +11,16 @@
 		    <button @onclick="LoadAppointments">Load</button>
 		</div>
 
-		@if (appointments == null)
+		@if (Appointments == null)
 		{
+			<p>Appointments == null</p>
 		}
-		else if (!appointments.Any())
+		else if (!Appointments.Any())
 		{
 		    <p>No Appointments to display</p>
 		}
 		else{
-
-		    <h2>Patient: patientName with id: patientId </h2>
+		    //<h2>Patient: patientName with id: patientId </h2>
 		    <table class="table">
 		        <thead>
 		        <tr>
@@ -37,7 +34,7 @@
 		        </thead>
 
 		        <tbody>
-		        @foreach (var appointment in appointments)
+		        @foreach (var appointment in Appointments)
 		        {
 		            <tr>
 		                <td>@appointment.Id</td>
@@ -60,27 +57,35 @@
 }
 
 @code {
-    private IEnumerable<Appointment> appointments;
+	private RegisterPatientDto RegisterPatientDto;
     private string msg = "";
+	private int patientIdFilter;
+	private ICollection<Appointment> Appointments;
 
-    private int idFilter;
-    private int patientIdFilter;
+    /*private int idFilter;
     private int doctorIdFilter;
-    private string didagnosticFilter;
+    private string diagnosticFilter;
     private bool statusFilter;
     private string dateFilter;
-    private string timeFilter;
+    private string timeFilter;*/
+
+	public List<Appointment> getAllAppointments()
+	{
+		return RegisterPatientDto.Appointments;
+	}
 
     private async Task LoadAppointments()
     {
+	    Console.WriteLine("LoadAppointments start");
         try
         {
-            appointments = await AppointmentService.GetAsync(idFilter, patientIdFilter, doctorIdFilter, didagnosticFilter, statusFilter, dateFilter, timeFilter);
+            Appointments = await AppointmentService.GetAsync(patientIdFilter);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             msg = e.Message;
         }
+	    Console.WriteLine("LoadAppointments end");
     }
 }
