@@ -50,7 +50,7 @@ public class PatientController {
 
         try {
             // Forward to patientService for logic
-            patientService.registerPatient(dto.getName(), dto.getPassword());
+            patientService.registerPatient(dto.getFullName(), dto.getUserName(), dto.getPassword());
             return ResponseEntity.ok("Patient account registered");
         } catch (Exception e) {
             return ResponseEntity.status(401).body("Something went wrong");

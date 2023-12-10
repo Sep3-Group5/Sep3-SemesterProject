@@ -7,12 +7,12 @@ public class PatientCreationDto
     public string Username { get; }
     public string Password { get; }
 
-    public PatientCreationDto(int Id, string Name, string Username, string Password)
+    public PatientCreationDto(int id, string name, string username, string password)
     {
-        this.Id = Id;
-        this.Name = Name;
-        this.Username = Username;
-        this.Password = Password;
+        Id = id;
+        Name = name;
+        Username = username;
+        Password = password;
     }
 
 }

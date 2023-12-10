@@ -30,23 +30,27 @@ namespace GrpcService {
             "aWFnbm9zaXMYBiABKAkSDgoGc3RhdHVzGAcgASgIIhsKDUFwcG9pbnRtZW50",
             "SWQSCgoCaWQYASABKAUiLAoOQXBwb2ludG1lbnREdG8SDAoEZGF0ZRgBIAEo",
             "CRIMCgR0aW1lGAIgASgJIikKE0FwcG9pbnRtZW50UmVzcG9uc2USEgoKc3Vj",
-            "Y2Vzc2Z1bBgBIAEoCCIRCg9BcHBvaW50bWVudFZvaWQiRAoPQXBwb2ludG1l",
-            "bnRMaXN0EjEKDGFwcG9pbnRtZW50cxgBIAMoCzIbLmFwcG9pbnRtZW50LkFw",
-            "cG9pbnRtZW50T2JqIj8KI1JlcXVlc3RGaW5kQXBwb2ludG1lbnRzRm9yRG9j",
-            "dG9yT2JqEgwKBGRhdGUYASABKAkSCgoCaWQYAiABKAUyugQKC0FwcG9pbnRt",
-            "ZW50EkcKC0NyZWF0ZUFzeW5jEhsuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRP",
-            "YmoaGy5hcHBvaW50bWVudC5BcHBvaW50bWVudE9iahJGCghHZXRBc3luYxIc",
-            "LmFwcG9pbnRtZW50LkFwcG9pbnRtZW50Vm9pZBocLmFwcG9pbnRtZW50LkFw",
-            "cG9pbnRtZW50TGlzdBJHCgxHZXRCeUlkQXN5bmMSGi5hcHBvaW50bWVudC5B",
-            "cHBvaW50bWVudElkGhsuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRPYmoSSQoN",
-            "R2V0QnlEdG9Bc3luYxIbLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50RHRvGhsu",
-            "YXBwb2ludG1lbnQuQXBwb2ludG1lbnRPYmoSTAoLVXBkYXRlQXN5bmMSGy5h",
-            "cHBvaW50bWVudC5BcHBvaW50bWVudE9iahogLmFwcG9pbnRtZW50LkFwcG9p",
-            "bnRtZW50UmVzcG9uc2USSwoLRGVsZXRlQXN5bmMSGi5hcHBvaW50bWVudC5B",
-            "cHBvaW50bWVudElkGiAuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRSZXNwb25z",
-            "ZRJrChlmaW5kQXBwb2ludG1lbnRzRm9yRG9jdG9yEjAuYXBwb2ludG1lbnQu",
-            "UmVxdWVzdEZpbmRBcHBvaW50bWVudHNGb3JEb2N0b3JPYmoaHC5hcHBvaW50",
-            "bWVudC5BcHBvaW50bWVudExpc3RCDqoCC0dycGNTZXJ2aWNlYgZwcm90bzM="));
+            "Y2Vzc2Z1bBgBIAEoCCI/Cg5BcHBvaW50bWVudElTRBIKCgJpZBgBIAEoBRIO",
+            "CgZzdGF0dXMYAiABKAgSEQoJZGlhZ25vc2lzGAMgASgJIhEKD0FwcG9pbnRt",
+            "ZW50Vm9pZCJECg9BcHBvaW50bWVudExpc3QSMQoMYXBwb2ludG1lbnRzGAEg",
+            "AygLMhsuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRPYmoiPwojUmVxdWVzdEZp",
+            "bmRBcHBvaW50bWVudHNGb3JEb2N0b3JPYmoSDAoEZGF0ZRgBIAEoCRIKCgJp",
+            "ZBgCIAEoBTKOBQoLQXBwb2ludG1lbnQSRwoLQ3JlYXRlQXN5bmMSGy5hcHBv",
+            "aW50bWVudC5BcHBvaW50bWVudE9iahobLmFwcG9pbnRtZW50LkFwcG9pbnRt",
+            "ZW50T2JqEkYKCEdldEFzeW5jEhwuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRW",
+            "b2lkGhwuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRMaXN0EkcKDEdldEJ5SWRB",
+            "c3luYxIaLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50SWQaGy5hcHBvaW50bWVu",
+            "dC5BcHBvaW50bWVudE9iahJJCg1HZXRCeUR0b0FzeW5jEhsuYXBwb2ludG1l",
+            "bnQuQXBwb2ludG1lbnREdG8aGy5hcHBvaW50bWVudC5BcHBvaW50bWVudE9i",
+            "ahJMCgtVcGRhdGVBc3luYxIbLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50T2Jq",
+            "GiAuYXBwb2ludG1lbnQuQXBwb2ludG1lbnRSZXNwb25zZRJLCgtEZWxldGVB",
+            "c3luYxIaLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50SWQaIC5hcHBvaW50bWVu",
+            "dC5BcHBvaW50bWVudFJlc3BvbnNlEmsKGWZpbmRBcHBvaW50bWVudHNGb3JE",
+            "b2N0b3ISMC5hcHBvaW50bWVudC5SZXF1ZXN0RmluZEFwcG9pbnRtZW50c0Zv",
+            "ckRvY3Rvck9iahocLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50TGlzdBJSChVV",
+            "cGRhdGVTdGF0dXNEaWFnbm9zaXMSGy5hcHBvaW50bWVudC5BcHBvaW50bWVu",
+            "dElTRBocLmFwcG9pbnRtZW50LkFwcG9pbnRtZW50Vm9pZEIOqgILR3JwY1Nl",
+            "cnZpY2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -54,6 +58,7 @@ namespace GrpcService {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentId), global::GrpcService.AppointmentId.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentDto), global::GrpcService.AppointmentDto.Parser, new[]{ "Date", "Time" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentResponse), global::GrpcService.AppointmentResponse.Parser, new[]{ "Successful" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentISD), global::GrpcService.AppointmentISD.Parser, new[]{ "Id", "Status", "Diagnosis" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentVoid), global::GrpcService.AppointmentVoid.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.AppointmentList), global::GrpcService.AppointmentList.Parser, new[]{ "Appointments" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcService.RequestFindAppointmentsForDoctorObj), global::GrpcService.RequestFindAppointmentsForDoctorObj.Parser, new[]{ "Date", "Id" }, null, null, null, null)
@@ -1078,6 +1083,269 @@ namespace GrpcService {
 
   }
 
+  public sealed partial class AppointmentISD : pb::IMessage<AppointmentISD>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<AppointmentISD> _parser = new pb::MessageParser<AppointmentISD>(() => new AppointmentISD());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<AppointmentISD> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcService.AppointmentReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AppointmentISD() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AppointmentISD(AppointmentISD other) : this() {
+      id_ = other.id_;
+      status_ = other.status_;
+      diagnosis_ = other.diagnosis_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AppointmentISD Clone() {
+      return new AppointmentISD(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 2;
+    private bool status_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Status {
+      get { return status_; }
+      set {
+        status_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "diagnosis" field.</summary>
+    public const int DiagnosisFieldNumber = 3;
+    private string diagnosis_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Diagnosis {
+      get { return diagnosis_; }
+      set {
+        diagnosis_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as AppointmentISD);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(AppointmentISD other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (Status != other.Status) return false;
+      if (Diagnosis != other.Diagnosis) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (Status != false) hash ^= Status.GetHashCode();
+      if (Diagnosis.Length != 0) hash ^= Diagnosis.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (Status != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Status);
+      }
+      if (Diagnosis.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Diagnosis);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (Status != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Status);
+      }
+      if (Diagnosis.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Diagnosis);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (Status != false) {
+        size += 1 + 1;
+      }
+      if (Diagnosis.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Diagnosis);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(AppointmentISD other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.Status != false) {
+        Status = other.Status;
+      }
+      if (other.Diagnosis.Length != 0) {
+        Diagnosis = other.Diagnosis;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Status = input.ReadBool();
+            break;
+          }
+          case 26: {
+            Diagnosis = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Status = input.ReadBool();
+            break;
+          }
+          case 26: {
+            Diagnosis = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class AppointmentVoid : pb::IMessage<AppointmentVoid>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1092,7 +1360,7 @@ namespace GrpcService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcService.AppointmentReflection.Descriptor.MessageTypes[4]; }
+      get { return global::GrpcService.AppointmentReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1244,7 +1512,7 @@ namespace GrpcService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcService.AppointmentReflection.Descriptor.MessageTypes[5]; }
+      get { return global::GrpcService.AppointmentReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1422,7 +1690,7 @@ namespace GrpcService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcService.AppointmentReflection.Descriptor.MessageTypes[6]; }
+      get { return global::GrpcService.AppointmentReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -42,3 +42,14 @@ C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\De
 C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\refint\Domain.dll
 C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\Domain.pdb
 C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\ref\Domain.dll
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\bin\Debug\net7.0\Domain.dll
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\bin\Debug\net7.0\Domain.pdb
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\Domain.dll
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\Domain.pdb
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier3-DataAccess\Domain\obj\Debug\net7.0\ref\Domain.dll

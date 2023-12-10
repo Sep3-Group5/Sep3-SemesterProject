@@ -1,6 +1,6 @@
 @page "/Patient/Register"
-@using BlazorWasm.Services
 @using Domain.DTOs
+@using BlazorApp.Services
 @inject IAuthService authService
 @inject NavigationManager navMgr
 
@@ -12,14 +12,17 @@
        
            <form class="form">
                <div class="form__group">
+                   <input type="text" placeholder="Full Name" class="form__input" @bind="fullName"/>
+               </div>
+               <div class="form__group">
                    <input type="text" placeholder="Username" class="form__input" @bind="userName"/>
                </div>
                <div class="form__group">
                    <input type="password" placeholder="Password" class="form__input" @bind="password"/>
                </div>
-       
+
                <button class="registerbtn" type="button" @onclick="RegisterAsync">Register</button>
-       
+
            </form>
             @if (!string.IsNullOrEmpty(errorLabel))
                        {
@@ -41,6 +44,7 @@
 </AuthorizeView>
 
 @code {
+    private string fullName;
     private string userName;
     private string password;
     private string errorLabel;
@@ -50,7 +54,7 @@
         errorLabel = "";
         try
         {
-            RegisterPatientDto dto = new RegisterPatientDto(userName, password);
+            RegisterPatientDto dto = new RegisterPatientDto(fullName, userName, password);
             
             await authService.RegisterPatientAsync(dto);
             navMgr.NavigateTo("/");

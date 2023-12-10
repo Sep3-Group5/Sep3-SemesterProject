@@ -5,23 +5,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RegisterPatientDto {
     @JsonProperty("UserName")
     private String UserName;
+
     @JsonProperty("Password")
     private String Password;
 
-    public RegisterPatientDto(String name, String password) {
-        this.UserName = name;
+    @JsonProperty("FullName")
+    private String FullName;
+
+    public RegisterPatientDto(String fullName, String userName, String password) {
+        this.FullName = fullName;
+        this.UserName = userName;
         this.Password = password;
     }
 
     public RegisterPatientDto() {
     }
 
-    public String getName() {
+    public String getUserName() {
         return UserName;
     }
 
-    public void setName(String name) {
-        this.UserName = name;
+    public void setUserName(String userName) {
+        this.UserName = userName;
+    }
+
+    public String getFullName() {
+        return FullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.FullName = fullName;
     }
 
     public String getPassword() {

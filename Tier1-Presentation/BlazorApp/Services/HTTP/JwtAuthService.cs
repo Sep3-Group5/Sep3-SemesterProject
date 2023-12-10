@@ -1,13 +1,12 @@
-using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
-using Domain.Models;
-using Microsoft.AspNetCore.Mvc;
 
 
-namespace BlazorWasm.Services.Http;
+
+namespace BlazorApp.Services.Http;
 
 public class JwtAuthService : IAuthService
 {
@@ -22,12 +21,13 @@ public class JwtAuthService : IAuthService
 
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
+    public string getJwt()
+    {
+        return Jwt;
+    }
 
     public async Task LoginDoctorAsync(LoginDto userLoginDto)
     {
-
-        
-        
         
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
@@ -68,6 +68,8 @@ public class JwtAuthService : IAuthService
         string token = responseContent;
         Jwt = token;
         System.Console.WriteLine(Jwt);
+        ClaimsMap = ParseClaimsFromJwtAsDictionary(token);
+        
         ClaimsPrincipal principal = CreateClaimsPrincipal();
 
         OnAuthStateChanged.Invoke(principal);

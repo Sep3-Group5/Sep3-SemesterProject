@@ -38,7 +38,7 @@
         {
             // register 
             int idAsInt = int.Parse(id);
-            await patientService.ProofOfConcept(new PatientCreationDto(idAsInt,name)); // Error here
+            await patientService.ProofOfConcept(new RegisterPatientDto("idAsInt",name, "pass")); // Error here
             
             id = "";
             name = "";

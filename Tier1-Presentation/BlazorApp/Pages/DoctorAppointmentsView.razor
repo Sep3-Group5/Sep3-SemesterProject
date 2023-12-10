@@ -3,7 +3,7 @@
 @using Domain.Models
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
-@using BlazorWasm.Services
+@using BlazorApp.Services
 @inject IDoctorService DoctorService
 @inject IAppointmentService AppointmentService
 @inject NavigationManager NavMgr
@@ -70,7 +70,7 @@
             dto.Appointments = new List<Appointment>();
             dto.Date = appointmentsDate.ToString();
         
-            appointments = await AppointmentService.getAppointmentsByDateDoctor(dto);
+            appointments = await AppointmentService.getAppointmentsByDateDoctor(dto, authService.getJwt());
             
             System.Console.WriteLine(appointments.ToString());
             // update the and list the appointments

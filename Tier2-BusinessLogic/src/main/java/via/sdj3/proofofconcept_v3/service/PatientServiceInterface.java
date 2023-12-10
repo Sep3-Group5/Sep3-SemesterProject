@@ -11,7 +11,7 @@ public interface PatientServiceInterface {
     Patient addPatient(Patient patient) throws Exception;
 
     String authenticatePatient(String name, String password);
-    Patient registerPatient(String username, String password);
+    Patient registerPatient(String fullname, String username, String password);
     List<Patient> getAllPatients();
 	Optional<Patient> getPatientById(int id);
 
