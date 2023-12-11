@@ -59,7 +59,7 @@
             @foreach (var appointment in appointments)
             {
                 <tr>
-                    <td>@appointment.Id</td>
+                    <td>@appointment.ApointmentId</td>
                     <td>@appointment.PatientId</td>
                     <td>@appointment.Diagnosis</td>
                     <td>@appointment.Status</td>
@@ -98,7 +98,7 @@
         {
             PatientViewAppointmentsDto dto = new PatientViewAppointmentsDto();
             // dto.Appointments = new IEnumerable<Appointment>();
-            dto.Date = appointmentsDate.ToString();
+            dto.Date = (appointmentsDate.Day + "/" + appointmentsDate.Month + "/" + appointmentsDate.Year );
         
             appointments = await AppointmentService.getAppointmentsByDatePatient(dto, authService.getJwt());
             
