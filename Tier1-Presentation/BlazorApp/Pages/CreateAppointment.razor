@@ -72,7 +72,7 @@
     private List<Appointment> appointments;
     private IEnumerable<Doctor>? doctors;
     private int? selectedDoctorId;
-    private DateOnly appointmentDate;
+    private DateTime appointmentDate = DateTime.Today.Date;
     private string selectedAppointmentTime;
     
 
