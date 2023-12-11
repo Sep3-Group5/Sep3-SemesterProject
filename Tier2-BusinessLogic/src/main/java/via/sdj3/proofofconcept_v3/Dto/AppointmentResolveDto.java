@@ -3,10 +3,12 @@ package via.sdj3.proofofconcept_v3.Dto;
 public class AppointmentResolveDto {
     private final int id;
     private String diagnosis;
-    private Boolean status;
+    private boolean status;
 
-    public AppointmentResolveDto(int id) {
+    public AppointmentResolveDto(int id, String diagnosis, boolean status) {
         this.id = id;
+        this.diagnosis = diagnosis;
+        this.status = status;
     }
 
     public int getId() {
@@ -21,7 +23,7 @@ public class AppointmentResolveDto {
         this.diagnosis = diagnosis;
     }
 
-    public Boolean getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
