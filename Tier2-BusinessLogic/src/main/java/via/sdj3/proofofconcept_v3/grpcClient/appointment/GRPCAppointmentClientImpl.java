@@ -5,10 +5,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.springframework.stereotype.Service;
-import via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentGrpc;
-import via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentList;
-import via.sdj3.proofofconcept_v3.GrpcService.appointment.AppointmentObj;
-import via.sdj3.proofofconcept_v3.GrpcService.appointment.RequestFindAppointmentsForDoctorObj;
+import via.sdj3.proofofconcept_v3.GrpcService.appointment.*;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
 
@@ -65,7 +62,30 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 	}
 
 	@Override
-	public List<Appointment> getAllAppointmentsForPatient() {
+	public Optional<List<Appointment>> getAppointmentsByDatePatient(String date, int id) {
+		RequestFindAppointmentsForPatientObj requestObj = RequestFindAppointmentsForPatientObj.newBuilder()
+				.setDate(date)
+				.setId(id)
+				.build();
+		AppointmentList returnedAppointments;
+		try{
+			returnedAppointments = getAppointmentBlockingStub().findAppointmentsForPatient(requestObj);
+		}
+		catch (StatusRuntimeException e) {
+			System.out.println(e.getStatus().getDescription());
+			throw new RuntimeException(e.getStatus().getDescription());
+		}
+		finally {
+			appointmentBlockingStub = null;
+		}
+		List<Appointment> realObj = new ArrayList<Appointment>();
+
+		List<AppointmentObj> objList = returnedAppointments.getAppointmentsList();
+		for (AppointmentObj obj: objList) {
+			realObj.add(this.getAppointment(obj));
+		}
+
+		return Optional.of(realObj);
 
 	}
 

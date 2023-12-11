@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public interface AppointmentClient {
 	Appointment addAppointment(Appointment appointment);
-	List<Appointment> getAllAppointmentsForPatient();
+	Optional<List<Appointment>> getAppointmentsByDatePatient(String date, int id);
 	Optional<List<Appointment>> getAppointmentsByDateDoctor(String date, int id);
 
 }

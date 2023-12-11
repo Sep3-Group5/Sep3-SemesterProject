@@ -43,4 +43,11 @@ public class AppointmentService implements AppointmentServiceInterface{
 		appointments = appointmentClient.getAppointmentsByDateDoctor(date,id);
 		return appointments;
 	}
+
+	@Override
+	public Optional<List<Appointment>> getAppointmentsByDatePatient(String date, int id) {
+		Optional<List<Appointment>> appointments = Optional.of(new ArrayList<>());
+		appointments = appointmentClient.getAppointmentsByDatePatient(date,id);
+		return appointments;
+	}
 }

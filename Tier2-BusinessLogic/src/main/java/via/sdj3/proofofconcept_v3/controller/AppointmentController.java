@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.proofofconcept_v3.Dto.DoctorViewAppointmentsDto;
 import via.sdj3.proofofconcept_v3.Dto.LoginDto;
+import via.sdj3.proofofconcept_v3.Dto.PatientViewAppointmentsDto;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
 import via.sdj3.proofofconcept_v3.jwtUtil.JwtUtil;
 import via.sdj3.proofofconcept_v3.service.AppointmentService;
@@ -61,9 +62,9 @@ public class AppointmentController {
 			jwt = jwt.substring(7); // Remove "Bearer " prefix
 		}
 		else {
-		// Handle the case where the Authorization header is missing or does not contain a JWT
-		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-	}
+			// Handle the case where the Authorization header is missing or does not contain a JWT
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 
 		if (!jwtUtil.validateKey(jwt) || (!jwtUtil.extractRole(jwt).equals("Doctor"))) {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -74,6 +75,41 @@ public class AppointmentController {
 		Optional<List<Appointment>> dtoAnswer;
 		try {
 			dtoAnswer = appointmentService.getAppointmentsByDateDoctor(dto.getDate(),doctorId);
+
+			if (dtoAnswer.isPresent()) {
+				// If appointments are present, return the list
+				List<Appointment> appointments = dtoAnswer.get();
+				return new ResponseEntity<>(appointments,HttpStatus.OK);
+			} else {
+				// If no appointments are found, return an appropriate response
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@PostMapping(value = "/Patient/Appointments")
+	public ResponseEntity<Object> getAppointmentsByDate(@RequestBody PatientViewAppointmentsDto dto, HttpServletRequest request) {
+		String jwt = request.getHeader("Authorization");
+		if (jwt != null && jwt.startsWith("Bearer ")) {
+			jwt = jwt.substring(7); // Remove "Bearer " prefix
+		}
+		else {
+			// Handle the case where the Authorization header is missing or does not contain a JWT
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+		if (!jwtUtil.validateKey(jwt) || (!jwtUtil.extractRole(jwt).equals("Patient"))) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+		int patientId = jwtUtil.extractId(jwt);
+
+		Optional<List<Appointment>> dtoAnswer;
+		try {
+			dtoAnswer = appointmentService.getAppointmentsByDatePatient(dto.getDate(),patientId);
 
 			if (dtoAnswer.isPresent()) {
 				// If appointments are present, return the list
