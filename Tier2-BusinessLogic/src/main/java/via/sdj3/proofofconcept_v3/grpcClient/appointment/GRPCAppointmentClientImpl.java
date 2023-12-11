@@ -5,6 +5,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.springframework.stereotype.Service;
+import via.sdj3.proofofconcept_v3.Dto.AppointmentResolveDto;
 import via.sdj3.proofofconcept_v3.GrpcService.appointment.*;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
@@ -115,6 +116,56 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 
 		return Optional.of(realObj);
 
+	}
+
+	@Override
+	public Appointment getAppointmentById(int id)
+	{
+		AppointmentId request = AppointmentId.newBuilder().setId(id).build();
+		AppointmentObj appointmentObjFromServer;
+		try{
+			appointmentObjFromServer = getAppointmentBlockingStub().getByIdAsync(request);
+		}
+		catch (StatusRuntimeException e) {
+			System.out.println(e.getStatus().getDescription());
+			throw new RuntimeException(e.getStatus().getDescription());
+		}
+		finally {
+			appointmentBlockingStub = null;
+		}
+
+		System.out.println(appointmentObjFromServer.getId());  //here getId() instead of getName()
+		Appointment realObj = getAppointment(appointmentObjFromServer);
+		System.out.println(realObj.getAppointmentId());
+		return realObj;
+
+	}
+
+	@Override
+	public Appointment resolveAppointment(AppointmentResolveDto dto)
+	{
+		AppointmentISD isd = AppointmentISD.newBuilder()
+				.setId(dto.getId())
+				.setDiagnosis(dto.getDiagnosis())
+				.setStatus(dto.getStatus())
+				.build();
+
+		AppointmentObj appointmentObjFromServer;
+		try{
+			appointmentObjFromServer = getAppointmentBlockingStub().updateStatusDiagnosis(isd);
+		}
+		catch (StatusRuntimeException e) {
+			System.out.println(e.getStatus().getDescription());
+			throw new RuntimeException(e.getStatus().getDescription());
+		}
+		finally {
+			appointmentBlockingStub = null;
+		}
+
+		System.out.println(appointmentObjFromServer.getId());  //here getId() instead of getName()
+		Appointment realObj = getAppointment(appointmentObjFromServer);
+		System.out.println(realObj.getAppointmentId());
+		return realObj;
 	}
 
 	private Appointment getAppointment(AppointmentObj appointmentObjFromServer) {

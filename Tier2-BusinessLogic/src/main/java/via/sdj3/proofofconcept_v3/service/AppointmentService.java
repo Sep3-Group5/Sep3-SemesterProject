@@ -1,6 +1,7 @@
 package via.sdj3.proofofconcept_v3.service;
 
 import org.springframework.stereotype.Service;
+import via.sdj3.proofofconcept_v3.Dto.AppointmentResolveDto;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
 import via.sdj3.proofofconcept_v3.grpcClient.appointment.AppointmentClient;
@@ -33,8 +34,8 @@ public class AppointmentService implements AppointmentServiceInterface{
 	}
 
 	@Override
-	public Optional<Appointment> getAppointmentById(int id){
-		return appointmentRepository.findById(id);
+	public Appointment getAppointmentById(int id){
+		return appointmentClient.getAppointmentById(id);
 	}
 
 	@Override
@@ -49,5 +50,11 @@ public class AppointmentService implements AppointmentServiceInterface{
 		Optional<List<Appointment>> appointments = Optional.of(new ArrayList<>());
 		appointments = appointmentClient.getAppointmentsByDatePatient(date,id);
 		return appointments;
+	}
+
+	@Override
+	public Appointment resolveAppointment(AppointmentResolveDto dto)
+	{
+		return appointmentClient.resolveAppointment(dto);
 	}
 }
