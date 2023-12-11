@@ -66,7 +66,7 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 
 	@Override
 	public List<Appointment> getAllAppointmentsForPatient() {
-
+	return null;
 	}
 
 	@Override
