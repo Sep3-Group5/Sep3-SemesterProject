@@ -33,6 +33,34 @@ public class AppointmentHttpClient : IAppointmentService
         Appointment appointment = JsonSerializer.Deserialize<Appointment>(result);
         return appointment;
     }
+    
+    public async Task UpdateAsync(AppointmentResolveDto dto)
+    {
+	    string dtoAsJson = JsonSerializer.Serialize(dto);
+	    StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+	    HttpResponseMessage response = await client.PatchAsync(url + "appointments/resolve", body);
+	    if (!response.IsSuccessStatusCode)
+	    {
+		    string content = await response.Content.ReadAsStringAsync();
+		    throw new Exception(content);
+	    }
+    }
+    
+    public async Task<Appointment> GetByIdAsync(int id)
+    {
+	    HttpResponseMessage response = await client.GetAsync(url + $"appointments/{id}");
+	    string content = await response.Content.ReadAsStringAsync();
+	    if (!response.IsSuccessStatusCode)
+	    {
+		    throw new Exception(content);
+	    }
+
+	    Appointment appointment = JsonSerializer.Deserialize<Appointment>(content, new JsonSerializerOptions
+	    {
+		    PropertyNameCaseInsensitive = true
+	    })!;
+	    return appointment;
+    }
 
     public async Task<List<Appointment>> getAppointmentsByDateDoctor(DoctorViewAppointmentsDto dto, string jwt)
     {
