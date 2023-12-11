@@ -57,15 +57,27 @@ public class AppointmentHttpClient : IAppointmentService
 	    throw new NotImplementedException();
     }
 
-    public async Task UpdateAsync(AppointmentResolveDto dto)
+    public async Task<Appointment> UpdateAsync(AppointmentResolveDto dto)
     {
-	    string dtoAsJson = JsonSerializer.Serialize(dto);
-	    StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
-	    HttpResponseMessage response = await client.PatchAsync(url + "appointments/resolve", body);
-	    if (!response.IsSuccessStatusCode)
+	    try
 	    {
-		    string content = await response.Content.ReadAsStringAsync();
-		    throw new Exception(content);
+		    using (HttpClient client = new HttpClient())
+		    {
+			    HttpResponseMessage response = await client.PatchAsJsonAsync(url + "appointments/resolve", dto);
+			    string result = await response.Content.ReadAsStringAsync();
+			    if (!response.IsSuccessStatusCode)
+			    {
+				    throw new Exception(response.StatusCode.ToString());
+			    }
+
+			    Appointment appointment = JsonSerializer.Deserialize<Appointment>(result);
+			    return appointment;
+		    }
+	    }
+	    catch (Exception e)
+	    {
+		    Console.WriteLine(e);
+		    throw e;
 	    }
     }
     
