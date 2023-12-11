@@ -30,15 +30,21 @@ public class AppointmentController {
 
 	@PostMapping(value="/appointments")
 	public ResponseEntity<Object> addAppointment(@RequestBody AppointmentCreationDto dto, HttpServletRequest request){
+		String jwt = request.getHeader("Authorization");
 		try {
-			String jwt = request.getHeader("Authorization");
 			if (jwt != null && jwt.startsWith("Bearer ")) {
-				jwt = jwt.substring(7); // Remove "Bearer " prefix
+				jwt = jwt.substring(7);
 			}
 			else {
 				// Handle the case where the Authorization header is missing or does not contain a JWT
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			}
+
+			if (!jwtUtil.validateKey(jwt) || (!jwtUtil.extractRole(jwt).equals("Patient"))) {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
+
+
 			dto.setPatientId(jwtUtil.extractId(jwt));
 
 			Appointment appointment = new Appointment(dto.getAppointmentId(),dto.getDoctorId(),dto.getPatientId(),dto.getDate(),dto.getTime());

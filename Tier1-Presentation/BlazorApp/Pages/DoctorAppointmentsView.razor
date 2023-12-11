@@ -60,14 +60,14 @@
             @foreach (var appointment in appointments)
             {
                 <tr>
-                    <td>@appointment.ApointmentId</td>
+                    <td>@appointment.AppointmentId</td>
                     <td>@appointment.PatientId</td>
                     <td>@appointment.Diagnosis</td>
                     <td>@appointment.Status</td>
                     <td>@appointment.Date</td>
                     <td>@appointment.Time</td>
                     <td>
-                        <img src="icons/View.png" class="funnel" @onclick="@(() => NavMgr.NavigateTo($"/DoctorResolveView/{appointment.ApointmentId}"))"/>
+                        <img src="icons/View.png" class="funnel" @onclick="@(() => NavMgr.NavigateTo($"/DoctorResolveView/{appointment.AppointmentId}"))"/>
                     </td>
                 </tr>
             }

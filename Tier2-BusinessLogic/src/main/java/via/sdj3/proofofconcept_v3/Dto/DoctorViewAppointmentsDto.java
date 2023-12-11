@@ -7,16 +7,16 @@ import java.util.List;
 
 public class DoctorViewAppointmentsDto {
     @JsonProperty("Appointments")
-    private List<Appointment> Appointments;
+    private List<AppointmentDto> Appointments;
     @JsonProperty("Date")
     private String Date;
 
     // Getter and Setter methods for appointments
-    public List<Appointment> getAppointments() {
+    public List<AppointmentDto> getAppointments() {
         return Appointments;
     }
 
-    public void setAppointments(List<Appointment> appointments) {
+    public void setAppointments(List<AppointmentDto> appointments) {
         this.Appointments = appointments;
     }
 

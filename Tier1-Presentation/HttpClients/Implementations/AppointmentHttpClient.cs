@@ -23,24 +23,33 @@ public class AppointmentHttpClient : IAppointmentService
 
     public async Task<Appointment> CreateAsync(AppointmentCreationDto dto, string jwt)
     {
-	    using (HttpClient client = new HttpClient())
+	    try
 	    {
-		    // Set the base URL of your Java backend
-		    client.BaseAddress = new Uri(url);
-
-		    // Set the authorization header with the JWT token
-		    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
-
-		    HttpResponseMessage response = await client.PostAsJsonAsync(url + "appointments", dto);
-		    string result = await response.Content.ReadAsStringAsync();
-		    if (!response.IsSuccessStatusCode)
+		    using (HttpClient client = new HttpClient())
 		    {
-			    throw new Exception(result);
-		    }
+			    // Set the base URL of your Java backend
+			    client.BaseAddress = new Uri(url);
 
-		    Appointment appointment = JsonSerializer.Deserialize<Appointment>(result);
-		    return appointment;
+			    // Set the authorization header with the JWT token
+			    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
+
+			    HttpResponseMessage response = await client.PostAsJsonAsync(url + "appointments", dto);
+			    string result = await response.Content.ReadAsStringAsync();
+			    if (!response.IsSuccessStatusCode)
+			    {
+				    throw new Exception(response.StatusCode.ToString());
+			    }
+
+			    Appointment appointment = JsonSerializer.Deserialize<Appointment>(result);
+			    return appointment;
+		    }
 	    }
+	    catch (Exception e)
+	    {
+		    Console.WriteLine(e);
+		    throw e;
+	    }
+	    
     }
 
     public Task<Appointment> CreateAsync(AppointmentCreationDto dto)

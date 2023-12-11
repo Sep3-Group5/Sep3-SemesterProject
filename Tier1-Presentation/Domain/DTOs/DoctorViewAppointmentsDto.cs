@@ -4,6 +4,6 @@ namespace Domain.DTOs;
 
 public class DoctorViewAppointmentsDto
 {
-    public List<Appointment> Appointments { get; set; }
+    public List<AppointmentDto> Appointments { get; set; }
     public string Date { get; set; }
 }
