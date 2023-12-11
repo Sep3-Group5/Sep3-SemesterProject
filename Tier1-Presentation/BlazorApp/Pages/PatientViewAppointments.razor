@@ -125,7 +125,8 @@
 
             var list = new List<Appointment>(appointments);
             list.RemoveAll(appointment => appointment.AppointmentId == appointmentId);
-            
+            await GetAppointments();
+
         }
         catch (Exception e)
         {

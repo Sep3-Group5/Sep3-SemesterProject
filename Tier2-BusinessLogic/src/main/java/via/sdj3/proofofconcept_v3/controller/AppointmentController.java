@@ -145,23 +145,17 @@ public class AppointmentController {
 	@DeleteMapping("/appointments/{id}")
 	public ResponseEntity<Object> deleteAppointmentById(@PathVariable("id") int id, HttpServletRequest request) {
 	try {
-//			String jwt = request.getHeader("Authorization");
-//			if (jwt != null && jwt.startsWith("Bearer ")) {
-//				jwt = jwt.substring(7); // Remove "Bearer " prefix
-//			} else {
-//				// Handle the case where the Authorization header is missing or does not contain a JWT
-//				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//			}
-//
-//			if (!jwtUtil.validateKey(jwt)) {
-//				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//			}
-//
-//			// Check if the appointment with the specified ID exists
-//			Optional<Appointment> existingAppointment = appointmentService.getAppointmentById(id);
-//			if (existingAppointment.isEmpty()) {
-//				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//			}
+			String jwt = request.getHeader("Authorization");
+			if (jwt != null && jwt.startsWith("Bearer ")) {
+			jwt = jwt.substring(7); // Remove "Bearer " prefix
+			} else {
+				// Handle the case where the Authorization header is missing or does not contain a JWT
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
+
+			if (!jwtUtil.validateKey(jwt)) {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 			// Perform the deletion
 			if(appointmentService.deleteAppointmentById(id)){
 			return new ResponseEntity<>("Appointment successfully deleted", HttpStatus.OK);}
