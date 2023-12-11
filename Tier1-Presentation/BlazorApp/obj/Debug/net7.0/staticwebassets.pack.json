@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\icons\\Logout.png"
     },
     {
+      "Id": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\BlazorApp\\wwwroot\\icons\\View.png",
+      "PackagePath": "staticwebassets\\icons\\View.png"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BlazorApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

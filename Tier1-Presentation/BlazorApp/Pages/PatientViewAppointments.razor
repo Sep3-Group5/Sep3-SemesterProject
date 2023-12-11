@@ -37,7 +37,7 @@
                      @foreach (Appointment appointment in appointments!)
                      {
                          <li style="color:darkblue" @onclick="@(() => NavMgr.NavigateTo($"/Posts"))">
-                             <label>Date: @appointment.Date  Time: @appointment.Time Diagnosis: @appointment.Diagnostic  AppointmentId: @appointment.Id AppointmentStatus: @appointment.Status  DoctorId: @appointment.DoctorId PatientId: @appointment.PatientId</label>
+                             <label>Date: @appointment.Date  Time: @appointment.Time Diagnosis: @appointment.Diagnostic  AppointmentId: @appointment.AppointmentId AppointmentStatus: @appointment.Status  DoctorId: @appointment.DoctorId PatientId: @appointment.PatientId</label>
                          </li>
                      }
                  </ul>

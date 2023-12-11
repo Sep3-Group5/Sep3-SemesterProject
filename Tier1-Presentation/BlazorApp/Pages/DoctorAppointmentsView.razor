@@ -102,7 +102,7 @@
         {
             DoctorViewAppointmentsDto dto = new DoctorViewAppointmentsDto();
             // dto.Appointments = new IEnumerable<Appointment>();
-            dto.Date = appointmentsDate.ToString();
+            dto.Date = (appointmentsDate.Day + "/" + appointmentsDate.Month + "/" + appointmentsDate.Year );
         
             appointments = await AppointmentService.getAppointmentsByDateDoctor(dto, authService.getJwt());
             

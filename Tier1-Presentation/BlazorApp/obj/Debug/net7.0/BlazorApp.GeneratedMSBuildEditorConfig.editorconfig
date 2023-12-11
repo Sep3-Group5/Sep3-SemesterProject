@@ -24,8 +24,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlQXBwb2ludG1lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/DoctorAppointmentsView.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yQXBwb2ludG1lbnRzVmlldy5yYXpvcg==
+[C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/DoctorResolveView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yUmVzb2x2ZVZpZXcucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/Index.razor]
@@ -43,6 +43,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/DoctorAppointmentsView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yQXBwb2ludG1lbnRzVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5bqbc60n0y
 
 [C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/DoctorLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yTG9naW4ucmF6b3I=
@@ -68,9 +72,9 @@ build_metadata.AdditionalFiles.CssScope = b-el22sp8v1d
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudFJlZ2lzdGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-f4fqapsyqy
 
-[C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/ViewAppointments.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld0FwcG9pbnRtZW50cy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-1c4iavkv2z
+[C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Pages/PatientViewAppointments.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudFZpZXdBcHBvaW50bWVudHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-aqgkwcg7sm
 
 [C:/Users/37062/Documents/GitHub/proofOfConcept_v4/Tier1-Presentation/BlazorApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

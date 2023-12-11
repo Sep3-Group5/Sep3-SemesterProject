@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sIp3DxEhD0ZtO+Ko7dectxhzEDEHgTaCQhE5kUvvsqk=",
+  "Hash": "JOhEgXHWFxpSskNtaUEgd0nJuX8IzVLvTPszB4VfQz8=",
   "Source": "BlazorApp",
   "BasePath": "_content/BlazorApp",
   "Mode": "Default",
@@ -304,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons\\Logout.png"
+    },
+    {
+      "Identity": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\BlazorApp\\wwwroot\\icons\\View.png",
+      "SourceId": "BlazorApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\37062\\Documents\\GitHub\\proofOfConcept_v4\\Tier1-Presentation\\BlazorApp\\wwwroot\\",
+      "BasePath": "_content/BlazorApp",
+      "RelativePath": "icons/View.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\View.png"
     }
   ]
 }

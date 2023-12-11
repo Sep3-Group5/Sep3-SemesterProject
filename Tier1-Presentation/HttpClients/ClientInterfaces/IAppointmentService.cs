@@ -5,7 +5,7 @@ namespace HttpClients.ClientInterfaces;
 
 public interface IAppointmentService
 {
-    Task<Appointment> CreateAsync(AppointmentCreationDto dto);
+    Task<Appointment> CreateAsync(AppointmentCreationDto dto, string jwt);
     Task UpdateAsync(AppointmentResolveDto dto);
     Task<Appointment> GetByIdAsync(int id);
     Task<List<Appointment>> getAppointmentsByDateDoctor(DoctorViewAppointmentsDto dto, String jwt);
