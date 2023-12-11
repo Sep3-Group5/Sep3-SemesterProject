@@ -13,6 +13,7 @@ service Appointment {
 	rpc DeleteAsync (AppointmentId) returns (AppointmentResponse);
 	rpc findAppointmentsForDoctor (RequestFindAppointmentsForDoctorObj) returns (AppointmentList);
 	rpc findAppointmentsForPatient (RequestFindAppointmentsForPatientObj) returns (AppointmentList);
+	rpc UpdateStatusDiagnosis (AppointmentISD) returns (AppointmentObj);
 }
 
 message AppointmentObj {
@@ -36,6 +37,12 @@ message AppointmentDto {
 
 message AppointmentResponse {
 	bool successful = 1;
+}
+
+message AppointmentISD {
+	int32 id = 1;
+	bool status = 2;
+	string diagnosis = 3;
 }
 
 message AppointmentList {

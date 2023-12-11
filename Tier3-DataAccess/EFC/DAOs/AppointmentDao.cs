@@ -81,20 +81,18 @@ public class AppointmentDao : IAppointmentDao
 
     public async Task<List<Appointment>> GetDoctorAppointmentsByDateAndId(int doctorId, string date)
     {
-        Appointment? existing = await GetAsync(doctorId);
-        if (existing == null)
+        IEnumerable<Appointment> existing = context.Appointments
+            .Where(b => b.Date.Equals(date) && b.DoctorId.Equals(doctorId));
+
+        if (existing == null || !existing.Any())
         {
-            throw new Exception($"No Appointment with id: {doctorId}");
+            throw new Exception($"No Appointments for doctorId: {doctorId} on date: {date}");
         }
-            IQueryable<Appointment> appointmentsQuery =
-                context.Appointments.Where(b => b.Date.Equals(date) && b.DoctorId.Equals(doctorId));
 
-            List<Appointment> appointments = await appointmentsQuery.ToListAsync();
-
-            return appointments;
-        
+        return existing.ToList();
     }
     
+
     public async Task<List<Appointment>> GetPatientAppointmentsByDateAndId(int patientId, string date)
     {
         Appointment? existing = await GetAsync(patientId);
@@ -111,7 +109,7 @@ public class AppointmentDao : IAppointmentDao
         
     }
 
-    public async Task UpdateStatusDiagnosis(int id, bool status, string diagnosis)
+    public async Task<Appointment> UpdateStatusDiagnosis(int id, bool status, string diagnosis)
     {
         Appointment? existing = await GetAsync(id);
         if (existing == null)
@@ -123,5 +121,6 @@ public class AppointmentDao : IAppointmentDao
         existing.Diagnosis = diagnosis;
         context.Appointments.Update(existing);
         await context.SaveChangesAsync();
+        return existing;
     }
 }

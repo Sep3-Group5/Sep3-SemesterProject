@@ -4,6 +4,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import via.sdj3.proofofconcept_v3.Dto.AppointmentCreationDto;
+import via.sdj3.proofofconcept_v3.Dto.AppointmentResolveDto;
 import via.sdj3.proofofconcept_v3.Dto.DoctorViewAppointmentsDto;
 import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.Dto.PatientViewAppointmentsDto;
@@ -27,17 +29,26 @@ public class AppointmentController {
 	}
 
 	@PostMapping(value="/appointments")
-	public ResponseEntity<Object> addAppointment(@RequestBody Appointment appointment, HttpServletRequest request){
+	public ResponseEntity<Object> addAppointment(@RequestBody AppointmentCreationDto dto, HttpServletRequest request){
+		String jwt = request.getHeader("Authorization");
 		try {
-			String jwt = request.getHeader("Authorization");
 			if (jwt != null && jwt.startsWith("Bearer ")) {
-				jwt = jwt.substring(7); // Remove "Bearer " prefix
+				jwt = jwt.substring(7);
 			}
 			else {
 				// Handle the case where the Authorization header is missing or does not contain a JWT
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			}
-			appointment.setPatientId(jwtUtil.extractId(jwt));
+
+			if (!jwtUtil.validateKey(jwt) || (!jwtUtil.extractRole(jwt).equals("Patient"))) {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
+
+
+			dto.setPatientId(jwtUtil.extractId(jwt));
+
+			Appointment appointment = new Appointment(dto.getAppointmentId(),dto.getDoctorId(),dto.getPatientId(),dto.getDate(),dto.getTime());
+
 			appointmentService.addAppointment(appointment);
 			System.out.println("Appointment successfully added");
 			return ResponseEntity.ok().body(appointment);
@@ -55,11 +66,9 @@ public class AppointmentController {
 
 	@GetMapping("/appointments/{id}")
 	public ResponseEntity<Object> getAppointmentById(@PathVariable ("id") int id){
-		Optional<Appointment> appointment = appointmentService.getAppointmentById(id);
-		if (!appointment.isPresent()){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(appointment.get(), HttpStatus.OK);
+		Appointment appointment = appointmentService.getAppointmentById(id);
+
+		return new ResponseEntity<>(appointment, HttpStatus.OK);
 	}
 
 

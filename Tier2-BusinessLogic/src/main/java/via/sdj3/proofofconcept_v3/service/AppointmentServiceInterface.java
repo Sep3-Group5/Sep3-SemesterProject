@@ -1,6 +1,7 @@
 package via.sdj3.proofofconcept_v3.service;
 
 import org.springframework.stereotype.Service;
+import via.sdj3.proofofconcept_v3.Dto.AppointmentResolveDto;
 import via.sdj3.proofofconcept_v3.entity.Appointment;
 import via.sdj3.proofofconcept_v3.entity.Doctor;
 
@@ -13,11 +14,12 @@ public interface AppointmentServiceInterface {
 
 	List<Appointment> getAllAppointments();
 
-	Optional<Appointment> getAppointmentById(int id);
+	Appointment getAppointmentById(int id);
 
 	public Optional<List<Appointment>> getAppointmentsByDateDoctor(String date, int id);
 
 	public Optional<List<Appointment>> getAppointmentsByDatePatient(String date, int id);
 
 	boolean deleteAppointmentById(int id);
+	Appointment resolveAppointment(AppointmentResolveDto dto);
 }
