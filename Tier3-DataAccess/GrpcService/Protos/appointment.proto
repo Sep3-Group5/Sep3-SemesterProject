@@ -13,7 +13,7 @@ service Appointment {
     rpc DeleteAsync (AppointmentId) returns (AppointmentResponse);
     rpc findAppointmentsForDoctor (RequestFindAppointmentsForDoctorObj) returns (AppointmentList);
     rpc findAppointmentsForPatient (RequestFindAppointmentsForPatientObj) returns (AppointmentList);
-    rpc UpdateStatusDiagnosis (AppointmentISD) returns (AppointmentVoid);
+    rpc UpdateStatusDiagnosis (AppointmentISD) returns (AppointmentObj);
 }
 
 message AppointmentObj {

@@ -224,12 +224,22 @@ public class AppointmentService : Appointment.AppointmentBase
 
     }
 
-    public async Task<AppointmentVoid> UpdateStatusDiagnosis(AppointmentISD isd)
+    public override async Task<AppointmentObj> UpdateStatusDiagnosis(AppointmentISD isd, ServerCallContext context)
     {
         try
         {
-            await service.UpdateStatusDiagnosis(isd.Id, isd.Status, isd.Diagnosis);
-            return new AppointmentVoid();
+            Domain.Models.Appointment fetchedAppointment = await service.UpdateStatusDiagnosis(isd.Id, isd.Status, isd.Diagnosis);
+            AppointmentObj appointmentObj = new AppointmentObj()
+            {
+                Id = fetchedAppointment.Id,
+                PatientId = fetchedAppointment.PatientId,
+                DoctorId = fetchedAppointment.DoctorId,
+                Date = fetchedAppointment.Date,
+                Time = fetchedAppointment.Time,
+                Diagnosis = fetchedAppointment.Diagnosis,
+                Status = fetchedAppointment.Status
+            };
+            return appointmentObj;
         }
         catch (Exception e)
         {
