@@ -9,7 +9,7 @@ public class Appointment {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JsonProperty("Id")
+	@JsonProperty("AppointmentId")
 	private int appointmentId;
 
 	@Column
@@ -29,7 +29,7 @@ public class Appointment {
 	private String time;
 
 	@Column
-	@JsonProperty("Diagnostic")
+	@JsonProperty("Diagnosis")
 	private String diagnosis;
 
 	@Column
@@ -42,6 +42,15 @@ public class Appointment {
 		this.patientId = patientId;
 		this.date = date;
 		this.time = time;
+		this.diagnosis = "";
+	}
+	public Appointment(int id, int doctorId, int patientId, String date, String time,String diagnosis) {
+		this.appointmentId = id;
+		this.doctorId = doctorId;
+		this.patientId = patientId;
+		this.date = date;
+		this.time = time;
+		this.diagnosis = diagnosis;
 	}
 
 	public Appointment() {

@@ -19,7 +19,7 @@ public class AppointmentService : Appointment.AppointmentBase
         {
             Domain.Models.Appointment addingAppointment = new Domain.Models.Appointment()
             {
-                Id = request.Id,
+                Id = request.Id,    // this is ApointmentId
                 PatientId = request.PatientId,
                 DoctorId = request.DoctorId,
                 Date = request.Date,
