@@ -168,6 +168,27 @@ public class AppointmentHttpClient : IAppointmentService
 	    return appointments;
     }
 
+    public async Task DeleteAsync(int appointmentId, string jwt)
+    {
+	    using (HttpClient client = new HttpClient())
+	    {
+		    // Set the base URL of your Java backend
+		    client.BaseAddress = new Uri(url);
+
+		    // Set the authorization header with the JWT token
+		    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
+
+		    // Make a DELETE request to the /appointments/{id} endpoint
+		    HttpResponseMessage response = await client.DeleteAsync($"/appointments/{appointmentId}");
+
+		    if (!response.IsSuccessStatusCode)
+		    {
+			    // If an error occurs, handle it accordingly (e.g., log the error, throw an exception)
+			    string content = await response.Content.ReadAsStringAsync();
+			    throw new Exception($"Error: {response.StatusCode}. {content}");
+		    }
+	    }
+    }
     // private static string ConstructQuery(int appointmentId, int patientId, int doctorId, string diagnostic, bool status, string date, string time)
     // {
 	   //  string query = "";

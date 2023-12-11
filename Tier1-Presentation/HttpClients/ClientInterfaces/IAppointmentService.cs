@@ -11,4 +11,6 @@ public interface IAppointmentService
     Task<List<Appointment>> getAppointmentsByDateDoctor(DoctorViewAppointmentsDto dto, String jwt);
     Task<List<Appointment>> getAppointmentsByDatePatient(PatientViewAppointmentsDto dto, String jwt);
     Task<ICollection<Appointment>> GetAsync(int patientId);
+
+    Task DeleteAsync(int appointmentId, string jwt);
 }
