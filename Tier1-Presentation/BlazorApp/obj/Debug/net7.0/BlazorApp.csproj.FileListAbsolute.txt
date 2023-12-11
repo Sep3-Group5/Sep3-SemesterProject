@@ -301,7 +301,6 @@ C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\pr
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\LoginButtons.razor.rz.scp.css
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\PatientLogin.razor.rz.scp.css
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\PatientRegister.razor.rz.scp.css
-C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\ViewAppointments.razor.rz.scp.css
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\bundle\BlazorApp.styles.css
@@ -314,3 +313,5 @@ C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\pr
 C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\ref\BlazorApp.dll
 C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\DoctorAppointmentsView.razor.rz.scp.css
 C:\Users\37062\Documents\GitHub\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\PatientViewAppointments.razor.rz.scp.css
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\DoctorAppointmentsView.razor.rz.scp.css
+C:\Users\darja\Documents\FROM OTHER DOCUMENTS FOLDER\GitHub\proofOfConcept_v4\proofOfConcept_v4\proofOfConcept_v4\Tier1-Presentation\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\PatientViewAppointments.razor.rz.scp.css

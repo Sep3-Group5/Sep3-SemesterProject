@@ -57,7 +57,7 @@ public class AppointmentService implements AppointmentServiceInterface{
 	public boolean deleteAppointmentById(int id) {
 		return appointmentClient.deleteAppointment(id);
 		// Note: This assumes that your Appointment class has a method getId() to retrieve the appointment ID.
-		// Adjust the condition accordingly based on your Appointment class structure.
+	}	// Adjust the condition accordingly based on your Appointment class structure.
 	public Appointment resolveAppointment(AppointmentResolveDto dto)
 	{
 		return appointmentClient.resolveAppointment(dto);

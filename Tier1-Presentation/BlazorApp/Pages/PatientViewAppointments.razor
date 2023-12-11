@@ -58,14 +58,14 @@
                         @foreach (var item in appointments)
                         {
                             <tr>
-                                <td>@item.Id</td>
+                                <td>@item.AppointmentId</td>
                                 <td>@item.PatientId</td>
                                 <td>@item.Diagnosis</td>
                                 <td>@item.Status</td>
                                 <td>@item.Date</td>
                                 <td>@item.Time</td>
                                 <td>
-                                    <label @onclick="@(() => RemoveAppointment(item.Id))" style="cursor:pointer; color:  red; font-weight: bold">
+                                    <label @onclick="@(() => RemoveAppointment(item.AppointmentId))" style="cursor:pointer; color:  red; font-weight: bold">
                                         &#x2717;
                                     </label>
                                 </td>
@@ -124,7 +124,7 @@
             await AppointmentService.DeleteAsync(appointmentId,authService.getJwt());
 
             var list = new List<Appointment>(appointments);
-            list.RemoveAll(appointment => appointment.Id == appointmentId);
+            list.RemoveAll(appointment => appointment.AppointmentId == appointmentId);
             
         }
         catch (Exception e)

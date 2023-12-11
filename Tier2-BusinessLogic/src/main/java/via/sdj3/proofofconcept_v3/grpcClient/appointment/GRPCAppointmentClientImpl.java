@@ -130,7 +130,7 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 		} catch (StatusRuntimeException e) {
 			System.out.println(e.getStatus().getDescription());
 			throw new RuntimeException(e.getStatus().getDescription());
-		}
+		}}
 	public Appointment getAppointmentById(int id)
 	{
 		AppointmentId request = AppointmentId.newBuilder().setId(id).build();
