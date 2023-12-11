@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.proofofconcept_v3.Dto.AppointmentCreationDto;
+import via.sdj3.proofofconcept_v3.Dto.AppointmentResolveDto;
 import via.sdj3.proofofconcept_v3.Dto.DoctorViewAppointmentsDto;
 import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.Dto.PatientViewAppointmentsDto;
@@ -59,11 +60,9 @@ public class AppointmentController {
 
 	@GetMapping("/appointments/{id}")
 	public ResponseEntity<Object> getAppointmentById(@PathVariable ("id") int id){
-		Optional<Appointment> appointment = appointmentService.getAppointmentById(id);
-		if (!appointment.isPresent()){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(appointment.get(), HttpStatus.OK);
+		Appointment appointment = appointmentService.getAppointmentById(id);
+
+		return new ResponseEntity<>(appointment, HttpStatus.OK);
 	}
 
 
@@ -134,6 +133,20 @@ public class AppointmentController {
 
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@PatchMapping(value = "/appointments/resolve")
+	public ResponseEntity<Object> ResolveAppointment(@RequestBody AppointmentResolveDto dto)
+	{
+		try {
+
+			Appointment appointment = appointmentService.resolveAppointment(dto);
+			System.out.println("Appointment successfully resolved");
+			return ResponseEntity.ok().body(appointment);
+		}
+		catch (Exception e){
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
 }
