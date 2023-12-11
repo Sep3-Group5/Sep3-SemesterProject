@@ -18,4 +18,6 @@ public interface AppointmentServiceInterface {
 	public Optional<List<Appointment>> getAppointmentsByDateDoctor(String date, int id);
 
 	public Optional<List<Appointment>> getAppointmentsByDatePatient(String date, int id);
+
+	boolean deleteAppointmentById(int id);
 }

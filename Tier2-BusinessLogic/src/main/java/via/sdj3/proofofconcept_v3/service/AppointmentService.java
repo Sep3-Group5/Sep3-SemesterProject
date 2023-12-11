@@ -16,6 +16,7 @@ public class AppointmentService implements AppointmentServiceInterface{
 
 	private final AppointmentClient appointmentClient;
 
+
 	public AppointmentService(AppointmentClient appointmentClient) {
 		this.appointmentClient = appointmentClient;
 	}
@@ -49,5 +50,12 @@ public class AppointmentService implements AppointmentServiceInterface{
 		Optional<List<Appointment>> appointments = Optional.of(new ArrayList<>());
 		appointments = appointmentClient.getAppointmentsByDatePatient(date,id);
 		return appointments;
+	}
+
+	@Override
+	public boolean deleteAppointmentById(int id) {
+		return appointmentClient.deleteAppointment(id);
+		// Note: This assumes that your Appointment class has a method getId() to retrieve the appointment ID.
+		// Adjust the condition accordingly based on your Appointment class structure.
 	}
 }

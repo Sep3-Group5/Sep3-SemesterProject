@@ -12,4 +12,6 @@ public interface AppointmentClient {
 	Optional<List<Appointment>> getAppointmentsByDatePatient(String date, int id);
 	Optional<List<Appointment>> getAppointmentsByDateDoctor(String date, int id);
 
+	boolean deleteAppointment(int id);
+
 }
