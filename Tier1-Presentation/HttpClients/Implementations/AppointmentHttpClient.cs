@@ -72,6 +72,44 @@ public class AppointmentHttpClient : IAppointmentService
 	    }
     }
 
+    public async Task<List<Appointment>> getAppointmentsByDatePatient(PatientViewAppointmentsDto dto, string jwt)
+    {
+	    using (HttpClient client = new HttpClient())
+	    {
+		    // Set the base URL of your Java backend
+		    client.BaseAddress = new Uri(url);
+
+		    // Set the authorization header with the JWT token
+		    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
+
+		    // Serialize the DoctorViewAppointmentsDto to JSON and send it in the request body
+		    string jsonDto = JsonSerializer.Serialize(dto);
+		    StringContent content = new StringContent(jsonDto, Encoding.UTF8, "application/json");
+		    Console.WriteLine($"JWT value: '{jwt}'");
+		    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt.Trim());
+		    // Make a POST request to the /Doctor/Appointments endpoint
+		    HttpResponseMessage response = await client.PostAsync("/Patient/Appointments", content);
+
+		    if (response.IsSuccessStatusCode)
+		    {
+			    // If the request is successful, parse the JSON response to get the list of appointments
+			    string jsonResponse = await response.Content.ReadAsStringAsync();
+			    List<Appointment> appointments = JsonSerializer.Deserialize<List<Appointment>>(jsonResponse);
+			    return appointments;
+		    }
+		    else if (response.StatusCode == HttpStatusCode.NoContent)
+		    {
+			    // If no appointments are found, return an empty list
+			    return new List<Appointment>();
+		    }
+		    else
+		    {
+			    // If an error occurs, handle it accordingly (e.g., log the error, throw an exception)
+			    throw new Exception($"Error: {response.StatusCode}");
+		    }
+	    }
+    }
+
     public async Task<ICollection<Appointment>> GetAsync(int patientId)
     {
 	    HttpResponseMessage response = await client.GetAsync("/appointments/"+patientId);

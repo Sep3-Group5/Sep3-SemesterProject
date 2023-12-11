@@ -12,6 +12,7 @@ service Appointment {
 	rpc UpdateAsync (AppointmentObj) returns (AppointmentResponse);
 	rpc DeleteAsync (AppointmentId) returns (AppointmentResponse);
 	rpc findAppointmentsForDoctor (RequestFindAppointmentsForDoctorObj) returns (AppointmentList);
+	rpc findAppointmentsForPatient (RequestFindAppointmentsForPatientObj) returns (AppointmentList);
 }
 
 message AppointmentObj {
@@ -42,6 +43,10 @@ message AppointmentList {
 }
 
 message RequestFindAppointmentsForDoctorObj{
+	string date = 1;
+	int32 id = 2;
+}
+message RequestFindAppointmentsForPatientObj{
 	string date = 1;
 	int32 id = 2;
 }
