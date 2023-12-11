@@ -28,22 +28,53 @@
             <button @onclick="GetAppointments" class="acceptbtn">Show</button>
         </div>
     </div>
-    <div class="table">
-         @if (appointments != null)
-         {
-             <p>
-                 Bookings:
-                 <ul>
-                     @foreach (Appointment appointment in appointments!)
-                     {
-                         <li style="color:darkblue" @onclick="@(() => NavMgr.NavigateTo($"/Posts"))">
-                             <label>Date: @appointment.Date  Time: @appointment.Time Diagnosis: @appointment.Diagnostic  AppointmentId: @appointment.Id AppointmentStatus: @appointment.Status  DoctorId: @appointment.DoctorId PatientId: @appointment.PatientId</label>
-                         </li>
-                     }
-                 </ul>
-             </p>
-         }
-        </div>
+    <div>
+        <button @onclick="GetAppointments">Load</button>
+    </div>
+    
+    @if (appointments == null)
+    {
+    }
+    else if (!appointments.Any())
+    {
+        <p>No Appointments to display</p>
+    }
+    else{ 
+    
+        <h2>Patient: patientName with id: patientId </h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient ID</th>
+                <th>Diagnostic</th>
+                <th>Resolved?</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>View Appointment</th>
+            </tr>
+            </thead>
+    
+            <tbody>
+            @foreach (var appointment in appointments)
+            {
+                <tr>
+                    <td>@appointment.Id</td>
+                    <td>@appointment.PatientId</td>
+                    <td>@appointment.Diagnosis</td>
+                    <td>@appointment.Status</td>
+                    <td>@appointment.Date</td>
+                    <td>@appointment.Time</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    
+    @if (!string.IsNullOrEmpty(msg))
+    {
+        <label style="color: red">@msg</label>
+    }
     </Authorize>
     
 </AuthorizeView>
@@ -66,7 +97,7 @@
         try
         {
             PatientViewAppointmentsDto dto = new PatientViewAppointmentsDto();
-            dto.Appointments = new List<Appointment>();
+            // dto.Appointments = new IEnumerable<Appointment>();
             dto.Date = appointmentsDate.ToString();
         
             appointments = await AppointmentService.getAppointmentsByDatePatient(dto, authService.getJwt());
