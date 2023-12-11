@@ -109,8 +109,8 @@
 
         try
         {
-            AppointmentCreationDto dto = new((int)selectedDoctorId, 1, appointmentDate.ToString(), selectedAppointmentTime); //select somehow the user that created this post
-            await AppointmentService.CreateAsync(dto);
+            AppointmentCreationDto dto = new((int)selectedDoctorId, 0,(appointmentDate.Day + "/" + appointmentDate.Month + "/" + appointmentDate.Year ), selectedAppointmentTime); //select somehow the user that created this post
+            await AppointmentService.CreateAsync(dto, authService.getJwt());
             NavMgr.NavigateTo("/");
         }
         catch (Exception e)
