@@ -111,7 +111,7 @@ public class AppointmentDao : IAppointmentDao
         
     }
 
-    public async Task UpdateStatusDiagnosis(int id, bool status, string diagnosis)
+    public async Task<Appointment> UpdateStatusDiagnosis(int id, bool status, string diagnosis)
     {
         Appointment? existing = await GetAsync(id);
         if (existing == null)
@@ -123,5 +123,6 @@ public class AppointmentDao : IAppointmentDao
         existing.Diagnosis = diagnosis;
         context.Appointments.Update(existing);
         await context.SaveChangesAsync();
+        return existing;
     }
 }
