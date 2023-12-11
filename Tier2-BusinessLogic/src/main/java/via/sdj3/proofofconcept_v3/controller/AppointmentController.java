@@ -164,4 +164,18 @@ public class AppointmentController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
+	@PatchMapping(value = "/appointments/resolve")
+	public ResponseEntity<Object> ResolveAppointment(@RequestBody AppointmentResolveDto dto)
+	{
+		try {
+
+			Appointment appointment = appointmentService.resolveAppointment(dto);
+			System.out.println("Appointment successfully resolved");
+			return ResponseEntity.ok().body(appointment);
+		}
+		catch (Exception e){
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+	}
 }
