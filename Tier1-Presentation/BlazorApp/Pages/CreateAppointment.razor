@@ -33,7 +33,7 @@
         </div>
         <div class="form-group field">
             <label>Date:</label>
-            <InputDate @bind-Value="appointmentDate"/>
+            <InputDate @bind-Value="appointmentDate" format="dd-MM-yyyy"/>
         </div>
         <div class="form-group field">
             <label>Time:</label>
@@ -69,7 +69,7 @@
 </div>
 
 @code {
-    private IEnumerable<Appointment> appointments;
+    private List<Appointment> appointments;
     private IEnumerable<Doctor>? doctors;
     private int? selectedDoctorId;
     private DateOnly appointmentDate;
