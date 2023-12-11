@@ -79,7 +79,7 @@ public class AppointmentDao : IAppointmentDao
         await context.SaveChangesAsync();
     }
 
-    public async Task<List<Appointment>> GetDoctorAppoitmentsByDateAndId(int doctorId, string date)
+    public async Task<List<Appointment>> GetDoctorAppointmentsByDateAndId(int doctorId, string date)
     {
         Appointment? existing = await GetAsync(doctorId);
         if (existing == null)
@@ -92,6 +92,22 @@ public class AppointmentDao : IAppointmentDao
             List<Appointment> appointments = await appointmentsQuery.ToListAsync();
 
             return appointments;
+        
+    }
+    
+    public async Task<List<Appointment>> GetPatientAppointmentsByDateAndId(int patientId, string date)
+    {
+        Appointment? existing = await GetAsync(patientId);
+        if (existing == null)
+        {
+            throw new Exception($"No Appointment with id: {patientId}");
+        }
+        IQueryable<Appointment> appointmentsQuery =
+            context.Appointments.Where(b => b.Date.Equals(date) && b.PatientId.Equals(patientId));
+
+        List<Appointment> appointments = await appointmentsQuery.ToListAsync();
+
+        return appointments;
         
     }
 

@@ -165,7 +165,7 @@ public class AppointmentService : Appointment.AppointmentBase
     
         try
         {
-            List<Domain.Models.Appointment> appointments = await service.GetDoctorAppoitmentsByDateAndId(id,date);
+            List<Domain.Models.Appointment> appointments = await service.GetDoctorAppointmentsByDateAndId(id,date);
             AppointmentList appointmentList = new AppointmentList();
             foreach (Domain.Models.Appointment d in appointments)
             {
@@ -180,6 +180,39 @@ public class AppointmentService : Appointment.AppointmentBase
                         Status = d.Status
                     };
                     appointmentList.Appointments.Add(appointmentObj);
+            }
+
+            return appointmentList;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+
+    }
+    
+    public override async Task<AppointmentList> findAppointmentsForPatient(RequestFindAppointmentsForPatientObj obj, ServerCallContext context)
+    {
+        int id = obj.Id;
+        string date = obj.Date;
+    
+        try
+        {
+            List<Domain.Models.Appointment> appointments = await service.GetPatientAppointmentsByDateAndId(id,date);
+            AppointmentList appointmentList = new AppointmentList();
+            foreach (Domain.Models.Appointment d in appointments)
+            {
+                AppointmentObj appointmentObj = new AppointmentObj()
+                {
+                    Id = d.Id,
+                    PatientId = d.PatientId,
+                    DoctorId = d.DoctorId,
+                    Date = d.Date,
+                    Time = d.Time,
+                    Diagnosis = d.Diagnosis,
+                    Status = d.Status
+                };
+                appointmentList.Appointments.Add(appointmentObj);
             }
 
             return appointmentList;

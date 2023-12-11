@@ -1,91 +1,84 @@
 @page "/Patient/ViewAppointments"
 @attribute [Authorize]
 @using Domain.Models
-@using HttpClients.ClientInterfaces
 @using Domain.DTOs
+@using HttpClients.ClientInterfaces
+@using BlazorApp.Services
 @inject IAppointmentService AppointmentService
+@inject NavigationManager NavMgr
+@inject IAuthService authService
+
 
 <AuthorizeView>
     <Authorize>
-		<div>
-		    <button @onclick="LoadAppointments">Load</button>
-		</div>
-
-		@if (Appointments == null)
-		{
-			<p>Appointments == null</p>
-		}
-		else if (!Appointments.Any())
-		{
-		    <p>No Appointments to display</p>
-		}
-		else{
-		    //<h2>Patient: patientName with id: patientId </h2>
-		    <table class="table">
-		        <thead>
-		        <tr>
-		            <th>Appointment ID</th>
-		            <th>Doctor ID</th>
-		            <th>Diagnostic</th>
-		            <th>Status</th>
-		            <th>Date</th>
-		            <th>Time</th>
-		        </tr>
-		        </thead>
-
-		        <tbody>
-		        @foreach (var appointment in Appointments)
-		        {
-		            <tr>
-		                <td>@appointment.Id</td>
-		                <td>@appointment.DoctorId</td>
-		                <td>@appointment.Diagnosis</td>
-		                <td>@appointment.Status</td>
-		                <td>@appointment.Date</td>
-		                <td>@appointment.Time</td>
-		            </tr>
-		        }
-		        </tbody>
-		    </table>
-		}
+    <div class="card">
+        <h3>View appointments</h3>
+        <h1>Select date to view:</h1>
+        <div class="form-group field">
+        </div>
+        <div class="form-group field">
+            <label>Date:</label>
+            <InputDate @bind-Value="appointmentsDate"/>
+        </div>
+        <div class="button-row">
+            @if (!string.IsNullOrEmpty(msg))
+            {
+                <label style="color: red">@msg</label>
+            }
+            <button @onclick="GetAppointments" class="acceptbtn">Show</button>
+        </div>
+    </div>
+    <div class="table">
+         @if (appointments != null)
+         {
+             <p>
+                 Bookings:
+                 <ul>
+                     @foreach (Appointment appointment in appointments!)
+                     {
+                         <li style="color:darkblue" @onclick="@(() => NavMgr.NavigateTo($"/Posts"))">
+                             <label>Date: @appointment.Date  Time: @appointment.Time Diagnosis: @appointment.Diagnostic  AppointmentId: @appointment.Id AppointmentStatus: @appointment.Status  DoctorId: @appointment.DoctorId PatientId: @appointment.PatientId</label>
+                         </li>
+                     }
+                 </ul>
+             </p>
+         }
+        </div>
     </Authorize>
+    
 </AuthorizeView>
 
-@if (!string.IsNullOrEmpty(msg))
-{
-    <label style="color: red">@msg</label>
-}
+
 
 @code {
-	private RegisterPatientDto RegisterPatientDto;
+    private List<Appointment> appointments;
+    private DateOnly appointmentsDate;
+    
+
     private string msg = "";
-	private int patientIdFilter;
-	private ICollection<Appointment> Appointments;
+    
 
-    /*private int idFilter;
-    private int doctorIdFilter;
-    private string diagnosticFilter;
-    private bool statusFilter;
-    private string dateFilter;
-    private string timeFilter;*/
-
-	public List<Appointment> getAllAppointments()
-	{
-		return RegisterPatientDto.Appointments;
-	}
-
-    private async Task LoadAppointments()
+    private async Task GetAppointments()
     {
-	    Console.WriteLine("LoadAppointments start");
+        msg = "";
+        
+
         try
         {
-            Appointments = await AppointmentService.GetAsync(patientIdFilter);
+            PatientViewAppointmentsDto dto = new PatientViewAppointmentsDto();
+            dto.Appointments = new List<Appointment>();
+            dto.Date = appointmentsDate.ToString();
+        
+            appointments = await AppointmentService.getAppointmentsByDatePatient(dto, authService.getJwt());
+            
+            Console.WriteLine(appointments.ToString());
+            // update the and list the appointments
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             msg = e.Message;
         }
-	    Console.WriteLine("LoadAppointments end");
     }
+    
 }

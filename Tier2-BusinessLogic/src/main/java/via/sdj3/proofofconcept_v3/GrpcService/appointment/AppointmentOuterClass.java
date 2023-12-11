@@ -44,6 +44,11 @@ public final class AppointmentOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_appointment_RequestFindAppointmentsForDoctorObj_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_appointment_RequestFindAppointmentsForPatientObj_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_appointment_RequestFindAppointmentsForPatientObj_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -63,21 +68,25 @@ public final class AppointmentOuterClass {
       "\001(\010\"D\n\017AppointmentList\0221\n\014appointments\030\001" +
       " \003(\0132\033.appointment.AppointmentObj\"?\n#Req" +
       "uestFindAppointmentsForDoctorObj\022\014\n\004date" +
-      "\030\001 \001(\t\022\n\n\002id\030\002 \001(\0052\362\003\n\013Appointment\022G\n\013Cr" +
-      "eateAsync\022\033.appointment.AppointmentObj\032\033" +
-      ".appointment.AppointmentObj\022G\n\014GetByIdAs" +
-      "ync\022\032.appointment.AppointmentId\032\033.appoin" +
-      "tment.AppointmentObj\022I\n\rGetByDtoAsync\022\033." +
-      "appointment.AppointmentDto\032\033.appointment" +
-      ".AppointmentObj\022L\n\013UpdateAsync\022\033.appoint" +
-      "ment.AppointmentObj\032 .appointment.Appoin" +
-      "tmentResponse\022K\n\013DeleteAsync\022\032.appointme" +
-      "nt.AppointmentId\032 .appointment.Appointme" +
-      "ntResponse\022k\n\031findAppointmentsForDoctor\022" +
-      "0.appointment.RequestFindAppointmentsFor" +
-      "DoctorObj\032\034.appointment.AppointmentListB" +
-      "6\n2via.sdj3.proofofconcept_v3.GrpcServic" +
-      "e.appointmentP\001b\006proto3"
+      "\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"@\n$RequestFindAppoint" +
+      "mentsForPatientObj\022\014\n\004date\030\001 \001(\t\022\n\n\002id\030\002" +
+      " \001(\0052\341\004\n\013Appointment\022G\n\013CreateAsync\022\033.ap" +
+      "pointment.AppointmentObj\032\033.appointment.A" +
+      "ppointmentObj\022G\n\014GetByIdAsync\022\032.appointm" +
+      "ent.AppointmentId\032\033.appointment.Appointm" +
+      "entObj\022I\n\rGetByDtoAsync\022\033.appointment.Ap" +
+      "pointmentDto\032\033.appointment.AppointmentOb" +
+      "j\022L\n\013UpdateAsync\022\033.appointment.Appointme" +
+      "ntObj\032 .appointment.AppointmentResponse\022" +
+      "K\n\013DeleteAsync\022\032.appointment.Appointment" +
+      "Id\032 .appointment.AppointmentResponse\022k\n\031" +
+      "findAppointmentsForDoctor\0220.appointment." +
+      "RequestFindAppointmentsForDoctorObj\032\034.ap" +
+      "pointment.AppointmentList\022m\n\032findAppoint" +
+      "mentsForPatient\0221.appointment.RequestFin" +
+      "dAppointmentsForPatientObj\032\034.appointment" +
+      ".AppointmentListB6\n2via.sdj3.proofofconc" +
+      "ept_v3.GrpcService.appointmentP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -118,6 +127,12 @@ public final class AppointmentOuterClass {
     internal_static_appointment_RequestFindAppointmentsForDoctorObj_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_appointment_RequestFindAppointmentsForDoctorObj_descriptor,
+        new java.lang.String[] { "Date", "Id", });
+    internal_static_appointment_RequestFindAppointmentsForPatientObj_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_appointment_RequestFindAppointmentsForPatientObj_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_appointment_RequestFindAppointmentsForPatientObj_descriptor,
         new java.lang.String[] { "Date", "Id", });
   }
 
