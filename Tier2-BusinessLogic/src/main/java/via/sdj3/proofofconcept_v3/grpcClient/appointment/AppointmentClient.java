@@ -15,4 +15,6 @@ public interface AppointmentClient {
 	Appointment getAppointmentById(int id);
 	Appointment resolveAppointment(AppointmentResolveDto dto);
 
+	boolean deleteAppointment(int id);
+
 }

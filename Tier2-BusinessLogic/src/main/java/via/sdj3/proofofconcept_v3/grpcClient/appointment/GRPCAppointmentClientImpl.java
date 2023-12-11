@@ -119,6 +119,18 @@ public class GRPCAppointmentClientImpl implements AppointmentClient {
 	}
 
 	@Override
+	public boolean deleteAppointment(int id) {
+		AppointmentId grpcId = AppointmentId.newBuilder()
+				.setId(id)
+				.build();
+		try {
+			AppointmentResponse response = getAppointmentBlockingStub().deleteAsync(grpcId);
+			boolean status = response.getSuccessful();
+			return status;
+		} catch (StatusRuntimeException e) {
+			System.out.println(e.getStatus().getDescription());
+			throw new RuntimeException(e.getStatus().getDescription());
+		}}
 	public Appointment getAppointmentById(int id)
 	{
 		AppointmentId request = AppointmentId.newBuilder().setId(id).build();

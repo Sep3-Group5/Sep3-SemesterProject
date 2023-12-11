@@ -142,17 +142,26 @@ public class AppointmentController {
 		}
 	}
 
-	@PatchMapping(value = "/appointments/resolve")
-	public ResponseEntity<Object> ResolveAppointment(@RequestBody AppointmentResolveDto dto)
-	{
-		try {
+	@DeleteMapping("/appointments/{id}")
+	public ResponseEntity<Object> deleteAppointmentById(@PathVariable("id") int id, HttpServletRequest request) {
+	try {
+			String jwt = request.getHeader("Authorization");
+			if (jwt != null && jwt.startsWith("Bearer ")) {
+			jwt = jwt.substring(7); // Remove "Bearer " prefix
+			} else {
+				// Handle the case where the Authorization header is missing or does not contain a JWT
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
 
-			Appointment appointment = appointmentService.resolveAppointment(dto);
-			System.out.println("Appointment successfully resolved");
-			return ResponseEntity.ok().body(appointment);
+			if (!jwtUtil.validateKey(jwt)) {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
-		catch (Exception e){
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+			// Perform the deletion
+			if(appointmentService.deleteAppointmentById(id)){
+			return new ResponseEntity<>("Appointment successfully deleted", HttpStatus.OK);}
+			else{return new ResponseEntity<>("Appointment wasn't deleted", HttpStatus.NOT_FOUND);}
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 }

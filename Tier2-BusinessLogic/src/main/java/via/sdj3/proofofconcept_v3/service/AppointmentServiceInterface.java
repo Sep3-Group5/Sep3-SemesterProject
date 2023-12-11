@@ -20,5 +20,6 @@ public interface AppointmentServiceInterface {
 
 	public Optional<List<Appointment>> getAppointmentsByDatePatient(String date, int id);
 
+	boolean deleteAppointmentById(int id);
 	Appointment resolveAppointment(AppointmentResolveDto dto);
 }
