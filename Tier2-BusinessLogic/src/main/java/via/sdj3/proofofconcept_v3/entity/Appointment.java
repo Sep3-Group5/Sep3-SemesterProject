@@ -1,5 +1,6 @@
 package via.sdj3.proofofconcept_v3.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,24 +9,31 @@ public class Appointment {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonProperty("Id")
 	private int appointmentId;
 
 	@Column
+	@JsonProperty("DoctorId")
 	private int doctorId;
 
 	@Column
+	@JsonProperty("PatientId")
 	private int patientId;
 
 	@Column
+	@JsonProperty("Date")
 	private String date;
 
 	@Column
+	@JsonProperty("Time")
 	private String time;
 
 	@Column
+	@JsonProperty("Diagnostic")
 	private String diagnosis;
 
 	@Column
+	@JsonProperty("Status")
 	private boolean status;
 
 	public Appointment(int id, int doctorId, int patientId, String date, String time) {
