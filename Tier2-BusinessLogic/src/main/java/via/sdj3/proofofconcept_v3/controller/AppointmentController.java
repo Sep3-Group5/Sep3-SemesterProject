@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import via.sdj3.proofofconcept_v3.Dto.AppointmentCreationDto;
 import via.sdj3.proofofconcept_v3.Dto.DoctorViewAppointmentsDto;
 import via.sdj3.proofofconcept_v3.Dto.LoginDto;
 import via.sdj3.proofofconcept_v3.Dto.PatientViewAppointmentsDto;
@@ -27,7 +28,7 @@ public class AppointmentController {
 	}
 
 	@PostMapping(value="/appointments")
-	public ResponseEntity<Object> addAppointment(@RequestBody Appointment appointment, HttpServletRequest request){
+	public ResponseEntity<Object> addAppointment(@RequestBody AppointmentCreationDto dto, HttpServletRequest request){
 		try {
 			String jwt = request.getHeader("Authorization");
 			if (jwt != null && jwt.startsWith("Bearer ")) {
@@ -37,7 +38,10 @@ public class AppointmentController {
 				// Handle the case where the Authorization header is missing or does not contain a JWT
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			}
-			appointment.setPatientId(jwtUtil.extractId(jwt));
+			dto.setPatientId(jwtUtil.extractId(jwt));
+
+			Appointment appointment = new Appointment(dto.getAppointmentId(),dto.getDoctorId(),dto.getPatientId(),dto.getDate(),dto.getTime());
+
 			appointmentService.addAppointment(appointment);
 			System.out.println("Appointment successfully added");
 			return ResponseEntity.ok().body(appointment);
