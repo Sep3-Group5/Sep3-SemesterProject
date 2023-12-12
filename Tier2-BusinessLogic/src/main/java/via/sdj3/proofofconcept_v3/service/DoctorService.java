@@ -83,7 +83,11 @@ public class DoctorService implements DoctorServiceInterface{
         }
 
         // Continue with the registration process
-        Doctor doctor = new Doctor(name, username, specialization, password, false);
+        Doctor doctor = new Doctor(name, username, password, specialization, false);
+        doctor.setFullName(name);   // registration broke here
+        doctor.setSpecialization(specialization);
+        doctor.setValidated(false);
+        doctor.setPassword(password);
 
         try {
             // Send doctor to the database
